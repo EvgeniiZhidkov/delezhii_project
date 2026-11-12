@@ -1,0 +1,9 @@
+{
+  "settings": [{"n_agents": 3, "n_items": 6}],
+  "n_base": 5,
+  "seed": 20261109,
+  "groups": ["paper", "uniform", "r=2", "r=5", "r=10"],
+  "repeats": 1,
+  "models": [],
+  "reference": {"max_allocations": 10000, "chunk_size": 2048}
+}

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Идеи экспериментов и отбор трёх направлений</title><style>
+:root{--ink:#182632;--muted:#52616c;--line:#dce3e6;--accent:#166b63;--wash:#edf6f3;--paper:#fff;--back:#f1f4f5}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--back);color:var(--ink);font:17px/1.58 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+main{max-width:1040px;margin:32px auto;padding:48px 60px;background:var(--paper);border:1px solid var(--line);border-radius:12px}header{border-bottom:2px solid var(--accent);padding-bottom:22px;margin-bottom:28px}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:750}h1{font-size:34px;line-height:1.17;letter-spacing:-.025em;margin:10px 0 14px}h2{font-size:25px;line-height:1.28;margin:36px 0 15px}h3{font-size:20px;line-height:1.35;margin:22px 0 8px}p{margin:9px 0 13px}a{color:var(--accent);text-underline-offset:3px}small,.muted{color:var(--muted)}.lead{font-size:18px}.meta{font-size:13px;color:var(--muted)}
+nav{display:flex;gap:8px 14px;flex-wrap:wrap;font-size:14px;margin-top:18px}nav a{white-space:nowrap}table{width:100%;border-collapse:collapse;margin:15px 0 20px;font-size:15px;line-height:1.48}th,td{text-align:left;vertical-align:top;border:1px solid var(--line);padding:11px 13px;overflow-wrap:anywhere}th{background:#f3f6f7;font-weight:650}tr.selected td:first-child{border-left:4px solid var(--accent)}
+.callout{background:var(--wash);border-left:4px solid var(--accent);padding:15px 19px;margin:18px 0}.callout p:last-child{margin-bottom:0}.badge{display:inline-block;font-size:12px;font-weight:700;color:var(--accent);border:1px solid #bdd8d1;background:var(--wash);border-radius:20px;padding:2px 9px;vertical-align:middle;margin-left:6px}.formula{font-family:"Cambria Math","Times New Roman",serif;font-size:21px;line-height:1.65;background:#f6f8f9;border:1px solid var(--line);border-radius:6px;padding:12px 16px;margin:12px 0;overflow-x:auto}.formula .note{font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--muted);display:block;margin-top:5px}.spec{margin:14px 0}.spec>div{display:grid;grid-template-columns:126px 1fr;gap:16px;padding:9px 0;border-bottom:1px solid #e9edef}.spec dt{font-weight:650;color:var(--accent)}.spec dd{margin:0}.spec dd p:first-child{margin-top:0}.spec dd p:last-child{margin-bottom:0}ul,ol{padding-left:24px;margin:9px 0 16px}li{margin:5px 0}section{scroll-margin-top:24px}code,pre{font-family:Consolas,"Liberation Mono",monospace}code{font-size:.87em;background:#f0f3f4;padding:1px 4px;border-radius:3px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f7f8;padding:16px;font-size:13px;line-height:1.5;border-radius:6px}.sources{font-size:14px}.sources li{margin:10px 0}footer{border-top:1px solid var(--line);padding-top:15px;margin-top:32px;font-size:13px;color:var(--muted)}.tight td,.tight th{padding:9px 11px}table th:first-child,table td:first-child{width:22%;overflow-wrap:normal;word-break:normal;hyphens:auto}table.id-table th:first-child,table.id-table td:first-child{width:7%;white-space:nowrap}
+@media(max-width:700px){main{margin:0;border:0;border-radius:0;padding:27px 19px}h1{font-size:28px}h2{font-size:23px}body{font-size:16px}table{font-size:13px}td,th{padding:8px}.spec>div{grid-template-columns:1fr;gap:3px}.formula{font-size:19px}nav{gap:7px 12px}}
+@media print{@page{size:A4;margin:17mm 16mm}html,body{background:#fff;font-size:10pt;line-height:1.43}main{margin:0;padding:0;border:0;max-width:none}header{margin-bottom:15px;padding-bottom:13px}h1{font-size:25pt}h2{font-size:17pt;margin-top:22px}h3{font-size:13pt}table{font-size:9pt}th,td{padding:7px 8px}.lead{font-size:11pt}.formula{font-size:14pt;padding:8px 11px}nav{display:none}.spec>div{grid-template-columns:95px 1fr;gap:12px;padding:6px 0}.eyebrow{font-size:8pt}h1,h2,h3,dt{break-after:avoid}tr,.callout,.formula,.spec>div{break-inside:avoid}thead{display:table-header-group}a{color:inherit}p,li{orphans:3;widows:3}footer{font-size:8pt}.sources{font-size:9pt}.meta{font-size:9pt}}
+</style></head>
+<body><main><header><div class="eyebrow">Справедливый делёж · LLM · Документ 1/2</div><h1>Идеи экспериментов и отбор трёх направлений</h1><div class="meta"></div><nav aria-label="Содержание"><a href="#base">Базовые статьи</a><a href="#pool">Кандидаты</a><a href="#top">Три выбранные идеи</a><a href="#plan">Итоговый план</a><a href="#sources">Источники</a></nav></header>
+<section id="base"><h2>1. От каких работ отталкиваемся</h2>
+<table><thead><tr><th>Работа</th><th>Что уже проверяли</th><th>Что добавляем</th></tr></thead><tbody>
+<tr><td>Cookson et al. <a href="#s1">[1]</a></td><td>Распределение аддитивных благ; конфликт EF1 и суммарной полезности; контекст, представление оценок и формулировка цели.</td><td>Другие функции оценок и другие условия принятия решения.</td></tr>
+<tr><td>Hosseini–Khanna <a href="#s2">[2]</a></td><td>Сравнение с человеческими решениями; деньги; генерация и выбор из меню; роли, порядок, шаблоны и повторные попытки с обратной связью.</td><td>Время, неполнота информации и переговоры между LLM в профессиональной среде.</td></tr>
+</tbody></table>
+</section>
+
+<section id="pool"><h2>2. Кандидаты на новые эксперименты</h2>
+<table><thead><tr><th>Идея</th><th>Что меняем и измеряем</th><th>Решение</th></tr></thead><tbody>
+<tr class="selected"><td><strong>Делёж во времени</strong></td><td>Предметы поступают по одному; решения необратимы. Проверяем накопленную зависть и EF1 на каждом шаге.</td><td><strong>Выбрать</strong>: история решений становится частью задачи.</td></tr>
+<tr class="selected"><td><strong>Уточнение неполных предпочтений</strong></td><td>Матрица оценок скрыта; можно запросить ограниченное число ячеек. Проверяем качество вопросов и итогового дележа.</td><td><strong>Выбрать</strong>: измеряем пользу LLM до построения распределения.</td></tr>
+<tr class="selected"><td><strong>Ролевая игра в профессиональной среде</strong></td><td>LLM-посредник распределяет оборудование между исследовательскими группами после переговоров с их LLM-представителями. Проверяем справедливость и влияние диалога.</td><td><strong>Выбрать</strong>: изучаем взаимодействие участников и посредника.</td></tr>
+<tr><td>Разные права на ресурс</td><td>Задаём доли участников; проверяем взвешенный аналог EF1 при изменении долей.</td><td>Резерв: полезно, но сначала нужно выбрать конкретное определение справедливости.</td></tr>
+<tr><td>Лотерея над распределениями</td><td>Сравниваем справедливость в ожидании и свойства каждого реализованного дележа.</td><td>Резерв: нужен отдельный протокол задания и проверки вероятностей.</td></tr>
+<tr><td>Неопределённые оценки</td><td>Вместо точных чисел даём интервалы; оцениваем худшую зависть по допустимым значениям.</td><td>Резерв: близко к неполной информации; лучше рассмотреть после эксперимента с вопросами.</td></tr>
+<tr><td>Смешанные блага и обязанности</td><td>Один предмет может нравиться одному участнику и быть обременением для другого.</td><td>Резерв: расширение chores, но требует отдельного определения EF1 для смешанных знаков.</td></tr>
+</tbody></table></section>
+
+<section id="top"><h2>3. Три наиболее перспективные идеи</h2>
+
+<h3>1. Уточнение предпочтений <span class="badge">E4</span></h3>
+<p><strong>Вопрос.</strong> Какие оценки стоит узнать, если нельзя спросить всё? LLM выбирает пары «участник — предмет», получает точные числа от программного оракула и затем предлагает распределение.</p>
+<p><strong>Гипотеза.</strong> При одинаковом бюджете осмысленные вопросы уменьшают нарушение EF1 сильнее случайных. Чтобы проверить именно качество вопросов, ответы после обеих стратегий передаются одному и тому же алгоритму дележа.</p>
+<p><strong>Почему выбрать.</strong> Это отдельная измеримая функция модели: сбор предпочтений. Есть ясная ось эксперимента — бюджет вопросов — и контроль с полной информацией. Основная трудность: не раскрыть скрытую матрицу через подсказки или нормировку.</p>
+
+<h3>2. Ролевая игра в профессиональной среде <span class="badge">E5</span></h3>
+<p><strong>Вопрос.</strong> Как профессиональная среда и переговоры меняют справедливость решения? Сюжет: руководитель лаборатории распределяет шесть единиц оборудования между тремя исследовательскими группами. Отдельные LLM представляют группы и добиваются ценных для себя наборов; LLM-руководитель принимает окончательное решение. Права групп одинаковы.</p>
+<p><strong>Как проверяем.</strong> Сохраняем одну матрицу оценок и сравниваем четыре режима: абстрактный или профессиональный сюжет, каждый — с переговорами и без них. Посредник сразу видит всю истинную матрицу, представители — только свою строку. В переговорах два раунда с одинаковым лимитом текста для всех; порядок выступлений случайный. Дополнительный контроль — столько же пересмотров решения посредником без реплик участников.</p>
+<p><strong>Гипотеза и метрики.</strong> Переговоры могут усилить зависимость результата от порядка выступлений даже при полных числовых данных. Измеряем долю допустимых EF1-дележей, максимальную зависть, суммарную полезность и изменение полезностей при перестановке порядка. Оценки фиксированы; аргументы участников не добавляют новых потребностей или прав.</p>
+<p><strong>Почему выбрать.</strong> Контекст и роли уже изучались в базовых статьях <a href="#s1">[1]</a>, <a href="#s2">[2]</a>. Здесь добавляется взаимодействие нескольких LLM: можно отделить эффект профессионального сюжета от эффекта переговоров и дополнительных попыток решить задачу.</p>
+
+<h3>3. Делёж во времени <span class="badge">E3</span></h3>
+<p><strong>Вопрос.</strong> Учитывает ли модель, кому уже достались ценные предметы, если новые поступают постепенно? Прошлые назначения менять нельзя, будущие оценки неизвестны.</p>
+<p><strong>Гипотеза.</strong> Высокая полезность отдельных назначений не гарантирует малой накопленной зависти; порядок поступления способен заметно менять результат.</p>
+<p><strong>Почему выбрать.</strong> Получаем траекторию справедливости, а не одну финальную точку. Есть простой алгоритм с той же информацией и офлайн-ориентир, знающий всю последовательность. Основная трудность: не считать преимущество знания будущего ошибкой LLM.</p>
+
+<div class="callout"><strong>Принцип отбора:</strong> каждая идея меняет устройство задачи, допускает автоматическую проверку и имеет контроль, позволяющий объяснить результат. Все три сначала проверяются на аддитивных благах, чтобы не смешивать эффекты.</div>
+</section>
+
+<section id="plan"><h2>4. Итоговый набор из пяти экспериментов</h2>
+<table class="tight id-table"><thead><tr><th>ID</th><th>Эксперимент</th><th>Основной вклад</th></tr></thead><tbody>
+<tr><td>E1</td><td>Chores: распределение обязанностей</td><td>Переход от полезностей к затратам; корректное понимание EF1 для работ.</td></tr>
+<tr><td>E2</td><td>Неаддитивные оценки</td><td>Учёт комплектов, заменяемости и насыщения.</td></tr>
+<tr><td>E3</td><td>Делёж во времени</td><td>Накопленная справедливость при необратимых назначениях.</td></tr>
+<tr><td>E4</td><td>Уточнение предпочтений</td><td>Качество дележа при ограниченном бюджете информации.</td></tr>
+<tr><td>E5</td><td>Ролевая игра в профессиональной среде</td><td>Влияние переговоров между LLM на решение посредника при фиксированных оценках.</td></tr>
+</tbody></table>
+</section>
+
+<section id="sources" class="sources"><h2>Источники</h2><ol>
+<li id="s1">B. Cookson, S. Ebadian, N. Shah. <a href="https://ojs.aaai.org/index.php/AAAI/article/view/40848">Fairness Perceptions of Large Language Models</a>. AAAI, 2026. Базовая работа об аддитивных благах, EF1 и эффективности.</li>
+<li id="s2">H. Hosseini, S. Khanna. <a href="https://papers.neurips.cc/paper_files/paper/2025/hash/7d411ed79f762a0e99337cf4ce38938a-Abstract-Conference.html">Distributive Fairness in Large Language Models: Evaluating Alignment with Human Values</a>. NeurIPS, 2025. <a href="https://arxiv.org/html/2502.00313v2">Полный текст</a>; <a href="https://github.com/SamarthKhanna/Distributive-Fairness-LLMs">код и данные</a>.</li>
+</ol></section><footer></footer></main></body></html>
