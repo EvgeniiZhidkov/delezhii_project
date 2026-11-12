@@ -1,0 +1,59 @@
+{
+  "schema": 2,
+  "config": {
+    "settings": [
+      {
+        "n_agents": 3,
+        "n_items": 6
+      }
+    ],
+    "n_base": 20,
+    "seed": 20261109,
+    "paper_lambda": 20,
+    "ratios": [
+      2,
+      5,
+      10
+    ],
+    "groups": [
+      "paper",
+      "uniform",
+      "r=2",
+      "r=5",
+      "r=10"
+    ],
+    "repeats": 3,
+    "row_total": 100.0,
+    "atol": 1e-09,
+    "reference": {
+      "method": "auto",
+      "max_allocations": 100000,
+      "chunk_size": 2048,
+      "time_limit": 30.0
+    },
+    "models": [],
+    "output_dir": "runs"
+  },
+  "prompt_version": "e1-paired-v1",
+  "python": "3.14.4",
+  "packages": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "matplotlib": "3.11.2",
+    "scipy": null
+  },
+  "source_sha256": {
+    "__init__.py": "a9d1435e55a407379845d7af307024081b13bcae8f34c9328613aca24a676b61",
+    "__main__.py": "29a276985d64e00b6b0d808307e6ca30c64c1ad71802b83dfec84ec8809d9c47",
+    "analysis.py": "d6cc101eaa397b0c11cfcd482945a412c2f558a09b770d4795945d10216feb8c",
+    "backends.py": "979d150249b41d431ba7ca37e6fa9f4c085ccb5ad6bf785b489fba571c21e549",
+    "config.py": "9cd7510300c8d64ca7e2ba62a43d7b4b9e2efe0a9eafdf79636d74da677f0b11",
+    "data.py": "4497652aceb85da31f98c74351740f40fc1372de48e9f29d4c7f396a2115ea54",
+    "experiment.py": "a29c65238d446cbace5a93bf6c80399097fbd7166f672a9864be2cb418d17582",
+    "metrics.py": "d91b2b7c3ca68e3f1e7dc4083fac411e70ee9398387b8d5d92ad831b63e5a758",
+    "plotting.py": "ae530a1ae2b96d4ab6ec7d4f80b685e1f400df1de2c8df3e87c9bd3c6cdd01f2",
+    "prompts.py": "43a9d8de60b5838ae983a71797bf97aa53805d9596fe014644be7b046a4461b6",
+    "reference.py": "3f921d6d1cad2b59f80f87d055ac24c778fe079df7a38d84be08c523f118249d"
+  },
+  "backend_version": null
+}

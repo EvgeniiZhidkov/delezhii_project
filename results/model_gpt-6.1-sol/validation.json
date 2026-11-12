@@ -1,0 +1,51 @@
+{
+  "original_run": "runs/e1_20261112T200746_86a24dab",
+  "checked_at_moscow": "2026-11-12T23:56:30.281860+03:00",
+  "checker_git_commit": "b11612d1b798ecb88eff3371754e328756a6555d",
+  "checker_source_sha256": {
+    "__init__.py": "a9d1435e55a407379845d7af307024081b13bcae8f34c9328613aca24a676b61",
+    "__main__.py": "586888e82ac45e75bd02aa2d484596fc3741e92bdba2c261b17a1b31f892c3dd",
+    "analysis.py": "d6cc101eaa397b0c11cfcd482945a412c2f558a09b770d4795945d10216feb8c",
+    "backends.py": "979d150249b41d431ba7ca37e6fa9f4c085ccb5ad6bf785b489fba571c21e549",
+    "config.py": "8dc6116bfb40b7676451b231d8ac10f6ca81d279f6c1b485bd5da9abccc7eecb",
+    "data.py": "4497652aceb85da31f98c74351740f40fc1372de48e9f29d4c7f396a2115ea54",
+    "experiment.py": "93a952bd63e731432aab0270ec4308e5b5b5faf10b5cfb1112a88d926bacb9d3",
+    "metrics.py": "d91b2b7c3ca68e3f1e7dc4083fac411e70ee9398387b8d5d92ad831b63e5a758",
+    "plotting.py": "ae530a1ae2b96d4ab6ec7d4f80b685e1f400df1de2c8df3e87c9bd3c6cdd01f2",
+    "prompts.py": "43a9d8de60b5838ae983a71797bf97aa53805d9596fe014644be7b046a4461b6",
+    "reference.py": "80b809a1fa431cb133ba5903992ac3ed18f68b08e39ef907baee10bfe381b78c"
+  },
+  "journal_complete": true,
+  "saved_metrics_match_replay": true,
+  "source_snapshot_matches_manifest": true,
+  "original_source_matches_current_checker": true,
+  "rows": 150,
+  "reference_rows": 50,
+  "model_responses": 50,
+  "resolved_models": [
+    "gpt-6.1-sol"
+  ],
+  "original_file_sha256": {
+    "manifest.json": "dcff04dd3290233eb75be73a9e1bb5d7783f1f47b4e44d43ec1f4ddc8020846d",
+    "journal.jsonl": "26176998f28e07a7c473b0371547473ad3bf427a1f69e5e2fd22eba64c7f566c",
+    "results.csv": "a8a6234b6cb3ff866daf0f113f3927e558cf60b18167ac516a97daf6ada61e23",
+    "references.csv": "10f37909b5838bedcaa838e6c02097f1c99b554d323271e47617738fb32c68c2"
+  },
+  "bootstrap": {
+    "n_boot": 3000,
+    "seed": 20261110,
+    "unit": "base_id",
+    "confidence": 0.95
+  },
+  "derived_files": [
+    "config.json",
+    "summary.csv",
+    "overall.csv",
+    "bootstrap.csv",
+    "paired_ef1.csv",
+    "paired_sd_ef1.csv",
+    "ef1.png",
+    "sd_ef1.png",
+    "paired_ef1.png"
+  ]
+}

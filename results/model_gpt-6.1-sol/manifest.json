@@ -1,0 +1,63 @@
+{
+  "schema": 2,
+  "config": {
+    "settings": [
+      {
+        "n_agents": 3,
+        "n_items": 6
+      }
+    ],
+    "n_base": 5,
+    "seed": 20261109,
+    "paper_lambda": 20,
+    "ratios": [
+      2,
+      5,
+      10
+    ],
+    "groups": [
+      "paper",
+      "uniform",
+      "r=2",
+      "r=5",
+      "r=10"
+    ],
+    "repeats": 1,
+    "row_total": 100.0,
+    "atol": 1e-09,
+    "reference": {
+      "max_allocations": 10000,
+      "chunk_size": 2048
+    },
+    "models": [
+      {
+        "label": "Codex",
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": null,
+        "timeout": 180.0
+      }
+    ],
+    "output_dir": "runs"
+  },
+  "prompt_version": "e1-paired-v1",
+  "python": "3.14.7",
+  "packages": {
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "matplotlib": "3.11.1"
+  },
+  "source_sha256": {
+    "__init__.py": "a9d1435e55a407379845d7af307024081b13bcae8f34c9328613aca24a676b61",
+    "__main__.py": "586888e82ac45e75bd02aa2d484596fc3741e92bdba2c261b17a1b31f892c3dd",
+    "analysis.py": "d6cc101eaa397b0c11cfcd482945a412c2f558a09b770d4795945d10216feb8c",
+    "backends.py": "979d150249b41d431ba7ca37e6fa9f4c085ccb5ad6bf785b489fba571c21e549",
+    "config.py": "8dc6116bfb40b7676451b231d8ac10f6ca81d279f6c1b485bd5da9abccc7eecb",
+    "data.py": "4497652aceb85da31f98c74351740f40fc1372de48e9f29d4c7f396a2115ea54",
+    "experiment.py": "93a952bd63e731432aab0270ec4308e5b5b5faf10b5cfb1112a88d926bacb9d3",
+    "metrics.py": "d91b2b7c3ca68e3f1e7dc4083fac411e70ee9398387b8d5d92ad831b63e5a758",
+    "plotting.py": "ae530a1ae2b96d4ab6ec7d4f80b685e1f400df1de2c8df3e87c9bd3c6cdd01f2",
+    "prompts.py": "43a9d8de60b5838ae983a71797bf97aa53805d9596fe014644be7b046a4461b6",
+    "reference.py": "80b809a1fa431cb133ba5903992ac3ed18f68b08e39ef907baee10bfe381b78c"
+  },
+  "backend_version": "codex-cli 0.167.0"
+}

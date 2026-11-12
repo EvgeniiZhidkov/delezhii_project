@@ -1,0 +1,39 @@
+{
+  "settings": [
+    {
+      "n_agents": 3,
+      "n_items": 6
+    }
+  ],
+  "n_base": 5,
+  "seed": 20261109,
+  "paper_lambda": 20,
+  "ratios": [
+    2,
+    5,
+    10
+  ],
+  "groups": [
+    "paper",
+    "uniform",
+    "r=2",
+    "r=5",
+    "r=10"
+  ],
+  "repeats": 1,
+  "row_total": 100.0,
+  "atol": 1e-09,
+  "reference": {
+    "max_allocations": 10000,
+    "chunk_size": 2048
+  },
+  "models": [
+    {
+      "label": "Codex",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": null,
+      "timeout": 180.0
+    }
+  ],
+  "output_dir": "runs"
+}
