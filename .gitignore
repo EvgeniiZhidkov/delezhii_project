@@ -9,5 +9,6 @@ __pycache__/
 !.env.template
 .ipynb_checkpoints/
 runs/
+/project_explained.html
 build/
 dist/
