@@ -101,7 +101,9 @@ class EvaluationTests(unittest.TestCase):
     def test_saved_schema_two_is_replayable_and_named_correctly(self):
         from chores_e1.experiment import compare_saved_run
         from pathlib import Path
-        path = Path(__file__).resolve().parents[2] / "results/model_gpt-6.1-sol"
+        path = Path(__file__).resolve().parents[2] / "runs/model_gpt-6.1-sol"
+        if not (path / "journal.jsonl").is_file():
+            self.skipTest("The historical schema-2 pilot is archived locally in runs/")
         saved = analyze_file(path)
         self.assertNotIn("Эвристика", set(saved.rows["method"]))
         self.assertEqual(set(saved.rows[saved.rows["source"] == "heuristic"]["method"]), {"Round-Robin", "MinSW"})

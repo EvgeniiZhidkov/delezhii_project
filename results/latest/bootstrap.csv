@@ -1,0 +1,2251 @@
+setting,method,kind,group,metric,mean,low,high,n_instances,expected_instances
+3×6,EF1-opt (exact),goods,paper,valid,1.0,,,1,1
+3×6,EF1-opt (exact),goods,paper,ef1,1.0,,,1,1
+3×6,EF1-opt (exact),goods,paper,d,0.0,,,1,1
+3×6,EF1-opt (exact),goods,paper,envy,0.22437673130193903,,,1,1
+3×6,EF1-opt (exact),goods,paper,total,105.08331371945516,,,1,1
+3×6,EF1-opt (exact),goods,paper,gap,0.0,,,1,1
+3×6,EF1-opt (exact),goods,paper,sd_ef,0.0,,,1,1
+3×6,EF1-opt (exact),goods,paper,sd_ef1,0.0,,,1,1
+3×6,EF1-opt (exact),goods,paper,sd_envy,0.3333333333333333,,,1,1
+3×6,EF1-opt (exact),goods,paper,sd_d,0.16666666666666666,,,1,1
+3×6,EF1-opt (exact),goods,paper,sd_ef_pairs,0.16666666666666666,,,1,1
+3×6,EF1-opt (exact),goods,paper,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,EF1-opt (exact),goods,paper,wrong_side_only,,,,0,1
+3×6,EF1-opt (exact),goods,paper,goods_rule_only,,,,0,1
+3×6,EF1-opt (exact),goods,paper,prop,0.0,,,1,1
+3×6,EF1-opt (exact),goods,paper,ef,0.0,,,1,1
+3×6,EF1-opt (exact),goods,paper,efx,0.0,,,1,1
+3×6,EF1-opt (exact),goods,paper,mms,0.0,,,1,1
+3×6,EF1-opt (exact),goods,paper,po,1.0,,,1,1
+3×6,EF1-opt (exact),goods,paper,mnw,0.0,,,1,1
+3×6,EF1-opt (exact),goods,paper,prop1,1.0,,,1,1
+3×6,EF1-opt (exact),goods,paper,prop_alpha,0.8060941828254847,,,1,1
+3×6,EF1-opt (exact),goods,paper,ef_alpha,0.5449438202247191,,,1,1
+3×6,EF1-opt (exact),goods,paper,ef1_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),goods,paper,mms_alpha,0.8362068965517241,,,1,1
+3×6,EF1-opt (exact),goods,paper,po_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),goods,paper,sw_ratio,0.9953840443119553,,,1,1
+3×6,EF1-opt (exact),goods,paper,nw_ratio,0.965139849737993,,,1,1
+3×6,EF1-opt (exact),goods,paper,efx_alpha,0.8362068965517243,,,1,1
+3×6,EF1-opt (exact),goods,paper,prop1_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,paper,valid,1.0,,,1,1
+3×6,Round-Robin,goods,paper,ef1,1.0,,,1,1
+3×6,Round-Robin,goods,paper,d,0.0,,,1,1
+3×6,Round-Robin,goods,paper,envy,0.2908587257617728,,,1,1
+3×6,Round-Robin,goods,paper,total,104.31746721464825,,,1,1
+3×6,Round-Robin,goods,paper,gap,0.7658465048069161,,,1,1
+3×6,Round-Robin,goods,paper,sd_ef,0.0,,,1,1
+3×6,Round-Robin,goods,paper,sd_ef1,1.0,,,1,1
+3×6,Round-Robin,goods,paper,sd_envy,0.16666666666666666,,,1,1
+3×6,Round-Robin,goods,paper,sd_d,0.0,,,1,1
+3×6,Round-Robin,goods,paper,sd_ef_pairs,0.5,,,1,1
+3×6,Round-Robin,goods,paper,sd_ef1_pairs,1.0,,,1,1
+3×6,Round-Robin,goods,paper,wrong_side_only,,,,0,1
+3×6,Round-Robin,goods,paper,goods_rule_only,,,,0,1
+3×6,Round-Robin,goods,paper,prop,0.0,,,1,1
+3×6,Round-Robin,goods,paper,ef,0.0,,,1,1
+3×6,Round-Robin,goods,paper,efx,0.0,,,1,1
+3×6,Round-Robin,goods,paper,mms,0.0,,,1,1
+3×6,Round-Robin,goods,paper,po,1.0,,,1,1
+3×6,Round-Robin,goods,paper,mnw,0.0,,,1,1
+3×6,Round-Robin,goods,paper,prop1,1.0,,,1,1
+3×6,Round-Robin,goods,paper,prop_alpha,0.6066481994459835,,,1,1
+3×6,Round-Robin,goods,paper,ef_alpha,0.41011235955056186,,,1,1
+3×6,Round-Robin,goods,paper,ef1_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,paper,mms_alpha,0.6293103448275863,,,1,1
+3×6,Round-Robin,goods,paper,po_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,paper,sw_ratio,0.9881296918910557,,,1,1
+3×6,Round-Robin,goods,paper,nw_ratio,0.9358092286250261,,,1,1
+3×6,Round-Robin,goods,paper,efx_alpha,0.6293103448275864,,,1,1
+3×6,Round-Robin,goods,paper,prop1_alpha,1.0,,,1,1
+3×6,MaxSW,goods,paper,valid,1.0,,,1,1
+3×6,MaxSW,goods,paper,ef1,0.0,,,1,1
+3×6,MaxSW,goods,paper,d,0.30980392156862757,,,1,1
+3×6,MaxSW,goods,paper,envy,0.6156862745098041,,,1,1
+3×6,MaxSW,goods,paper,total,105.57062303735488,,,1,1
+3×6,MaxSW,goods,paper,gap,,,,0,1
+3×6,MaxSW,goods,paper,sd_ef,0.0,,,1,1
+3×6,MaxSW,goods,paper,sd_ef1,0.0,,,1,1
+3×6,MaxSW,goods,paper,sd_envy,0.5,,,1,1
+3×6,MaxSW,goods,paper,sd_d,0.3333333333333333,,,1,1
+3×6,MaxSW,goods,paper,sd_ef_pairs,0.3333333333333333,,,1,1
+3×6,MaxSW,goods,paper,sd_ef1_pairs,0.6666666666666666,,,1,1
+3×6,MaxSW,goods,paper,wrong_side_only,,,,0,1
+3×6,MaxSW,goods,paper,goods_rule_only,,,,0,1
+3×6,MaxSW,goods,paper,prop,0.0,,,1,1
+3×6,MaxSW,goods,paper,ef,0.0,,,1,1
+3×6,MaxSW,goods,paper,efx,0.0,,,1,1
+3×6,MaxSW,goods,paper,mms,0.0,,,1,1
+3×6,MaxSW,goods,paper,po,1.0,,,1,1
+3×6,MaxSW,goods,paper,mnw,0.0,,,1,1
+3×6,MaxSW,goods,paper,prop1,1.0,,,1,1
+3×6,MaxSW,goods,paper,prop_alpha,0.31764705882352945,,,1,1
+3×6,MaxSW,goods,paper,ef_alpha,0.1467391304347826,,,1,1
+3×6,MaxSW,goods,paper,ef1_alpha,0.2547169811320754,,,1,1
+3×6,MaxSW,goods,paper,mms_alpha,0.3253012048192771,,,1,1
+3×6,MaxSW,goods,paper,po_alpha,1.0,,,1,1
+3×6,MaxSW,goods,paper,sw_ratio,1.0,,,1,1
+3×6,MaxSW,goods,paper,nw_ratio,0.6991679061589882,,,1,1
+3×6,MaxSW,goods,paper,efx_alpha,0.1862068965517241,,,1,1
+3×6,MaxSW,goods,paper,prop1_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,paper,valid,1.0,,,1,1
+3×6,MNW (exact),goods,paper,ef1,1.0,,,1,1
+3×6,MNW (exact),goods,paper,d,0.0,,,1,1
+3×6,MNW (exact),goods,paper,envy,0.03950617283950619,,,1,1
+3×6,MNW (exact),goods,paper,total,104.32829005204216,,,1,1
+3×6,MNW (exact),goods,paper,gap,0.7550236674129991,,,1,1
+3×6,MNW (exact),goods,paper,sd_ef,0.0,,,1,1
+3×6,MNW (exact),goods,paper,sd_ef1,0.0,,,1,1
+3×6,MNW (exact),goods,paper,sd_envy,0.3333333333333333,,,1,1
+3×6,MNW (exact),goods,paper,sd_d,0.16666666666666666,,,1,1
+3×6,MNW (exact),goods,paper,sd_ef_pairs,0.0,,,1,1
+3×6,MNW (exact),goods,paper,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,MNW (exact),goods,paper,wrong_side_only,,,,0,1
+3×6,MNW (exact),goods,paper,goods_rule_only,,,,0,1
+3×6,MNW (exact),goods,paper,prop,0.0,,,1,1
+3×6,MNW (exact),goods,paper,ef,0.0,,,1,1
+3×6,MNW (exact),goods,paper,efx,0.0,,,1,1
+3×6,MNW (exact),goods,paper,mms,1.0,,,1,1
+3×6,MNW (exact),goods,paper,po,1.0,,,1,1
+3×6,MNW (exact),goods,paper,mnw,1.0,,,1,1
+3×6,MNW (exact),goods,paper,prop1,1.0,,,1,1
+3×6,MNW (exact),goods,paper,prop_alpha,0.9851851851851852,,,1,1
+3×6,MNW (exact),goods,paper,ef_alpha,0.8926174496644295,,,1,1
+3×6,MNW (exact),goods,paper,ef1_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,paper,mms_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,paper,po_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,paper,sw_ratio,0.9882322094009701,,,1,1
+3×6,MNW (exact),goods,paper,nw_ratio,1.0,,,1,1
+3×6,MNW (exact),goods,paper,efx_alpha,0.9568345323741007,,,1,1
+3×6,MNW (exact),goods,paper,prop1_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,paper,valid,1.0,,,1,1
+3×6,Codex · Без метрики,goods,paper,ef1,1.0,,,1,1
+3×6,Codex · Без метрики,goods,paper,d,0.0,,,1,1
+3×6,Codex · Без метрики,goods,paper,envy,0.0027700831024930483,,,1,1
+3×6,Codex · Без метрики,goods,paper,total,103.66017095255052,,,1,1
+3×6,Codex · Без метрики,goods,paper,gap,1.4231427669046468,,,1,1
+3×6,Codex · Без метрики,goods,paper,sd_ef,0.0,,,1,1
+3×6,Codex · Без метрики,goods,paper,sd_ef1,1.0,,,1,1
+3×6,Codex · Без метрики,goods,paper,sd_envy,0.16666666666666666,,,1,1
+3×6,Codex · Без метрики,goods,paper,sd_d,0.0,,,1,1
+3×6,Codex · Без метрики,goods,paper,sd_ef_pairs,0.0,,,1,1
+3×6,Codex · Без метрики,goods,paper,sd_ef1_pairs,1.0,,,1,1
+3×6,Codex · Без метрики,goods,paper,wrong_side_only,,,,0,1
+3×6,Codex · Без метрики,goods,paper,goods_rule_only,,,,0,1
+3×6,Codex · Без метрики,goods,paper,prop,1.0,,,1,1
+3×6,Codex · Без метрики,goods,paper,ef,0.0,,,1,1
+3×6,Codex · Без метрики,goods,paper,efx,1.0,,,1,1
+3×6,Codex · Без метрики,goods,paper,mms,1.0,,,1,1
+3×6,Codex · Без метрики,goods,paper,po,1.0,,,1,1
+3×6,Codex · Без метрики,goods,paper,mnw,0.0,,,1,1
+3×6,Codex · Без метрики,goods,paper,prop1,1.0,,,1,1
+3×6,Codex · Без метрики,goods,paper,prop_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,paper,ef_alpha,0.9920634920634921,,,1,1
+3×6,Codex · Без метрики,goods,paper,ef1_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,paper,mms_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,paper,po_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,paper,sw_ratio,0.9819035634171793,,,1,1
+3×6,Codex · Без метрики,goods,paper,nw_ratio,0.9945310149891196,,,1,1
+3×6,Codex · Без метрики,goods,paper,efx_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,paper,prop1_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,paper,valid,1.0,,,1,1
+3×6,Codex · EF1,goods,paper,ef1,1.0,,,1,1
+3×6,Codex · EF1,goods,paper,d,0.0,,,1,1
+3×6,Codex · EF1,goods,paper,envy,0.2908587257617728,,,1,1
+3×6,Codex · EF1,goods,paper,total,104.31746721464825,,,1,1
+3×6,Codex · EF1,goods,paper,gap,0.7658465048069161,,,1,1
+3×6,Codex · EF1,goods,paper,sd_ef,0.0,,,1,1
+3×6,Codex · EF1,goods,paper,sd_ef1,1.0,,,1,1
+3×6,Codex · EF1,goods,paper,sd_envy,0.16666666666666666,,,1,1
+3×6,Codex · EF1,goods,paper,sd_d,0.0,,,1,1
+3×6,Codex · EF1,goods,paper,sd_ef_pairs,0.5,,,1,1
+3×6,Codex · EF1,goods,paper,sd_ef1_pairs,1.0,,,1,1
+3×6,Codex · EF1,goods,paper,wrong_side_only,,,,0,1
+3×6,Codex · EF1,goods,paper,goods_rule_only,,,,0,1
+3×6,Codex · EF1,goods,paper,prop,0.0,,,1,1
+3×6,Codex · EF1,goods,paper,ef,0.0,,,1,1
+3×6,Codex · EF1,goods,paper,efx,0.0,,,1,1
+3×6,Codex · EF1,goods,paper,mms,0.0,,,1,1
+3×6,Codex · EF1,goods,paper,po,1.0,,,1,1
+3×6,Codex · EF1,goods,paper,mnw,0.0,,,1,1
+3×6,Codex · EF1,goods,paper,prop1,1.0,,,1,1
+3×6,Codex · EF1,goods,paper,prop_alpha,0.6066481994459835,,,1,1
+3×6,Codex · EF1,goods,paper,ef_alpha,0.41011235955056186,,,1,1
+3×6,Codex · EF1,goods,paper,ef1_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,paper,mms_alpha,0.6293103448275863,,,1,1
+3×6,Codex · EF1,goods,paper,po_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,paper,sw_ratio,0.9881296918910557,,,1,1
+3×6,Codex · EF1,goods,paper,nw_ratio,0.9358092286250261,,,1,1
+3×6,Codex · EF1,goods,paper,efx_alpha,0.6293103448275864,,,1,1
+3×6,Codex · EF1,goods,paper,prop1_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,paper,valid,1.0,,,1,1
+3×6,Codex · PROP,goods,paper,ef1,1.0,,,1,1
+3×6,Codex · PROP,goods,paper,d,0.0,,,1,1
+3×6,Codex · PROP,goods,paper,envy,0.00987654320987652,,,1,1
+3×6,Codex · PROP,goods,paper,total,102.67251663156287,,,1,1
+3×6,Codex · PROP,goods,paper,gap,2.4107970878922913,,,1,1
+3×6,Codex · PROP,goods,paper,sd_ef,0.0,,,1,1
+3×6,Codex · PROP,goods,paper,sd_ef1,1.0,,,1,1
+3×6,Codex · PROP,goods,paper,sd_envy,0.16666666666666666,,,1,1
+3×6,Codex · PROP,goods,paper,sd_d,0.0,,,1,1
+3×6,Codex · PROP,goods,paper,sd_ef_pairs,0.0,,,1,1
+3×6,Codex · PROP,goods,paper,sd_ef1_pairs,1.0,,,1,1
+3×6,Codex · PROP,goods,paper,wrong_side_only,,,,0,1
+3×6,Codex · PROP,goods,paper,goods_rule_only,,,,0,1
+3×6,Codex · PROP,goods,paper,prop,1.0,,,1,1
+3×6,Codex · PROP,goods,paper,ef,0.0,,,1,1
+3×6,Codex · PROP,goods,paper,efx,1.0,,,1,1
+3×6,Codex · PROP,goods,paper,mms,1.0,,,1,1
+3×6,Codex · PROP,goods,paper,po,0.0,,,1,1
+3×6,Codex · PROP,goods,paper,mnw,0.0,,,1,1
+3×6,Codex · PROP,goods,paper,prop1,1.0,,,1,1
+3×6,Codex · PROP,goods,paper,prop_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,paper,ef_alpha,0.9720279720279721,,,1,1
+3×6,Codex · PROP,goods,paper,ef1_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,paper,mms_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,paper,po_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,paper,sw_ratio,0.9725481737020104,,,1,1
+3×6,Codex · PROP,goods,paper,nw_ratio,0.9851701676432215,,,1,1
+3×6,Codex · PROP,goods,paper,efx_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,paper,prop1_alpha,1.0,,,1,1
+3×6,Codex · SW/C,goods,paper,valid,1.0,,,1,1
+3×6,Codex · SW/C,goods,paper,ef1,0.0,,,1,1
+3×6,Codex · SW/C,goods,paper,d,0.30980392156862757,,,1,1
+3×6,Codex · SW/C,goods,paper,envy,0.6156862745098041,,,1,1
+3×6,Codex · SW/C,goods,paper,total,105.57062303735488,,,1,1
+3×6,Codex · SW/C,goods,paper,gap,,,,0,1
+3×6,Codex · SW/C,goods,paper,sd_ef,0.0,,,1,1
+3×6,Codex · SW/C,goods,paper,sd_ef1,0.0,,,1,1
+3×6,Codex · SW/C,goods,paper,sd_envy,0.5,,,1,1
+3×6,Codex · SW/C,goods,paper,sd_d,0.3333333333333333,,,1,1
+3×6,Codex · SW/C,goods,paper,sd_ef_pairs,0.3333333333333333,,,1,1
+3×6,Codex · SW/C,goods,paper,sd_ef1_pairs,0.6666666666666666,,,1,1
+3×6,Codex · SW/C,goods,paper,wrong_side_only,,,,0,1
+3×6,Codex · SW/C,goods,paper,goods_rule_only,,,,0,1
+3×6,Codex · SW/C,goods,paper,prop,0.0,,,1,1
+3×6,Codex · SW/C,goods,paper,ef,0.0,,,1,1
+3×6,Codex · SW/C,goods,paper,efx,0.0,,,1,1
+3×6,Codex · SW/C,goods,paper,mms,0.0,,,1,1
+3×6,Codex · SW/C,goods,paper,po,1.0,,,1,1
+3×6,Codex · SW/C,goods,paper,mnw,0.0,,,1,1
+3×6,Codex · SW/C,goods,paper,prop1,1.0,,,1,1
+3×6,Codex · SW/C,goods,paper,prop_alpha,0.31764705882352945,,,1,1
+3×6,Codex · SW/C,goods,paper,ef_alpha,0.1467391304347826,,,1,1
+3×6,Codex · SW/C,goods,paper,ef1_alpha,0.2547169811320754,,,1,1
+3×6,Codex · SW/C,goods,paper,mms_alpha,0.3253012048192771,,,1,1
+3×6,Codex · SW/C,goods,paper,po_alpha,1.0,,,1,1
+3×6,Codex · SW/C,goods,paper,sw_ratio,1.0,,,1,1
+3×6,Codex · SW/C,goods,paper,nw_ratio,0.6991679061589882,,,1,1
+3×6,Codex · SW/C,goods,paper,efx_alpha,0.1862068965517241,,,1,1
+3×6,Codex · SW/C,goods,paper,prop1_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),chores,paper,valid,1.0,,,1,1
+3×6,EF1-opt (exact),chores,paper,ef1,1.0,,,1,1
+3×6,EF1-opt (exact),chores,paper,d,0.0,,,1,1
+3×6,EF1-opt (exact),chores,paper,envy,0.25490196078431376,,,1,1
+3×6,EF1-opt (exact),chores,paper,total,91.66190904390893,,,1,1
+3×6,EF1-opt (exact),chores,paper,gap,0.0,,,1,1
+3×6,EF1-opt (exact),chores,paper,sd_ef,0.0,,,1,1
+3×6,EF1-opt (exact),chores,paper,sd_ef1,1.0,,,1,1
+3×6,EF1-opt (exact),chores,paper,sd_envy,0.16666666666666666,,,1,1
+3×6,EF1-opt (exact),chores,paper,sd_d,0.0,,,1,1
+3×6,EF1-opt (exact),chores,paper,sd_ef_pairs,0.5,,,1,1
+3×6,EF1-opt (exact),chores,paper,sd_ef1_pairs,1.0,,,1,1
+3×6,EF1-opt (exact),chores,paper,wrong_side_only,0.0,,,1,1
+3×6,EF1-opt (exact),chores,paper,goods_rule_only,0.0,,,1,1
+3×6,EF1-opt (exact),chores,paper,prop,0.0,,,1,1
+3×6,EF1-opt (exact),chores,paper,ef,0.0,,,1,1
+3×6,EF1-opt (exact),chores,paper,efx,0.0,,,1,1
+3×6,EF1-opt (exact),chores,paper,mms,0.0,,,1,1
+3×6,EF1-opt (exact),chores,paper,po,1.0,,,1,1
+3×6,EF1-opt (exact),chores,paper,mnw,,,,0,1
+3×6,EF1-opt (exact),chores,paper,prop1,1.0,,,1,1
+3×6,EF1-opt (exact),chores,paper,prop_alpha,0.7264957264957264,,,1,1
+3×6,EF1-opt (exact),chores,paper,ef_alpha,0.4444444444444444,,,1,1
+3×6,EF1-opt (exact),chores,paper,ef1_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),chores,paper,mms_alpha,0.735042735042735,,,1,1
+3×6,EF1-opt (exact),chores,paper,po_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),chores,paper,sw_ratio,0.9935055215795682,,,1,1
+3×6,EF1-opt (exact),chores,paper,nw_ratio,,,,0,1
+3×6,EF1-opt (exact),chores,paper,efx_alpha,0.6666666666666666,,,1,1
+3×6,EF1-opt (exact),chores,paper,prop1_alpha,1.0,,,1,1
+3×6,Round-Robin,chores,paper,valid,1.0,,,1,1
+3×6,Round-Robin,chores,paper,ef1,1.0,,,1,1
+3×6,Round-Robin,chores,paper,d,0.0,,,1,1
+3×6,Round-Robin,chores,paper,envy,0.2908587257617728,,,1,1
+3×6,Round-Robin,chores,paper,total,98.3416113957638,,,1,1
+3×6,Round-Robin,chores,paper,gap,6.679702351854871,,,1,1
+3×6,Round-Robin,chores,paper,sd_ef,0.0,,,1,1
+3×6,Round-Robin,chores,paper,sd_ef1,1.0,,,1,1
+3×6,Round-Robin,chores,paper,sd_envy,0.16666666666666666,,,1,1
+3×6,Round-Robin,chores,paper,sd_d,0.0,,,1,1
+3×6,Round-Robin,chores,paper,sd_ef_pairs,0.5,,,1,1
+3×6,Round-Robin,chores,paper,sd_ef1_pairs,1.0,,,1,1
+3×6,Round-Robin,chores,paper,wrong_side_only,0.0,,,1,1
+3×6,Round-Robin,chores,paper,goods_rule_only,0.0,,,1,1
+3×6,Round-Robin,chores,paper,prop,0.0,,,1,1
+3×6,Round-Robin,chores,paper,ef,0.0,,,1,1
+3×6,Round-Robin,chores,paper,efx,0.0,,,1,1
+3×6,Round-Robin,chores,paper,mms,0.0,,,1,1
+3×6,Round-Robin,chores,paper,po,0.0,,,1,1
+3×6,Round-Robin,chores,paper,mnw,,,,0,1
+3×6,Round-Robin,chores,paper,prop1,1.0,,,1,1
+3×6,Round-Robin,chores,paper,prop_alpha,0.6760299625468165,,,1,1
+3×6,Round-Robin,chores,paper,ef_alpha,0.41011235955056186,,,1,1
+3×6,Round-Robin,chores,paper,ef1_alpha,1.0,,,1,1
+3×6,Round-Robin,chores,paper,mms_alpha,0.7022471910112361,,,1,1
+3×6,Round-Robin,chores,paper,po_alpha,1.0,,,1,1
+3×6,Round-Robin,chores,paper,sw_ratio,0.926023190602005,,,1,1
+3×6,Round-Robin,chores,paper,nw_ratio,,,,0,1
+3×6,Round-Robin,chores,paper,efx_alpha,0.6293103448275864,,,1,1
+3×6,Round-Robin,chores,paper,prop1_alpha,1.0,,,1,1
+3×6,MinSW,chores,paper,valid,1.0,,,1,1
+3×6,MinSW,chores,paper,ef1,0.0,,,1,1
+3×6,MinSW,chores,paper,d,0.3411764705882354,,,1,1
+3×6,MinSW,chores,paper,envy,0.6470588235294119,,,1,1
+3×6,MinSW,chores,paper,total,91.06661275364769,,,1,1
+3×6,MinSW,chores,paper,gap,,,,0,1
+3×6,MinSW,chores,paper,sd_ef,0.0,,,1,1
+3×6,MinSW,chores,paper,sd_ef1,0.0,,,1,1
+3×6,MinSW,chores,paper,sd_envy,0.5,,,1,1
+3×6,MinSW,chores,paper,sd_d,0.3333333333333333,,,1,1
+3×6,MinSW,chores,paper,sd_ef_pairs,0.5,,,1,1
+3×6,MinSW,chores,paper,sd_ef1_pairs,0.6666666666666666,,,1,1
+3×6,MinSW,chores,paper,wrong_side_only,0.0,,,1,1
+3×6,MinSW,chores,paper,goods_rule_only,0.0,,,1,1
+3×6,MinSW,chores,paper,prop,0.0,,,1,1
+3×6,MinSW,chores,paper,ef,0.0,,,1,1
+3×6,MinSW,chores,paper,efx,0.0,,,1,1
+3×6,MinSW,chores,paper,mms,0.0,,,1,1
+3×6,MinSW,chores,paper,po,1.0,,,1,1
+3×6,MinSW,chores,paper,mnw,,,,0,1
+3×6,MinSW,chores,paper,prop1,0.0,,,1,1
+3×6,MinSW,chores,paper,prop_alpha,0.4619565217391303,,,1,1
+3×6,MinSW,chores,paper,ef_alpha,0.10326086956521738,,,1,1
+3×6,MinSW,chores,paper,ef1_alpha,0.17924528301886788,,,1,1
+3×6,MinSW,chores,paper,mms_alpha,0.46739130434782605,,,1,1
+3×6,MinSW,chores,paper,po_alpha,1.0,,,1,1
+3×6,MinSW,chores,paper,sw_ratio,1.0,,,1,1
+3×6,MinSW,chores,paper,nw_ratio,,,,0,1
+3×6,MinSW,chores,paper,efx_alpha,0.13103448275862067,,,1,1
+3×6,MinSW,chores,paper,prop1_alpha,0.80188679245283,,,1,1
+3×6,Codex · Без метрики,chores,paper,valid,1.0,,,1,1
+3×6,Codex · Без метрики,chores,paper,ef1,1.0,,,1,1
+3×6,Codex · Без метрики,chores,paper,d,0.0,,,1,1
+3×6,Codex · Без метрики,chores,paper,envy,0.0,,,1,1
+3×6,Codex · Без метрики,chores,paper,total,93.89865559438097,,,1,1
+3×6,Codex · Без метрики,chores,paper,gap,2.2367465504720343,,,1,1
+3×6,Codex · Без метрики,chores,paper,sd_ef,0.0,,,1,1
+3×6,Codex · Без метрики,chores,paper,sd_ef1,0.0,,,1,1
+3×6,Codex · Без метрики,chores,paper,sd_envy,0.3333333333333333,,,1,1
+3×6,Codex · Без метрики,chores,paper,sd_d,0.16666666666666666,,,1,1
+3×6,Codex · Без метрики,chores,paper,sd_ef_pairs,0.0,,,1,1
+3×6,Codex · Без метрики,chores,paper,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,Codex · Без метрики,chores,paper,wrong_side_only,0.0,,,1,1
+3×6,Codex · Без метрики,chores,paper,goods_rule_only,0.0,,,1,1
+3×6,Codex · Без метрики,chores,paper,prop,1.0,,,1,1
+3×6,Codex · Без метрики,chores,paper,ef,1.0,,,1,1
+3×6,Codex · Без метрики,chores,paper,efx,1.0,,,1,1
+3×6,Codex · Без метрики,chores,paper,mms,1.0,,,1,1
+3×6,Codex · Без метрики,chores,paper,po,1.0,,,1,1
+3×6,Codex · Без метрики,chores,paper,mnw,,,,0,1
+3×6,Codex · Без метрики,chores,paper,prop1,1.0,,,1,1
+3×6,Codex · Без метрики,chores,paper,prop_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,paper,ef_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,paper,ef1_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,paper,mms_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,paper,po_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,paper,sw_ratio,0.9698393675308088,,,1,1
+3×6,Codex · Без метрики,chores,paper,nw_ratio,,,,0,1
+3×6,Codex · Без метрики,chores,paper,efx_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,paper,prop1_alpha,1.0,,,1,1
+3×6,Codex · EF1,chores,paper,valid,1.0,,,1,1
+3×6,Codex · EF1,chores,paper,ef1,1.0,,,1,1
+3×6,Codex · EF1,chores,paper,d,5.551115123125783e-17,,,1,1
+3×6,Codex · EF1,chores,paper,envy,0.271604938271605,,,1,1
+3×6,Codex · EF1,chores,paper,total,97.69332745922829,,,1,1
+3×6,Codex · EF1,chores,paper,gap,6.031418415319351,,,1,1
+3×6,Codex · EF1,chores,paper,sd_ef,0.0,,,1,1
+3×6,Codex · EF1,chores,paper,sd_ef1,0.0,,,1,1
+3×6,Codex · EF1,chores,paper,sd_envy,0.3333333333333333,,,1,1
+3×6,Codex · EF1,chores,paper,sd_d,0.16666666666666666,,,1,1
+3×6,Codex · EF1,chores,paper,sd_ef_pairs,0.16666666666666666,,,1,1
+3×6,Codex · EF1,chores,paper,sd_ef1_pairs,0.6666666666666666,,,1,1
+3×6,Codex · EF1,chores,paper,wrong_side_only,0.0,,,1,1
+3×6,Codex · EF1,chores,paper,goods_rule_only,0.0,,,1,1
+3×6,Codex · EF1,chores,paper,prop,0.0,,,1,1
+3×6,Codex · EF1,chores,paper,ef,0.0,,,1,1
+3×6,Codex · EF1,chores,paper,efx,0.0,,,1,1
+3×6,Codex · EF1,chores,paper,mms,0.0,,,1,1
+3×6,Codex · EF1,chores,paper,po,1.0,,,1,1
+3×6,Codex · EF1,chores,paper,mnw,,,,0,1
+3×6,Codex · EF1,chores,paper,prop1,1.0,,,1,1
+3×6,Codex · EF1,chores,paper,prop_alpha,0.706806282722513,,,1,1
+3×6,Codex · EF1,chores,paper,ef_alpha,0.42408376963350786,,,1,1
+3×6,Codex · EF1,chores,paper,ef1_alpha,1.0,,,1,1
+3×6,Codex · EF1,chores,paper,mms_alpha,0.7277486910994765,,,1,1
+3×6,Codex · EF1,chores,paper,po_alpha,1.0,,,1,1
+3×6,Codex · EF1,chores,paper,sw_ratio,0.9321681953320076,,,1,1
+3×6,Codex · EF1,chores,paper,nw_ratio,,,,0,1
+3×6,Codex · EF1,chores,paper,efx_alpha,0.5,,,1,1
+3×6,Codex · EF1,chores,paper,prop1_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,paper,valid,1.0,,,1,1
+3×6,Codex · PROP,chores,paper,ef1,1.0,,,1,1
+3×6,Codex · PROP,chores,paper,d,0.0,,,1,1
+3×6,Codex · PROP,chores,paper,envy,0.0,,,1,1
+3×6,Codex · PROP,chores,paper,total,93.89865559438097,,,1,1
+3×6,Codex · PROP,chores,paper,gap,2.2367465504720343,,,1,1
+3×6,Codex · PROP,chores,paper,sd_ef,0.0,,,1,1
+3×6,Codex · PROP,chores,paper,sd_ef1,0.0,,,1,1
+3×6,Codex · PROP,chores,paper,sd_envy,0.3333333333333333,,,1,1
+3×6,Codex · PROP,chores,paper,sd_d,0.16666666666666666,,,1,1
+3×6,Codex · PROP,chores,paper,sd_ef_pairs,0.0,,,1,1
+3×6,Codex · PROP,chores,paper,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,Codex · PROP,chores,paper,wrong_side_only,0.0,,,1,1
+3×6,Codex · PROP,chores,paper,goods_rule_only,0.0,,,1,1
+3×6,Codex · PROP,chores,paper,prop,1.0,,,1,1
+3×6,Codex · PROP,chores,paper,ef,1.0,,,1,1
+3×6,Codex · PROP,chores,paper,efx,1.0,,,1,1
+3×6,Codex · PROP,chores,paper,mms,1.0,,,1,1
+3×6,Codex · PROP,chores,paper,po,1.0,,,1,1
+3×6,Codex · PROP,chores,paper,mnw,,,,0,1
+3×6,Codex · PROP,chores,paper,prop1,1.0,,,1,1
+3×6,Codex · PROP,chores,paper,prop_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,paper,ef_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,paper,ef1_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,paper,mms_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,paper,po_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,paper,sw_ratio,0.9698393675308088,,,1,1
+3×6,Codex · PROP,chores,paper,nw_ratio,,,,0,1
+3×6,Codex · PROP,chores,paper,efx_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,paper,prop1_alpha,1.0,,,1,1
+3×6,Codex · SW/C,chores,paper,valid,1.0,,,1,1
+3×6,Codex · SW/C,chores,paper,ef1,0.0,,,1,1
+3×6,Codex · SW/C,chores,paper,d,0.3411764705882354,,,1,1
+3×6,Codex · SW/C,chores,paper,envy,0.6470588235294119,,,1,1
+3×6,Codex · SW/C,chores,paper,total,91.06661275364769,,,1,1
+3×6,Codex · SW/C,chores,paper,gap,,,,0,1
+3×6,Codex · SW/C,chores,paper,sd_ef,0.0,,,1,1
+3×6,Codex · SW/C,chores,paper,sd_ef1,0.0,,,1,1
+3×6,Codex · SW/C,chores,paper,sd_envy,0.5,,,1,1
+3×6,Codex · SW/C,chores,paper,sd_d,0.3333333333333333,,,1,1
+3×6,Codex · SW/C,chores,paper,sd_ef_pairs,0.5,,,1,1
+3×6,Codex · SW/C,chores,paper,sd_ef1_pairs,0.6666666666666666,,,1,1
+3×6,Codex · SW/C,chores,paper,wrong_side_only,0.0,,,1,1
+3×6,Codex · SW/C,chores,paper,goods_rule_only,0.0,,,1,1
+3×6,Codex · SW/C,chores,paper,prop,0.0,,,1,1
+3×6,Codex · SW/C,chores,paper,ef,0.0,,,1,1
+3×6,Codex · SW/C,chores,paper,efx,0.0,,,1,1
+3×6,Codex · SW/C,chores,paper,mms,0.0,,,1,1
+3×6,Codex · SW/C,chores,paper,po,1.0,,,1,1
+3×6,Codex · SW/C,chores,paper,mnw,,,,0,1
+3×6,Codex · SW/C,chores,paper,prop1,0.0,,,1,1
+3×6,Codex · SW/C,chores,paper,prop_alpha,0.4619565217391303,,,1,1
+3×6,Codex · SW/C,chores,paper,ef_alpha,0.10326086956521738,,,1,1
+3×6,Codex · SW/C,chores,paper,ef1_alpha,0.17924528301886788,,,1,1
+3×6,Codex · SW/C,chores,paper,mms_alpha,0.46739130434782605,,,1,1
+3×6,Codex · SW/C,chores,paper,po_alpha,1.0,,,1,1
+3×6,Codex · SW/C,chores,paper,sw_ratio,1.0,,,1,1
+3×6,Codex · SW/C,chores,paper,nw_ratio,,,,0,1
+3×6,Codex · SW/C,chores,paper,efx_alpha,0.13103448275862067,,,1,1
+3×6,Codex · SW/C,chores,paper,prop1_alpha,0.80188679245283,,,1,1
+3×6,EF1-opt (exact),goods,uniform,valid,1.0,,,1,1
+3×6,EF1-opt (exact),goods,uniform,ef1,1.0,,,1,1
+3×6,EF1-opt (exact),goods,uniform,d,0.0,,,1,1
+3×6,EF1-opt (exact),goods,uniform,envy,0.1538461538461539,,,1,1
+3×6,EF1-opt (exact),goods,uniform,total,137.44063012355693,,,1,1
+3×6,EF1-opt (exact),goods,uniform,gap,0.0,,,1,1
+3×6,EF1-opt (exact),goods,uniform,sd_ef,0.0,,,1,1
+3×6,EF1-opt (exact),goods,uniform,sd_ef1,0.0,,,1,1
+3×6,EF1-opt (exact),goods,uniform,sd_envy,0.3333333333333333,,,1,1
+3×6,EF1-opt (exact),goods,uniform,sd_d,0.16666666666666666,,,1,1
+3×6,EF1-opt (exact),goods,uniform,sd_ef_pairs,0.5,,,1,1
+3×6,EF1-opt (exact),goods,uniform,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,EF1-opt (exact),goods,uniform,wrong_side_only,,,,0,1
+3×6,EF1-opt (exact),goods,uniform,goods_rule_only,,,,0,1
+3×6,EF1-opt (exact),goods,uniform,prop,0.0,,,1,1
+3×6,EF1-opt (exact),goods,uniform,ef,0.0,,,1,1
+3×6,EF1-opt (exact),goods,uniform,efx,0.0,,,1,1
+3×6,EF1-opt (exact),goods,uniform,mms,0.0,,,1,1
+3×6,EF1-opt (exact),goods,uniform,po,1.0,,,1,1
+3×6,EF1-opt (exact),goods,uniform,mnw,0.0,,,1,1
+3×6,EF1-opt (exact),goods,uniform,prop1,1.0,,,1,1
+3×6,EF1-opt (exact),goods,uniform,prop_alpha,0.7692307692307692,,,1,1
+3×6,EF1-opt (exact),goods,uniform,ef_alpha,0.625,,,1,1
+3×6,EF1-opt (exact),goods,uniform,ef1_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),goods,uniform,mms_alpha,0.9090909090909091,,,1,1
+3×6,EF1-opt (exact),goods,uniform,po_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),goods,uniform,sw_ratio,0.9999999999999999,,,1,1
+3×6,EF1-opt (exact),goods,uniform,nw_ratio,0.9420061698040196,,,1,1
+3×6,EF1-opt (exact),goods,uniform,efx_alpha,0.6666666666666666,,,1,1
+3×6,EF1-opt (exact),goods,uniform,prop1_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,uniform,valid,1.0,,,1,1
+3×6,Round-Robin,goods,uniform,ef1,1.0,,,1,1
+3×6,Round-Robin,goods,uniform,d,0.0,,,1,1
+3×6,Round-Robin,goods,uniform,envy,0.0,,,1,1
+3×6,Round-Robin,goods,uniform,total,130.8740259959772,,,1,1
+3×6,Round-Robin,goods,uniform,gap,6.566604127579723,,,1,1
+3×6,Round-Robin,goods,uniform,sd_ef,1.0,,,1,1
+3×6,Round-Robin,goods,uniform,sd_ef1,1.0,,,1,1
+3×6,Round-Robin,goods,uniform,sd_envy,0.0,,,1,1
+3×6,Round-Robin,goods,uniform,sd_d,0.0,,,1,1
+3×6,Round-Robin,goods,uniform,sd_ef_pairs,1.0,,,1,1
+3×6,Round-Robin,goods,uniform,sd_ef1_pairs,1.0,,,1,1
+3×6,Round-Robin,goods,uniform,wrong_side_only,,,,0,1
+3×6,Round-Robin,goods,uniform,goods_rule_only,,,,0,1
+3×6,Round-Robin,goods,uniform,prop,1.0,,,1,1
+3×6,Round-Robin,goods,uniform,ef,1.0,,,1,1
+3×6,Round-Robin,goods,uniform,efx,1.0,,,1,1
+3×6,Round-Robin,goods,uniform,mms,1.0,,,1,1
+3×6,Round-Robin,goods,uniform,po,1.0,,,1,1
+3×6,Round-Robin,goods,uniform,mnw,0.0,,,1,1
+3×6,Round-Robin,goods,uniform,prop1,1.0,,,1,1
+3×6,Round-Robin,goods,uniform,prop_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,uniform,ef_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,uniform,ef1_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,uniform,mms_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,uniform,po_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,uniform,sw_ratio,0.9522222495511228,,,1,1
+3×6,Round-Robin,goods,uniform,nw_ratio,0.9624909510583245,,,1,1
+3×6,Round-Robin,goods,uniform,efx_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,uniform,prop1_alpha,1.0,,,1,1
+3×6,MaxSW,goods,uniform,valid,1.0,,,1,1
+3×6,MaxSW,goods,uniform,ef1,1.0,,,1,1
+3×6,MaxSW,goods,uniform,d,0.0,,,1,1
+3×6,MaxSW,goods,uniform,envy,0.1538461538461539,,,1,1
+3×6,MaxSW,goods,uniform,total,137.44063012355693,,,1,1
+3×6,MaxSW,goods,uniform,gap,0.0,,,1,1
+3×6,MaxSW,goods,uniform,sd_ef,0.0,,,1,1
+3×6,MaxSW,goods,uniform,sd_ef1,0.0,,,1,1
+3×6,MaxSW,goods,uniform,sd_envy,0.3333333333333333,,,1,1
+3×6,MaxSW,goods,uniform,sd_d,0.16666666666666666,,,1,1
+3×6,MaxSW,goods,uniform,sd_ef_pairs,0.5,,,1,1
+3×6,MaxSW,goods,uniform,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,MaxSW,goods,uniform,wrong_side_only,,,,0,1
+3×6,MaxSW,goods,uniform,goods_rule_only,,,,0,1
+3×6,MaxSW,goods,uniform,prop,0.0,,,1,1
+3×6,MaxSW,goods,uniform,ef,0.0,,,1,1
+3×6,MaxSW,goods,uniform,efx,0.0,,,1,1
+3×6,MaxSW,goods,uniform,mms,0.0,,,1,1
+3×6,MaxSW,goods,uniform,po,1.0,,,1,1
+3×6,MaxSW,goods,uniform,mnw,0.0,,,1,1
+3×6,MaxSW,goods,uniform,prop1,1.0,,,1,1
+3×6,MaxSW,goods,uniform,prop_alpha,0.7692307692307692,,,1,1
+3×6,MaxSW,goods,uniform,ef_alpha,0.625,,,1,1
+3×6,MaxSW,goods,uniform,ef1_alpha,1.0,,,1,1
+3×6,MaxSW,goods,uniform,mms_alpha,0.9090909090909091,,,1,1
+3×6,MaxSW,goods,uniform,po_alpha,1.0,,,1,1
+3×6,MaxSW,goods,uniform,sw_ratio,0.9999999999999999,,,1,1
+3×6,MaxSW,goods,uniform,nw_ratio,0.9420061698040196,,,1,1
+3×6,MaxSW,goods,uniform,efx_alpha,0.6666666666666666,,,1,1
+3×6,MaxSW,goods,uniform,prop1_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,uniform,valid,1.0,,,1,1
+3×6,MNW (exact),goods,uniform,ef1,1.0,,,1,1
+3×6,MNW (exact),goods,uniform,d,0.0,,,1,1
+3×6,MNW (exact),goods,uniform,envy,0.0,,,1,1
+3×6,MNW (exact),goods,uniform,total,136.127309298041,,,1,1
+3×6,MNW (exact),goods,uniform,gap,1.3133208255159161,,,1,1
+3×6,MNW (exact),goods,uniform,sd_ef,0.0,,,1,1
+3×6,MNW (exact),goods,uniform,sd_ef1,1.0,,,1,1
+3×6,MNW (exact),goods,uniform,sd_envy,0.16666666666666666,,,1,1
+3×6,MNW (exact),goods,uniform,sd_d,0.0,,,1,1
+3×6,MNW (exact),goods,uniform,sd_ef_pairs,0.8333333333333334,,,1,1
+3×6,MNW (exact),goods,uniform,sd_ef1_pairs,1.0,,,1,1
+3×6,MNW (exact),goods,uniform,wrong_side_only,,,,0,1
+3×6,MNW (exact),goods,uniform,goods_rule_only,,,,0,1
+3×6,MNW (exact),goods,uniform,prop,1.0,,,1,1
+3×6,MNW (exact),goods,uniform,ef,1.0,,,1,1
+3×6,MNW (exact),goods,uniform,efx,1.0,,,1,1
+3×6,MNW (exact),goods,uniform,mms,1.0,,,1,1
+3×6,MNW (exact),goods,uniform,po,1.0,,,1,1
+3×6,MNW (exact),goods,uniform,mnw,1.0,,,1,1
+3×6,MNW (exact),goods,uniform,prop1,1.0,,,1,1
+3×6,MNW (exact),goods,uniform,prop_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,uniform,ef_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,uniform,ef1_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,uniform,mms_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,uniform,po_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,uniform,sw_ratio,0.9904444499102246,,,1,1
+3×6,MNW (exact),goods,uniform,nw_ratio,1.0,,,1,1
+3×6,MNW (exact),goods,uniform,efx_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,uniform,prop1_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,uniform,valid,1.0,,,1,1
+3×6,Codex · Без метрики,goods,uniform,ef1,1.0,,,1,1
+3×6,Codex · Без метрики,goods,uniform,d,0.0,,,1,1
+3×6,Codex · Без метрики,goods,uniform,envy,0.0,,,1,1
+3×6,Codex · Без метрики,goods,uniform,total,133.29952842147964,,,1,1
+3×6,Codex · Без метрики,goods,uniform,gap,4.141101702077293,,,1,1
+3×6,Codex · Без метрики,goods,uniform,sd_ef,1.0,,,1,1
+3×6,Codex · Без метрики,goods,uniform,sd_ef1,1.0,,,1,1
+3×6,Codex · Без метрики,goods,uniform,sd_envy,0.0,,,1,1
+3×6,Codex · Без метрики,goods,uniform,sd_d,0.0,,,1,1
+3×6,Codex · Без метрики,goods,uniform,sd_ef_pairs,1.0,,,1,1
+3×6,Codex · Без метрики,goods,uniform,sd_ef1_pairs,1.0,,,1,1
+3×6,Codex · Без метрики,goods,uniform,wrong_side_only,,,,0,1
+3×6,Codex · Без метрики,goods,uniform,goods_rule_only,,,,0,1
+3×6,Codex · Без метрики,goods,uniform,prop,1.0,,,1,1
+3×6,Codex · Без метрики,goods,uniform,ef,1.0,,,1,1
+3×6,Codex · Без метрики,goods,uniform,efx,1.0,,,1,1
+3×6,Codex · Без метрики,goods,uniform,mms,1.0,,,1,1
+3×6,Codex · Без метрики,goods,uniform,po,1.0,,,1,1
+3×6,Codex · Без метрики,goods,uniform,mnw,0.0,,,1,1
+3×6,Codex · Без метрики,goods,uniform,prop1,1.0,,,1,1
+3×6,Codex · Без метрики,goods,uniform,prop_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,uniform,ef_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,uniform,ef1_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,uniform,mms_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,uniform,po_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,uniform,sw_ratio,0.9698698871043115,,,1,1
+3×6,Codex · Без метрики,goods,uniform,nw_ratio,0.981004914496474,,,1,1
+3×6,Codex · Без метрики,goods,uniform,efx_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,uniform,prop1_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,uniform,valid,1.0,,,1,1
+3×6,Codex · EF1,goods,uniform,ef1,1.0,,,1,1
+3×6,Codex · EF1,goods,uniform,d,0.0,,,1,1
+3×6,Codex · EF1,goods,uniform,envy,0.0,,,1,1
+3×6,Codex · EF1,goods,uniform,total,136.127309298041,,,1,1
+3×6,Codex · EF1,goods,uniform,gap,1.3133208255159161,,,1,1
+3×6,Codex · EF1,goods,uniform,sd_ef,0.0,,,1,1
+3×6,Codex · EF1,goods,uniform,sd_ef1,1.0,,,1,1
+3×6,Codex · EF1,goods,uniform,sd_envy,0.16666666666666666,,,1,1
+3×6,Codex · EF1,goods,uniform,sd_d,0.0,,,1,1
+3×6,Codex · EF1,goods,uniform,sd_ef_pairs,0.8333333333333334,,,1,1
+3×6,Codex · EF1,goods,uniform,sd_ef1_pairs,1.0,,,1,1
+3×6,Codex · EF1,goods,uniform,wrong_side_only,,,,0,1
+3×6,Codex · EF1,goods,uniform,goods_rule_only,,,,0,1
+3×6,Codex · EF1,goods,uniform,prop,1.0,,,1,1
+3×6,Codex · EF1,goods,uniform,ef,1.0,,,1,1
+3×6,Codex · EF1,goods,uniform,efx,1.0,,,1,1
+3×6,Codex · EF1,goods,uniform,mms,1.0,,,1,1
+3×6,Codex · EF1,goods,uniform,po,1.0,,,1,1
+3×6,Codex · EF1,goods,uniform,mnw,1.0,,,1,1
+3×6,Codex · EF1,goods,uniform,prop1,1.0,,,1,1
+3×6,Codex · EF1,goods,uniform,prop_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,uniform,ef_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,uniform,ef1_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,uniform,mms_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,uniform,po_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,uniform,sw_ratio,0.9904444499102246,,,1,1
+3×6,Codex · EF1,goods,uniform,nw_ratio,1.0,,,1,1
+3×6,Codex · EF1,goods,uniform,efx_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,uniform,prop1_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,uniform,valid,1.0,,,1,1
+3×6,Codex · PROP,goods,uniform,ef1,1.0,,,1,1
+3×6,Codex · PROP,goods,uniform,d,0.0,,,1,1
+3×6,Codex · PROP,goods,uniform,envy,0.0,,,1,1
+3×6,Codex · PROP,goods,uniform,total,136.127309298041,,,1,1
+3×6,Codex · PROP,goods,uniform,gap,1.3133208255159161,,,1,1
+3×6,Codex · PROP,goods,uniform,sd_ef,0.0,,,1,1
+3×6,Codex · PROP,goods,uniform,sd_ef1,1.0,,,1,1
+3×6,Codex · PROP,goods,uniform,sd_envy,0.16666666666666666,,,1,1
+3×6,Codex · PROP,goods,uniform,sd_d,0.0,,,1,1
+3×6,Codex · PROP,goods,uniform,sd_ef_pairs,0.8333333333333334,,,1,1
+3×6,Codex · PROP,goods,uniform,sd_ef1_pairs,1.0,,,1,1
+3×6,Codex · PROP,goods,uniform,wrong_side_only,,,,0,1
+3×6,Codex · PROP,goods,uniform,goods_rule_only,,,,0,1
+3×6,Codex · PROP,goods,uniform,prop,1.0,,,1,1
+3×6,Codex · PROP,goods,uniform,ef,1.0,,,1,1
+3×6,Codex · PROP,goods,uniform,efx,1.0,,,1,1
+3×6,Codex · PROP,goods,uniform,mms,1.0,,,1,1
+3×6,Codex · PROP,goods,uniform,po,1.0,,,1,1
+3×6,Codex · PROP,goods,uniform,mnw,1.0,,,1,1
+3×6,Codex · PROP,goods,uniform,prop1,1.0,,,1,1
+3×6,Codex · PROP,goods,uniform,prop_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,uniform,ef_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,uniform,ef1_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,uniform,mms_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,uniform,po_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,uniform,sw_ratio,0.9904444499102246,,,1,1
+3×6,Codex · PROP,goods,uniform,nw_ratio,1.0,,,1,1
+3×6,Codex · PROP,goods,uniform,efx_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,uniform,prop1_alpha,1.0,,,1,1
+3×6,Codex · SW/C,goods,uniform,valid,1.0,,,1,1
+3×6,Codex · SW/C,goods,uniform,ef1,1.0,,,1,1
+3×6,Codex · SW/C,goods,uniform,d,0.0,,,1,1
+3×6,Codex · SW/C,goods,uniform,envy,0.1538461538461539,,,1,1
+3×6,Codex · SW/C,goods,uniform,total,137.44063012355693,,,1,1
+3×6,Codex · SW/C,goods,uniform,gap,0.0,,,1,1
+3×6,Codex · SW/C,goods,uniform,sd_ef,0.0,,,1,1
+3×6,Codex · SW/C,goods,uniform,sd_ef1,0.0,,,1,1
+3×6,Codex · SW/C,goods,uniform,sd_envy,0.3333333333333333,,,1,1
+3×6,Codex · SW/C,goods,uniform,sd_d,0.16666666666666666,,,1,1
+3×6,Codex · SW/C,goods,uniform,sd_ef_pairs,0.5,,,1,1
+3×6,Codex · SW/C,goods,uniform,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,Codex · SW/C,goods,uniform,wrong_side_only,,,,0,1
+3×6,Codex · SW/C,goods,uniform,goods_rule_only,,,,0,1
+3×6,Codex · SW/C,goods,uniform,prop,0.0,,,1,1
+3×6,Codex · SW/C,goods,uniform,ef,0.0,,,1,1
+3×6,Codex · SW/C,goods,uniform,efx,0.0,,,1,1
+3×6,Codex · SW/C,goods,uniform,mms,0.0,,,1,1
+3×6,Codex · SW/C,goods,uniform,po,1.0,,,1,1
+3×6,Codex · SW/C,goods,uniform,mnw,0.0,,,1,1
+3×6,Codex · SW/C,goods,uniform,prop1,1.0,,,1,1
+3×6,Codex · SW/C,goods,uniform,prop_alpha,0.7692307692307692,,,1,1
+3×6,Codex · SW/C,goods,uniform,ef_alpha,0.625,,,1,1
+3×6,Codex · SW/C,goods,uniform,ef1_alpha,1.0,,,1,1
+3×6,Codex · SW/C,goods,uniform,mms_alpha,0.9090909090909091,,,1,1
+3×6,Codex · SW/C,goods,uniform,po_alpha,1.0,,,1,1
+3×6,Codex · SW/C,goods,uniform,sw_ratio,0.9999999999999999,,,1,1
+3×6,Codex · SW/C,goods,uniform,nw_ratio,0.9420061698040196,,,1,1
+3×6,Codex · SW/C,goods,uniform,efx_alpha,0.6666666666666666,,,1,1
+3×6,Codex · SW/C,goods,uniform,prop1_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),chores,uniform,valid,1.0,,,1,1
+3×6,EF1-opt (exact),chores,uniform,ef1,1.0,,,1,1
+3×6,EF1-opt (exact),chores,uniform,d,0.0,,,1,1
+3×6,EF1-opt (exact),chores,uniform,envy,0.09756097560975613,,,1,1
+3×6,EF1-opt (exact),chores,uniform,total,71.0139783310515,,,1,1
+3×6,EF1-opt (exact),chores,uniform,gap,0.0,,,1,1
+3×6,EF1-opt (exact),chores,uniform,sd_ef,0.0,,,1,1
+3×6,EF1-opt (exact),chores,uniform,sd_ef1,0.0,,,1,1
+3×6,EF1-opt (exact),chores,uniform,sd_envy,0.3333333333333333,,,1,1
+3×6,EF1-opt (exact),chores,uniform,sd_d,0.16666666666666666,,,1,1
+3×6,EF1-opt (exact),chores,uniform,sd_ef_pairs,0.5,,,1,1
+3×6,EF1-opt (exact),chores,uniform,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,EF1-opt (exact),chores,uniform,wrong_side_only,0.0,,,1,1
+3×6,EF1-opt (exact),chores,uniform,goods_rule_only,0.0,,,1,1
+3×6,EF1-opt (exact),chores,uniform,prop,0.0,,,1,1
+3×6,EF1-opt (exact),chores,uniform,ef,0.0,,,1,1
+3×6,EF1-opt (exact),chores,uniform,efx,0.0,,,1,1
+3×6,EF1-opt (exact),chores,uniform,mms,1.0,,,1,1
+3×6,EF1-opt (exact),chores,uniform,po,1.0,,,1,1
+3×6,EF1-opt (exact),chores,uniform,mnw,,,,0,1
+3×6,EF1-opt (exact),chores,uniform,prop1,1.0,,,1,1
+3×6,EF1-opt (exact),chores,uniform,prop_alpha,0.976190476190476,,,1,1
+3×6,EF1-opt (exact),chores,uniform,ef_alpha,0.7142857142857142,,,1,1
+3×6,EF1-opt (exact),chores,uniform,ef1_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),chores,uniform,mms_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),chores,uniform,po_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),chores,uniform,sw_ratio,1.0,,,1,1
+3×6,EF1-opt (exact),chores,uniform,nw_ratio,,,,0,1
+3×6,EF1-opt (exact),chores,uniform,efx_alpha,0.8333333333333333,,,1,1
+3×6,EF1-opt (exact),chores,uniform,prop1_alpha,1.0,,,1,1
+3×6,Round-Robin,chores,uniform,valid,1.0,,,1,1
+3×6,Round-Robin,chores,uniform,ef1,1.0,,,1,1
+3×6,Round-Robin,chores,uniform,d,0.0,,,1,1
+3×6,Round-Robin,chores,uniform,envy,0.15384615384615383,,,1,1
+3×6,Round-Robin,chores,uniform,total,89.6286530432872,,,1,1
+3×6,Round-Robin,chores,uniform,gap,18.614674712235697,,,1,1
+3×6,Round-Robin,chores,uniform,sd_ef,0.0,,,1,1
+3×6,Round-Robin,chores,uniform,sd_ef1,1.0,,,1,1
+3×6,Round-Robin,chores,uniform,sd_envy,0.16666666666666666,,,1,1
+3×6,Round-Robin,chores,uniform,sd_d,0.0,,,1,1
+3×6,Round-Robin,chores,uniform,sd_ef_pairs,0.5,,,1,1
+3×6,Round-Robin,chores,uniform,sd_ef1_pairs,1.0,,,1,1
+3×6,Round-Robin,chores,uniform,wrong_side_only,0.0,,,1,1
+3×6,Round-Robin,chores,uniform,goods_rule_only,0.0,,,1,1
+3×6,Round-Robin,chores,uniform,prop,1.0,,,1,1
+3×6,Round-Robin,chores,uniform,ef,0.0,,,1,1
+3×6,Round-Robin,chores,uniform,efx,0.0,,,1,1
+3×6,Round-Robin,chores,uniform,mms,1.0,,,1,1
+3×6,Round-Robin,chores,uniform,po,0.0,,,1,1
+3×6,Round-Robin,chores,uniform,mnw,,,,0,1
+3×6,Round-Robin,chores,uniform,prop1,1.0,,,1,1
+3×6,Round-Robin,chores,uniform,prop_alpha,1.0,,,1,1
+3×6,Round-Robin,chores,uniform,ef_alpha,0.5384615384615385,,,1,1
+3×6,Round-Robin,chores,uniform,ef1_alpha,1.0,,,1,1
+3×6,Round-Robin,chores,uniform,mms_alpha,1.0,,,1,1
+3×6,Round-Robin,chores,uniform,po_alpha,0.9230769230769231,,,1,1
+3×6,Round-Robin,chores,uniform,sw_ratio,0.7923133498029306,,,1,1
+3×6,Round-Robin,chores,uniform,nw_ratio,,,,0,1
+3×6,Round-Robin,chores,uniform,efx_alpha,0.875,,,1,1
+3×6,Round-Robin,chores,uniform,prop1_alpha,1.0,,,1,1
+3×6,MinSW,chores,uniform,valid,1.0,,,1,1
+3×6,MinSW,chores,uniform,ef1,1.0,,,1,1
+3×6,MinSW,chores,uniform,d,0.0,,,1,1
+3×6,MinSW,chores,uniform,envy,0.09756097560975613,,,1,1
+3×6,MinSW,chores,uniform,total,71.0139783310515,,,1,1
+3×6,MinSW,chores,uniform,gap,0.0,,,1,1
+3×6,MinSW,chores,uniform,sd_ef,0.0,,,1,1
+3×6,MinSW,chores,uniform,sd_ef1,0.0,,,1,1
+3×6,MinSW,chores,uniform,sd_envy,0.3333333333333333,,,1,1
+3×6,MinSW,chores,uniform,sd_d,0.16666666666666666,,,1,1
+3×6,MinSW,chores,uniform,sd_ef_pairs,0.5,,,1,1
+3×6,MinSW,chores,uniform,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,MinSW,chores,uniform,wrong_side_only,0.0,,,1,1
+3×6,MinSW,chores,uniform,goods_rule_only,0.0,,,1,1
+3×6,MinSW,chores,uniform,prop,0.0,,,1,1
+3×6,MinSW,chores,uniform,ef,0.0,,,1,1
+3×6,MinSW,chores,uniform,efx,0.0,,,1,1
+3×6,MinSW,chores,uniform,mms,1.0,,,1,1
+3×6,MinSW,chores,uniform,po,1.0,,,1,1
+3×6,MinSW,chores,uniform,mnw,,,,0,1
+3×6,MinSW,chores,uniform,prop1,1.0,,,1,1
+3×6,MinSW,chores,uniform,prop_alpha,0.976190476190476,,,1,1
+3×6,MinSW,chores,uniform,ef_alpha,0.7142857142857142,,,1,1
+3×6,MinSW,chores,uniform,ef1_alpha,1.0,,,1,1
+3×6,MinSW,chores,uniform,mms_alpha,1.0,,,1,1
+3×6,MinSW,chores,uniform,po_alpha,1.0,,,1,1
+3×6,MinSW,chores,uniform,sw_ratio,1.0,,,1,1
+3×6,MinSW,chores,uniform,nw_ratio,,,,0,1
+3×6,MinSW,chores,uniform,efx_alpha,0.8333333333333333,,,1,1
+3×6,MinSW,chores,uniform,prop1_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,uniform,valid,1.0,,,1,1
+3×6,Codex · Без метрики,chores,uniform,ef1,1.0,,,1,1
+3×6,Codex · Без метрики,chores,uniform,d,0.0,,,1,1
+3×6,Codex · Без метрики,chores,uniform,envy,5.551115123125783e-17,,,1,1
+3×6,Codex · Без метрики,chores,uniform,total,74.24403765867181,,,1,1
+3×6,Codex · Без метрики,chores,uniform,gap,3.2300593276203102,,,1,1
+3×6,Codex · Без метрики,chores,uniform,sd_ef,0.0,,,1,1
+3×6,Codex · Без метрики,chores,uniform,sd_ef1,1.0,,,1,1
+3×6,Codex · Без метрики,chores,uniform,sd_envy,0.16666666666666666,,,1,1
+3×6,Codex · Без метрики,chores,uniform,sd_d,0.0,,,1,1
+3×6,Codex · Без метрики,chores,uniform,sd_ef_pairs,0.8333333333333334,,,1,1
+3×6,Codex · Без метрики,chores,uniform,sd_ef1_pairs,1.0,,,1,1
+3×6,Codex · Без метрики,chores,uniform,wrong_side_only,0.0,,,1,1
+3×6,Codex · Без метрики,chores,uniform,goods_rule_only,0.0,,,1,1
+3×6,Codex · Без метрики,chores,uniform,prop,1.0,,,1,1
+3×6,Codex · Без метрики,chores,uniform,ef,1.0,,,1,1
+3×6,Codex · Без метрики,chores,uniform,efx,1.0,,,1,1
+3×6,Codex · Без метрики,chores,uniform,mms,1.0,,,1,1
+3×6,Codex · Без метрики,chores,uniform,po,1.0,,,1,1
+3×6,Codex · Без метрики,chores,uniform,mnw,,,,0,1
+3×6,Codex · Без метрики,chores,uniform,prop1,1.0,,,1,1
+3×6,Codex · Без метрики,chores,uniform,prop_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,uniform,ef_alpha,0.9999999999999998,,,1,1
+3×6,Codex · Без метрики,chores,uniform,ef1_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,uniform,mms_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,uniform,po_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,uniform,sw_ratio,0.9564940239043824,,,1,1
+3×6,Codex · Без метрики,chores,uniform,nw_ratio,,,,0,1
+3×6,Codex · Без метрики,chores,uniform,efx_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,uniform,prop1_alpha,1.0,,,1,1
+3×6,Codex · EF1,chores,uniform,valid,1.0,,,1,1
+3×6,Codex · EF1,chores,uniform,ef1,1.0,,,1,1
+3×6,Codex · EF1,chores,uniform,d,0.0,,,1,1
+3×6,Codex · EF1,chores,uniform,envy,0.08108108108108109,,,1,1
+3×6,Codex · EF1,chores,uniform,total,77.98793164646823,,,1,1
+3×6,Codex · EF1,chores,uniform,gap,6.973953315416722,,,1,1
+3×6,Codex · EF1,chores,uniform,sd_ef,0.0,,,1,1
+3×6,Codex · EF1,chores,uniform,sd_ef1,1.0,,,1,1
+3×6,Codex · EF1,chores,uniform,sd_envy,0.16666666666666666,,,1,1
+3×6,Codex · EF1,chores,uniform,sd_d,0.0,,,1,1
+3×6,Codex · EF1,chores,uniform,sd_ef_pairs,0.6666666666666666,,,1,1
+3×6,Codex · EF1,chores,uniform,sd_ef1_pairs,1.0,,,1,1
+3×6,Codex · EF1,chores,uniform,wrong_side_only,0.0,,,1,1
+3×6,Codex · EF1,chores,uniform,goods_rule_only,0.0,,,1,1
+3×6,Codex · EF1,chores,uniform,prop,0.0,,,1,1
+3×6,Codex · EF1,chores,uniform,ef,0.0,,,1,1
+3×6,Codex · EF1,chores,uniform,efx,1.0,,,1,1
+3×6,Codex · EF1,chores,uniform,mms,1.0,,,1,1
+3×6,Codex · EF1,chores,uniform,po,1.0,,,1,1
+3×6,Codex · EF1,chores,uniform,mnw,,,,0,1
+3×6,Codex · EF1,chores,uniform,prop1,1.0,,,1,1
+3×6,Codex · EF1,chores,uniform,prop_alpha,0.8809523809523808,,,1,1
+3×6,Codex · EF1,chores,uniform,ef_alpha,0.7857142857142857,,,1,1
+3×6,Codex · EF1,chores,uniform,ef1_alpha,1.0,,,1,1
+3×6,Codex · EF1,chores,uniform,mms_alpha,1.0,,,1,1
+3×6,Codex · EF1,chores,uniform,po_alpha,1.0,,,1,1
+3×6,Codex · EF1,chores,uniform,sw_ratio,0.9105765062852191,,,1,1
+3×6,Codex · EF1,chores,uniform,nw_ratio,,,,0,1
+3×6,Codex · EF1,chores,uniform,efx_alpha,1.0,,,1,1
+3×6,Codex · EF1,chores,uniform,prop1_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,uniform,valid,1.0,,,1,1
+3×6,Codex · PROP,chores,uniform,ef1,1.0,,,1,1
+3×6,Codex · PROP,chores,uniform,d,0.0,,,1,1
+3×6,Codex · PROP,chores,uniform,envy,0.025641025641025605,,,1,1
+3×6,Codex · PROP,chores,uniform,total,77.18337474435035,,,1,1
+3×6,Codex · PROP,chores,uniform,gap,6.169396413298841,,,1,1
+3×6,Codex · PROP,chores,uniform,sd_ef,0.0,,,1,1
+3×6,Codex · PROP,chores,uniform,sd_ef1,1.0,,,1,1
+3×6,Codex · PROP,chores,uniform,sd_envy,0.16666666666666666,,,1,1
+3×6,Codex · PROP,chores,uniform,sd_d,0.0,,,1,1
+3×6,Codex · PROP,chores,uniform,sd_ef_pairs,0.8333333333333334,,,1,1
+3×6,Codex · PROP,chores,uniform,sd_ef1_pairs,1.0,,,1,1
+3×6,Codex · PROP,chores,uniform,wrong_side_only,0.0,,,1,1
+3×6,Codex · PROP,chores,uniform,goods_rule_only,0.0,,,1,1
+3×6,Codex · PROP,chores,uniform,prop,1.0,,,1,1
+3×6,Codex · PROP,chores,uniform,ef,0.0,,,1,1
+3×6,Codex · PROP,chores,uniform,efx,1.0,,,1,1
+3×6,Codex · PROP,chores,uniform,mms,1.0,,,1,1
+3×6,Codex · PROP,chores,uniform,po,1.0,,,1,1
+3×6,Codex · PROP,chores,uniform,mnw,,,,0,1
+3×6,Codex · PROP,chores,uniform,prop1,1.0,,,1,1
+3×6,Codex · PROP,chores,uniform,prop_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,uniform,ef_alpha,0.9090909090909092,,,1,1
+3×6,Codex · PROP,chores,uniform,ef1_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,uniform,mms_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,uniform,po_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,uniform,sw_ratio,0.9200683251576736,,,1,1
+3×6,Codex · PROP,chores,uniform,nw_ratio,,,,0,1
+3×6,Codex · PROP,chores,uniform,efx_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,uniform,prop1_alpha,1.0,,,1,1
+3×6,Codex · SW/C,chores,uniform,valid,1.0,,,1,1
+3×6,Codex · SW/C,chores,uniform,ef1,1.0,,,1,1
+3×6,Codex · SW/C,chores,uniform,d,0.0,,,1,1
+3×6,Codex · SW/C,chores,uniform,envy,0.09756097560975613,,,1,1
+3×6,Codex · SW/C,chores,uniform,total,71.0139783310515,,,1,1
+3×6,Codex · SW/C,chores,uniform,gap,0.0,,,1,1
+3×6,Codex · SW/C,chores,uniform,sd_ef,0.0,,,1,1
+3×6,Codex · SW/C,chores,uniform,sd_ef1,0.0,,,1,1
+3×6,Codex · SW/C,chores,uniform,sd_envy,0.3333333333333333,,,1,1
+3×6,Codex · SW/C,chores,uniform,sd_d,0.16666666666666666,,,1,1
+3×6,Codex · SW/C,chores,uniform,sd_ef_pairs,0.5,,,1,1
+3×6,Codex · SW/C,chores,uniform,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,Codex · SW/C,chores,uniform,wrong_side_only,0.0,,,1,1
+3×6,Codex · SW/C,chores,uniform,goods_rule_only,0.0,,,1,1
+3×6,Codex · SW/C,chores,uniform,prop,0.0,,,1,1
+3×6,Codex · SW/C,chores,uniform,ef,0.0,,,1,1
+3×6,Codex · SW/C,chores,uniform,efx,0.0,,,1,1
+3×6,Codex · SW/C,chores,uniform,mms,1.0,,,1,1
+3×6,Codex · SW/C,chores,uniform,po,1.0,,,1,1
+3×6,Codex · SW/C,chores,uniform,mnw,,,,0,1
+3×6,Codex · SW/C,chores,uniform,prop1,1.0,,,1,1
+3×6,Codex · SW/C,chores,uniform,prop_alpha,0.976190476190476,,,1,1
+3×6,Codex · SW/C,chores,uniform,ef_alpha,0.7142857142857142,,,1,1
+3×6,Codex · SW/C,chores,uniform,ef1_alpha,1.0,,,1,1
+3×6,Codex · SW/C,chores,uniform,mms_alpha,1.0,,,1,1
+3×6,Codex · SW/C,chores,uniform,po_alpha,1.0,,,1,1
+3×6,Codex · SW/C,chores,uniform,sw_ratio,1.0,,,1,1
+3×6,Codex · SW/C,chores,uniform,nw_ratio,,,,0,1
+3×6,Codex · SW/C,chores,uniform,efx_alpha,0.8333333333333333,,,1,1
+3×6,Codex · SW/C,chores,uniform,prop1_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),goods,r=2,valid,1.0,,,1,1
+3×6,EF1-opt (exact),goods,r=2,ef1,1.0,,,1,1
+3×6,EF1-opt (exact),goods,r=2,d,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=2,envy,0.2,,,1,1
+3×6,EF1-opt (exact),goods,r=2,total,120.0,,,1,1
+3×6,EF1-opt (exact),goods,r=2,gap,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=2,sd_ef,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=2,sd_ef1,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=2,sd_envy,0.3333333333333333,,,1,1
+3×6,EF1-opt (exact),goods,r=2,sd_d,0.16666666666666666,,,1,1
+3×6,EF1-opt (exact),goods,r=2,sd_ef_pairs,0.5,,,1,1
+3×6,EF1-opt (exact),goods,r=2,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,EF1-opt (exact),goods,r=2,wrong_side_only,,,,0,1
+3×6,EF1-opt (exact),goods,r=2,goods_rule_only,,,,0,1
+3×6,EF1-opt (exact),goods,r=2,prop,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=2,ef,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=2,efx,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=2,mms,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=2,po,1.0,,,1,1
+3×6,EF1-opt (exact),goods,r=2,mnw,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=2,prop1,1.0,,,1,1
+3×6,EF1-opt (exact),goods,r=2,prop_alpha,0.6000000000000001,,,1,1
+3×6,EF1-opt (exact),goods,r=2,ef_alpha,0.5,,,1,1
+3×6,EF1-opt (exact),goods,r=2,ef1_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),goods,r=2,mms_alpha,0.6666666666666666,,,1,1
+3×6,EF1-opt (exact),goods,r=2,po_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),goods,r=2,sw_ratio,1.0,,,1,1
+3×6,EF1-opt (exact),goods,r=2,nw_ratio,0.9614997135382722,,,1,1
+3×6,EF1-opt (exact),goods,r=2,efx_alpha,0.6666666666666666,,,1,1
+3×6,EF1-opt (exact),goods,r=2,prop1_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,r=2,valid,1.0,,,1,1
+3×6,Round-Robin,goods,r=2,ef1,1.0,,,1,1
+3×6,Round-Robin,goods,r=2,d,0.0,,,1,1
+3×6,Round-Robin,goods,r=2,envy,0.0,,,1,1
+3×6,Round-Robin,goods,r=2,total,114.99999999999999,,,1,1
+3×6,Round-Robin,goods,r=2,gap,5.000000000000014,,,1,1
+3×6,Round-Robin,goods,r=2,sd_ef,1.0,,,1,1
+3×6,Round-Robin,goods,r=2,sd_ef1,1.0,,,1,1
+3×6,Round-Robin,goods,r=2,sd_envy,0.0,,,1,1
+3×6,Round-Robin,goods,r=2,sd_d,0.0,,,1,1
+3×6,Round-Robin,goods,r=2,sd_ef_pairs,1.0,,,1,1
+3×6,Round-Robin,goods,r=2,sd_ef1_pairs,1.0,,,1,1
+3×6,Round-Robin,goods,r=2,wrong_side_only,,,,0,1
+3×6,Round-Robin,goods,r=2,goods_rule_only,,,,0,1
+3×6,Round-Robin,goods,r=2,prop,1.0,,,1,1
+3×6,Round-Robin,goods,r=2,ef,1.0,,,1,1
+3×6,Round-Robin,goods,r=2,efx,1.0,,,1,1
+3×6,Round-Robin,goods,r=2,mms,1.0,,,1,1
+3×6,Round-Robin,goods,r=2,po,1.0,,,1,1
+3×6,Round-Robin,goods,r=2,mnw,1.0,,,1,1
+3×6,Round-Robin,goods,r=2,prop1,1.0,,,1,1
+3×6,Round-Robin,goods,r=2,prop_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,r=2,ef_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,r=2,ef1_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,r=2,mms_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,r=2,po_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,r=2,sw_ratio,0.9583333333333333,,,1,1
+3×6,Round-Robin,goods,r=2,nw_ratio,1.0,,,1,1
+3×6,Round-Robin,goods,r=2,efx_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,r=2,prop1_alpha,1.0,,,1,1
+3×6,MaxSW,goods,r=2,valid,1.0,,,1,1
+3×6,MaxSW,goods,r=2,ef1,0.0,,,1,1
+3×6,MaxSW,goods,r=2,d,0.20000000000000007,,,1,1
+3×6,MaxSW,goods,r=2,envy,0.4000000000000001,,,1,1
+3×6,MaxSW,goods,r=2,total,120.0,,,1,1
+3×6,MaxSW,goods,r=2,gap,,,,0,1
+3×6,MaxSW,goods,r=2,sd_ef,0.0,,,1,1
+3×6,MaxSW,goods,r=2,sd_ef1,0.0,,,1,1
+3×6,MaxSW,goods,r=2,sd_envy,0.5,,,1,1
+3×6,MaxSW,goods,r=2,sd_d,0.3333333333333333,,,1,1
+3×6,MaxSW,goods,r=2,sd_ef_pairs,0.6666666666666666,,,1,1
+3×6,MaxSW,goods,r=2,sd_ef1_pairs,0.6666666666666666,,,1,1
+3×6,MaxSW,goods,r=2,wrong_side_only,,,,0,1
+3×6,MaxSW,goods,r=2,goods_rule_only,,,,0,1
+3×6,MaxSW,goods,r=2,prop,0.0,,,1,1
+3×6,MaxSW,goods,r=2,ef,0.0,,,1,1
+3×6,MaxSW,goods,r=2,efx,0.0,,,1,1
+3×6,MaxSW,goods,r=2,mms,0.0,,,1,1
+3×6,MaxSW,goods,r=2,po,1.0,,,1,1
+3×6,MaxSW,goods,r=2,mnw,0.0,,,1,1
+3×6,MaxSW,goods,r=2,prop1,1.0,,,1,1
+3×6,MaxSW,goods,r=2,prop_alpha,0.6000000000000001,,,1,1
+3×6,MaxSW,goods,r=2,ef_alpha,0.3333333333333333,,,1,1
+3×6,MaxSW,goods,r=2,ef1_alpha,0.49999999999999994,,,1,1
+3×6,MaxSW,goods,r=2,mms_alpha,0.6666666666666666,,,1,1
+3×6,MaxSW,goods,r=2,po_alpha,1.0,,,1,1
+3×6,MaxSW,goods,r=2,sw_ratio,1.0,,,1,1
+3×6,MaxSW,goods,r=2,nw_ratio,0.8735804647362989,,,1,1
+3×6,MaxSW,goods,r=2,efx_alpha,0.3999999999999999,,,1,1
+3×6,MaxSW,goods,r=2,prop1_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,r=2,valid,1.0,,,1,1
+3×6,MNW (exact),goods,r=2,ef1,1.0,,,1,1
+3×6,MNW (exact),goods,r=2,d,0.0,,,1,1
+3×6,MNW (exact),goods,r=2,envy,0.0,,,1,1
+3×6,MNW (exact),goods,r=2,total,114.99999999999999,,,1,1
+3×6,MNW (exact),goods,r=2,gap,5.000000000000014,,,1,1
+3×6,MNW (exact),goods,r=2,sd_ef,1.0,,,1,1
+3×6,MNW (exact),goods,r=2,sd_ef1,1.0,,,1,1
+3×6,MNW (exact),goods,r=2,sd_envy,0.0,,,1,1
+3×6,MNW (exact),goods,r=2,sd_d,0.0,,,1,1
+3×6,MNW (exact),goods,r=2,sd_ef_pairs,1.0,,,1,1
+3×6,MNW (exact),goods,r=2,sd_ef1_pairs,1.0,,,1,1
+3×6,MNW (exact),goods,r=2,wrong_side_only,,,,0,1
+3×6,MNW (exact),goods,r=2,goods_rule_only,,,,0,1
+3×6,MNW (exact),goods,r=2,prop,1.0,,,1,1
+3×6,MNW (exact),goods,r=2,ef,1.0,,,1,1
+3×6,MNW (exact),goods,r=2,efx,1.0,,,1,1
+3×6,MNW (exact),goods,r=2,mms,1.0,,,1,1
+3×6,MNW (exact),goods,r=2,po,1.0,,,1,1
+3×6,MNW (exact),goods,r=2,mnw,1.0,,,1,1
+3×6,MNW (exact),goods,r=2,prop1,1.0,,,1,1
+3×6,MNW (exact),goods,r=2,prop_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,r=2,ef_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,r=2,ef1_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,r=2,mms_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,r=2,po_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,r=2,sw_ratio,0.9583333333333333,,,1,1
+3×6,MNW (exact),goods,r=2,nw_ratio,1.0,,,1,1
+3×6,MNW (exact),goods,r=2,efx_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,r=2,prop1_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,valid,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,ef1,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,d,0.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,envy,0.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,total,114.99999999999999,,,1,1
+3×6,Codex · Без метрики,goods,r=2,gap,5.000000000000014,,,1,1
+3×6,Codex · Без метрики,goods,r=2,sd_ef,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,sd_ef1,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,sd_envy,0.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,sd_d,0.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,sd_ef_pairs,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,sd_ef1_pairs,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,wrong_side_only,,,,0,1
+3×6,Codex · Без метрики,goods,r=2,goods_rule_only,,,,0,1
+3×6,Codex · Без метрики,goods,r=2,prop,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,ef,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,efx,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,mms,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,po,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,mnw,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,prop1,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,prop_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,ef_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,ef1_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,mms_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,po_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,sw_ratio,0.9583333333333333,,,1,1
+3×6,Codex · Без метрики,goods,r=2,nw_ratio,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,efx_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=2,prop1_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,r=2,valid,1.0,,,1,1
+3×6,Codex · EF1,goods,r=2,ef1,1.0,,,1,1
+3×6,Codex · EF1,goods,r=2,d,0.0,,,1,1
+3×6,Codex · EF1,goods,r=2,envy,0.09999999999999998,,,1,1
+3×6,Codex · EF1,goods,r=2,total,105.0,,,1,1
+3×6,Codex · EF1,goods,r=2,gap,15.0,,,1,1
+3×6,Codex · EF1,goods,r=2,sd_ef,0.0,,,1,1
+3×6,Codex · EF1,goods,r=2,sd_ef1,1.0,,,1,1
+3×6,Codex · EF1,goods,r=2,sd_envy,0.16666666666666666,,,1,1
+3×6,Codex · EF1,goods,r=2,sd_d,0.0,,,1,1
+3×6,Codex · EF1,goods,r=2,sd_ef_pairs,0.8333333333333334,,,1,1
+3×6,Codex · EF1,goods,r=2,sd_ef1_pairs,1.0,,,1,1
+3×6,Codex · EF1,goods,r=2,wrong_side_only,,,,0,1
+3×6,Codex · EF1,goods,r=2,goods_rule_only,,,,0,1
+3×6,Codex · EF1,goods,r=2,prop,0.0,,,1,1
+3×6,Codex · EF1,goods,r=2,ef,0.0,,,1,1
+3×6,Codex · EF1,goods,r=2,efx,1.0,,,1,1
+3×6,Codex · EF1,goods,r=2,mms,1.0,,,1,1
+3×6,Codex · EF1,goods,r=2,po,0.0,,,1,1
+3×6,Codex · EF1,goods,r=2,mnw,0.0,,,1,1
+3×6,Codex · EF1,goods,r=2,prop1,1.0,,,1,1
+3×6,Codex · EF1,goods,r=2,prop_alpha,0.9000000000000001,,,1,1
+3×6,Codex · EF1,goods,r=2,ef_alpha,0.7500000000000001,,,1,1
+3×6,Codex · EF1,goods,r=2,ef1_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,r=2,mms_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,r=2,po_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,r=2,sw_ratio,0.8750000000000001,,,1,1
+3×6,Codex · EF1,goods,r=2,nw_ratio,0.9085602964160697,,,1,1
+3×6,Codex · EF1,goods,r=2,efx_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,r=2,prop1_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,r=2,valid,1.0,,,1,1
+3×6,Codex · PROP,goods,r=2,ef1,1.0,,,1,1
+3×6,Codex · PROP,goods,r=2,d,0.0,,,1,1
+3×6,Codex · PROP,goods,r=2,envy,0.0,,,1,1
+3×6,Codex · PROP,goods,r=2,total,114.99999999999999,,,1,1
+3×6,Codex · PROP,goods,r=2,gap,5.000000000000014,,,1,1
+3×6,Codex · PROP,goods,r=2,sd_ef,1.0,,,1,1
+3×6,Codex · PROP,goods,r=2,sd_ef1,1.0,,,1,1
+3×6,Codex · PROP,goods,r=2,sd_envy,0.0,,,1,1
+3×6,Codex · PROP,goods,r=2,sd_d,0.0,,,1,1
+3×6,Codex · PROP,goods,r=2,sd_ef_pairs,1.0,,,1,1
+3×6,Codex · PROP,goods,r=2,sd_ef1_pairs,1.0,,,1,1
+3×6,Codex · PROP,goods,r=2,wrong_side_only,,,,0,1
+3×6,Codex · PROP,goods,r=2,goods_rule_only,,,,0,1
+3×6,Codex · PROP,goods,r=2,prop,1.0,,,1,1
+3×6,Codex · PROP,goods,r=2,ef,1.0,,,1,1
+3×6,Codex · PROP,goods,r=2,efx,1.0,,,1,1
+3×6,Codex · PROP,goods,r=2,mms,1.0,,,1,1
+3×6,Codex · PROP,goods,r=2,po,1.0,,,1,1
+3×6,Codex · PROP,goods,r=2,mnw,1.0,,,1,1
+3×6,Codex · PROP,goods,r=2,prop1,1.0,,,1,1
+3×6,Codex · PROP,goods,r=2,prop_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,r=2,ef_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,r=2,ef1_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,r=2,mms_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,r=2,po_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,r=2,sw_ratio,0.9583333333333333,,,1,1
+3×6,Codex · PROP,goods,r=2,nw_ratio,1.0,,,1,1
+3×6,Codex · PROP,goods,r=2,efx_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,r=2,prop1_alpha,1.0,,,1,1
+3×6,Codex · SW/C,goods,r=2,valid,1.0,,,1,1
+3×6,Codex · SW/C,goods,r=2,ef1,0.0,,,1,1
+3×6,Codex · SW/C,goods,r=2,d,0.20000000000000007,,,1,1
+3×6,Codex · SW/C,goods,r=2,envy,0.4000000000000001,,,1,1
+3×6,Codex · SW/C,goods,r=2,total,120.0,,,1,1
+3×6,Codex · SW/C,goods,r=2,gap,,,,0,1
+3×6,Codex · SW/C,goods,r=2,sd_ef,0.0,,,1,1
+3×6,Codex · SW/C,goods,r=2,sd_ef1,0.0,,,1,1
+3×6,Codex · SW/C,goods,r=2,sd_envy,0.5,,,1,1
+3×6,Codex · SW/C,goods,r=2,sd_d,0.3333333333333333,,,1,1
+3×6,Codex · SW/C,goods,r=2,sd_ef_pairs,0.6666666666666666,,,1,1
+3×6,Codex · SW/C,goods,r=2,sd_ef1_pairs,0.6666666666666666,,,1,1
+3×6,Codex · SW/C,goods,r=2,wrong_side_only,,,,0,1
+3×6,Codex · SW/C,goods,r=2,goods_rule_only,,,,0,1
+3×6,Codex · SW/C,goods,r=2,prop,0.0,,,1,1
+3×6,Codex · SW/C,goods,r=2,ef,0.0,,,1,1
+3×6,Codex · SW/C,goods,r=2,efx,0.0,,,1,1
+3×6,Codex · SW/C,goods,r=2,mms,0.0,,,1,1
+3×6,Codex · SW/C,goods,r=2,po,1.0,,,1,1
+3×6,Codex · SW/C,goods,r=2,mnw,0.0,,,1,1
+3×6,Codex · SW/C,goods,r=2,prop1,1.0,,,1,1
+3×6,Codex · SW/C,goods,r=2,prop_alpha,0.6000000000000001,,,1,1
+3×6,Codex · SW/C,goods,r=2,ef_alpha,0.3333333333333333,,,1,1
+3×6,Codex · SW/C,goods,r=2,ef1_alpha,0.49999999999999994,,,1,1
+3×6,Codex · SW/C,goods,r=2,mms_alpha,0.6666666666666666,,,1,1
+3×6,Codex · SW/C,goods,r=2,po_alpha,1.0,,,1,1
+3×6,Codex · SW/C,goods,r=2,sw_ratio,1.0,,,1,1
+3×6,Codex · SW/C,goods,r=2,nw_ratio,0.8735804647362989,,,1,1
+3×6,Codex · SW/C,goods,r=2,efx_alpha,0.3999999999999999,,,1,1
+3×6,Codex · SW/C,goods,r=2,prop1_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=2,valid,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=2,ef1,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=2,d,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=2,envy,0.2,,,1,1
+3×6,EF1-opt (exact),chores,r=2,total,77.5,,,1,1
+3×6,EF1-opt (exact),chores,r=2,gap,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=2,sd_ef,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=2,sd_ef1,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=2,sd_envy,0.3333333333333333,,,1,1
+3×6,EF1-opt (exact),chores,r=2,sd_d,0.16666666666666666,,,1,1
+3×6,EF1-opt (exact),chores,r=2,sd_ef_pairs,0.5,,,1,1
+3×6,EF1-opt (exact),chores,r=2,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,EF1-opt (exact),chores,r=2,wrong_side_only,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=2,goods_rule_only,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=2,prop,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=2,ef,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=2,efx,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=2,mms,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=2,po,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=2,mnw,,,,0,1
+3×6,EF1-opt (exact),chores,r=2,prop1,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=2,prop_alpha,0.8333333333333333,,,1,1
+3×6,EF1-opt (exact),chores,r=2,ef_alpha,0.5,,,1,1
+3×6,EF1-opt (exact),chores,r=2,ef1_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=2,mms_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=2,po_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=2,sw_ratio,0.9999999999999999,,,1,1
+3×6,EF1-opt (exact),chores,r=2,nw_ratio,,,,0,1
+3×6,EF1-opt (exact),chores,r=2,efx_alpha,0.6666666666666666,,,1,1
+3×6,EF1-opt (exact),chores,r=2,prop1_alpha,1.0,,,1,1
+3×6,Round-Robin,chores,r=2,valid,1.0,,,1,1
+3×6,Round-Robin,chores,r=2,ef1,1.0,,,1,1
+3×6,Round-Robin,chores,r=2,d,0.0,,,1,1
+3×6,Round-Robin,chores,r=2,envy,0.125,,,1,1
+3×6,Round-Robin,chores,r=2,total,92.5,,,1,1
+3×6,Round-Robin,chores,r=2,gap,15.0,,,1,1
+3×6,Round-Robin,chores,r=2,sd_ef,0.0,,,1,1
+3×6,Round-Robin,chores,r=2,sd_ef1,1.0,,,1,1
+3×6,Round-Robin,chores,r=2,sd_envy,0.16666666666666666,,,1,1
+3×6,Round-Robin,chores,r=2,sd_d,0.0,,,1,1
+3×6,Round-Robin,chores,r=2,sd_ef_pairs,0.8333333333333334,,,1,1
+3×6,Round-Robin,chores,r=2,sd_ef1_pairs,1.0,,,1,1
+3×6,Round-Robin,chores,r=2,wrong_side_only,0.0,,,1,1
+3×6,Round-Robin,chores,r=2,goods_rule_only,0.0,,,1,1
+3×6,Round-Robin,chores,r=2,prop,0.0,,,1,1
+3×6,Round-Robin,chores,r=2,ef,0.0,,,1,1
+3×6,Round-Robin,chores,r=2,efx,1.0,,,1,1
+3×6,Round-Robin,chores,r=2,mms,1.0,,,1,1
+3×6,Round-Robin,chores,r=2,po,0.0,,,1,1
+3×6,Round-Robin,chores,r=2,mnw,,,,0,1
+3×6,Round-Robin,chores,r=2,prop1,1.0,,,1,1
+3×6,Round-Robin,chores,r=2,prop_alpha,0.8888888888888888,,,1,1
+3×6,Round-Robin,chores,r=2,ef_alpha,0.6666666666666666,,,1,1
+3×6,Round-Robin,chores,r=2,ef1_alpha,1.0,,,1,1
+3×6,Round-Robin,chores,r=2,mms_alpha,1.0,,,1,1
+3×6,Round-Robin,chores,r=2,po_alpha,1.0,,,1,1
+3×6,Round-Robin,chores,r=2,sw_ratio,0.8378378378378377,,,1,1
+3×6,Round-Robin,chores,r=2,nw_ratio,,,,0,1
+3×6,Round-Robin,chores,r=2,efx_alpha,1.0,,,1,1
+3×6,Round-Robin,chores,r=2,prop1_alpha,1.0,,,1,1
+3×6,MinSW,chores,r=2,valid,1.0,,,1,1
+3×6,MinSW,chores,r=2,ef1,1.0,,,1,1
+3×6,MinSW,chores,r=2,d,0.0,,,1,1
+3×6,MinSW,chores,r=2,envy,0.2,,,1,1
+3×6,MinSW,chores,r=2,total,77.5,,,1,1
+3×6,MinSW,chores,r=2,gap,0.0,,,1,1
+3×6,MinSW,chores,r=2,sd_ef,0.0,,,1,1
+3×6,MinSW,chores,r=2,sd_ef1,0.0,,,1,1
+3×6,MinSW,chores,r=2,sd_envy,0.3333333333333333,,,1,1
+3×6,MinSW,chores,r=2,sd_d,0.16666666666666666,,,1,1
+3×6,MinSW,chores,r=2,sd_ef_pairs,0.5,,,1,1
+3×6,MinSW,chores,r=2,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,MinSW,chores,r=2,wrong_side_only,0.0,,,1,1
+3×6,MinSW,chores,r=2,goods_rule_only,0.0,,,1,1
+3×6,MinSW,chores,r=2,prop,0.0,,,1,1
+3×6,MinSW,chores,r=2,ef,0.0,,,1,1
+3×6,MinSW,chores,r=2,efx,0.0,,,1,1
+3×6,MinSW,chores,r=2,mms,1.0,,,1,1
+3×6,MinSW,chores,r=2,po,1.0,,,1,1
+3×6,MinSW,chores,r=2,mnw,,,,0,1
+3×6,MinSW,chores,r=2,prop1,1.0,,,1,1
+3×6,MinSW,chores,r=2,prop_alpha,0.8333333333333333,,,1,1
+3×6,MinSW,chores,r=2,ef_alpha,0.5,,,1,1
+3×6,MinSW,chores,r=2,ef1_alpha,1.0,,,1,1
+3×6,MinSW,chores,r=2,mms_alpha,1.0,,,1,1
+3×6,MinSW,chores,r=2,po_alpha,1.0,,,1,1
+3×6,MinSW,chores,r=2,sw_ratio,0.9999999999999999,,,1,1
+3×6,MinSW,chores,r=2,nw_ratio,,,,0,1
+3×6,MinSW,chores,r=2,efx_alpha,0.6666666666666666,,,1,1
+3×6,MinSW,chores,r=2,prop1_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,valid,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,ef1,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,d,0.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,envy,0.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,total,80.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,gap,2.5,,,1,1
+3×6,Codex · Без метрики,chores,r=2,sd_ef,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,sd_ef1,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,sd_envy,0.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,sd_d,0.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,sd_ef_pairs,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,sd_ef1_pairs,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,wrong_side_only,0.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,goods_rule_only,0.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,prop,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,ef,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,efx,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,mms,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,po,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,mnw,,,,0,1
+3×6,Codex · Без метрики,chores,r=2,prop1,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,prop_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,ef_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,ef1_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,mms_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,po_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,sw_ratio,0.9687499999999999,,,1,1
+3×6,Codex · Без метрики,chores,r=2,nw_ratio,,,,0,1
+3×6,Codex · Без метрики,chores,r=2,efx_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=2,prop1_alpha,1.0,,,1,1
+3×6,Codex · EF1,chores,r=2,valid,1.0,,,1,1
+3×6,Codex · EF1,chores,r=2,ef1,1.0,,,1,1
+3×6,Codex · EF1,chores,r=2,d,0.0,,,1,1
+3×6,Codex · EF1,chores,r=2,envy,0.125,,,1,1
+3×6,Codex · EF1,chores,r=2,total,105.0,,,1,1
+3×6,Codex · EF1,chores,r=2,gap,27.5,,,1,1
+3×6,Codex · EF1,chores,r=2,sd_ef,0.0,,,1,1
+3×6,Codex · EF1,chores,r=2,sd_ef1,1.0,,,1,1
+3×6,Codex · EF1,chores,r=2,sd_envy,0.16666666666666666,,,1,1
+3×6,Codex · EF1,chores,r=2,sd_d,0.0,,,1,1
+3×6,Codex · EF1,chores,r=2,sd_ef_pairs,0.6666666666666666,,,1,1
+3×6,Codex · EF1,chores,r=2,sd_ef1_pairs,1.0,,,1,1
+3×6,Codex · EF1,chores,r=2,wrong_side_only,0.0,,,1,1
+3×6,Codex · EF1,chores,r=2,goods_rule_only,0.0,,,1,1
+3×6,Codex · EF1,chores,r=2,prop,0.0,,,1,1
+3×6,Codex · EF1,chores,r=2,ef,0.0,,,1,1
+3×6,Codex · EF1,chores,r=2,efx,1.0,,,1,1
+3×6,Codex · EF1,chores,r=2,mms,1.0,,,1,1
+3×6,Codex · EF1,chores,r=2,po,0.0,,,1,1
+3×6,Codex · EF1,chores,r=2,mnw,,,,0,1
+3×6,Codex · EF1,chores,r=2,prop1,1.0,,,1,1
+3×6,Codex · EF1,chores,r=2,prop_alpha,0.8888888888888888,,,1,1
+3×6,Codex · EF1,chores,r=2,ef_alpha,0.6666666666666666,,,1,1
+3×6,Codex · EF1,chores,r=2,ef1_alpha,1.0,,,1,1
+3×6,Codex · EF1,chores,r=2,mms_alpha,1.0,,,1,1
+3×6,Codex · EF1,chores,r=2,po_alpha,1.0,,,1,1
+3×6,Codex · EF1,chores,r=2,sw_ratio,0.738095238095238,,,1,1
+3×6,Codex · EF1,chores,r=2,nw_ratio,,,,0,1
+3×6,Codex · EF1,chores,r=2,efx_alpha,1.0,,,1,1
+3×6,Codex · EF1,chores,r=2,prop1_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,r=2,valid,1.0,,,1,1
+3×6,Codex · PROP,chores,r=2,ef1,1.0,,,1,1
+3×6,Codex · PROP,chores,r=2,d,0.0,,,1,1
+3×6,Codex · PROP,chores,r=2,envy,0.0,,,1,1
+3×6,Codex · PROP,chores,r=2,total,80.0,,,1,1
+3×6,Codex · PROP,chores,r=2,gap,2.5,,,1,1
+3×6,Codex · PROP,chores,r=2,sd_ef,1.0,,,1,1
+3×6,Codex · PROP,chores,r=2,sd_ef1,1.0,,,1,1
+3×6,Codex · PROP,chores,r=2,sd_envy,0.0,,,1,1
+3×6,Codex · PROP,chores,r=2,sd_d,0.0,,,1,1
+3×6,Codex · PROP,chores,r=2,sd_ef_pairs,1.0,,,1,1
+3×6,Codex · PROP,chores,r=2,sd_ef1_pairs,1.0,,,1,1
+3×6,Codex · PROP,chores,r=2,wrong_side_only,0.0,,,1,1
+3×6,Codex · PROP,chores,r=2,goods_rule_only,0.0,,,1,1
+3×6,Codex · PROP,chores,r=2,prop,1.0,,,1,1
+3×6,Codex · PROP,chores,r=2,ef,1.0,,,1,1
+3×6,Codex · PROP,chores,r=2,efx,1.0,,,1,1
+3×6,Codex · PROP,chores,r=2,mms,1.0,,,1,1
+3×6,Codex · PROP,chores,r=2,po,1.0,,,1,1
+3×6,Codex · PROP,chores,r=2,mnw,,,,0,1
+3×6,Codex · PROP,chores,r=2,prop1,1.0,,,1,1
+3×6,Codex · PROP,chores,r=2,prop_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,r=2,ef_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,r=2,ef1_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,r=2,mms_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,r=2,po_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,r=2,sw_ratio,0.9687499999999999,,,1,1
+3×6,Codex · PROP,chores,r=2,nw_ratio,,,,0,1
+3×6,Codex · PROP,chores,r=2,efx_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,r=2,prop1_alpha,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=2,valid,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=2,ef1,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=2,d,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=2,envy,0.2,,,1,1
+3×6,Codex · SW/C,chores,r=2,total,77.5,,,1,1
+3×6,Codex · SW/C,chores,r=2,gap,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=2,sd_ef,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=2,sd_ef1,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=2,sd_envy,0.3333333333333333,,,1,1
+3×6,Codex · SW/C,chores,r=2,sd_d,0.16666666666666666,,,1,1
+3×6,Codex · SW/C,chores,r=2,sd_ef_pairs,0.5,,,1,1
+3×6,Codex · SW/C,chores,r=2,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,Codex · SW/C,chores,r=2,wrong_side_only,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=2,goods_rule_only,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=2,prop,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=2,ef,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=2,efx,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=2,mms,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=2,po,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=2,mnw,,,,0,1
+3×6,Codex · SW/C,chores,r=2,prop1,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=2,prop_alpha,0.8333333333333333,,,1,1
+3×6,Codex · SW/C,chores,r=2,ef_alpha,0.5,,,1,1
+3×6,Codex · SW/C,chores,r=2,ef1_alpha,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=2,mms_alpha,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=2,po_alpha,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=2,sw_ratio,0.9999999999999999,,,1,1
+3×6,Codex · SW/C,chores,r=2,nw_ratio,,,,0,1
+3×6,Codex · SW/C,chores,r=2,efx_alpha,0.6666666666666666,,,1,1
+3×6,Codex · SW/C,chores,r=2,prop1_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),goods,r=5,valid,1.0,,,1,1
+3×6,EF1-opt (exact),goods,r=5,ef1,1.0,,,1,1
+3×6,EF1-opt (exact),goods,r=5,d,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=5,envy,0.22727272727272727,,,1,1
+3×6,EF1-opt (exact),goods,r=5,total,144.15584415584414,,,1,1
+3×6,EF1-opt (exact),goods,r=5,gap,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=5,sd_ef,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=5,sd_ef1,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=5,sd_envy,0.3333333333333333,,,1,1
+3×6,EF1-opt (exact),goods,r=5,sd_d,0.16666666666666666,,,1,1
+3×6,EF1-opt (exact),goods,r=5,sd_ef_pairs,0.5,,,1,1
+3×6,EF1-opt (exact),goods,r=5,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,EF1-opt (exact),goods,r=5,wrong_side_only,,,,0,1
+3×6,EF1-opt (exact),goods,r=5,goods_rule_only,,,,0,1
+3×6,EF1-opt (exact),goods,r=5,prop,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=5,ef,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=5,efx,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=5,mms,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=5,po,1.0,,,1,1
+3×6,EF1-opt (exact),goods,r=5,mnw,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=5,prop1,1.0,,,1,1
+3×6,EF1-opt (exact),goods,r=5,prop_alpha,0.6818181818181819,,,1,1
+3×6,EF1-opt (exact),goods,r=5,ef_alpha,0.5,,,1,1
+3×6,EF1-opt (exact),goods,r=5,ef1_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),goods,r=5,mms_alpha,0.8333333333333334,,,1,1
+3×6,EF1-opt (exact),goods,r=5,po_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),goods,r=5,sw_ratio,0.9999999999999999,,,1,1
+3×6,EF1-opt (exact),goods,r=5,nw_ratio,0.9906536587938549,,,1,1
+3×6,EF1-opt (exact),goods,r=5,efx_alpha,0.8333333333333334,,,1,1
+3×6,EF1-opt (exact),goods,r=5,prop1_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,r=5,valid,1.0,,,1,1
+3×6,Round-Robin,goods,r=5,ef1,1.0,,,1,1
+3×6,Round-Robin,goods,r=5,d,0.0,,,1,1
+3×6,Round-Robin,goods,r=5,envy,0.0,,,1,1
+3×6,Round-Robin,goods,r=5,total,131.1688311688312,,,1,1
+3×6,Round-Robin,goods,r=5,gap,12.987012987012946,,,1,1
+3×6,Round-Robin,goods,r=5,sd_ef,1.0,,,1,1
+3×6,Round-Robin,goods,r=5,sd_ef1,1.0,,,1,1
+3×6,Round-Robin,goods,r=5,sd_envy,0.0,,,1,1
+3×6,Round-Robin,goods,r=5,sd_d,0.0,,,1,1
+3×6,Round-Robin,goods,r=5,sd_ef_pairs,1.0,,,1,1
+3×6,Round-Robin,goods,r=5,sd_ef1_pairs,1.0,,,1,1
+3×6,Round-Robin,goods,r=5,wrong_side_only,,,,0,1
+3×6,Round-Robin,goods,r=5,goods_rule_only,,,,0,1
+3×6,Round-Robin,goods,r=5,prop,1.0,,,1,1
+3×6,Round-Robin,goods,r=5,ef,1.0,,,1,1
+3×6,Round-Robin,goods,r=5,efx,1.0,,,1,1
+3×6,Round-Robin,goods,r=5,mms,1.0,,,1,1
+3×6,Round-Robin,goods,r=5,po,1.0,,,1,1
+3×6,Round-Robin,goods,r=5,mnw,1.0,,,1,1
+3×6,Round-Robin,goods,r=5,prop1,1.0,,,1,1
+3×6,Round-Robin,goods,r=5,prop_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,r=5,ef_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,r=5,ef1_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,r=5,mms_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,r=5,po_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,r=5,sw_ratio,0.9099099099099099,,,1,1
+3×6,Round-Robin,goods,r=5,nw_ratio,1.0,,,1,1
+3×6,Round-Robin,goods,r=5,efx_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,r=5,prop1_alpha,1.0,,,1,1
+3×6,MaxSW,goods,r=5,valid,1.0,,,1,1
+3×6,MaxSW,goods,r=5,ef1,0.0,,,1,1
+3×6,MaxSW,goods,r=5,d,0.09090909090909086,,,1,1
+3×6,MaxSW,goods,r=5,envy,0.3181818181818181,,,1,1
+3×6,MaxSW,goods,r=5,total,144.15584415584416,,,1,1
+3×6,MaxSW,goods,r=5,gap,,,,0,1
+3×6,MaxSW,goods,r=5,sd_ef,0.0,,,1,1
+3×6,MaxSW,goods,r=5,sd_ef1,0.0,,,1,1
+3×6,MaxSW,goods,r=5,sd_envy,0.5,,,1,1
+3×6,MaxSW,goods,r=5,sd_d,0.3333333333333333,,,1,1
+3×6,MaxSW,goods,r=5,sd_ef_pairs,0.6666666666666666,,,1,1
+3×6,MaxSW,goods,r=5,sd_ef1_pairs,0.6666666666666666,,,1,1
+3×6,MaxSW,goods,r=5,wrong_side_only,,,,0,1
+3×6,MaxSW,goods,r=5,goods_rule_only,,,,0,1
+3×6,MaxSW,goods,r=5,prop,0.0,,,1,1
+3×6,MaxSW,goods,r=5,ef,0.0,,,1,1
+3×6,MaxSW,goods,r=5,efx,0.0,,,1,1
+3×6,MaxSW,goods,r=5,mms,0.0,,,1,1
+3×6,MaxSW,goods,r=5,po,1.0,,,1,1
+3×6,MaxSW,goods,r=5,mnw,0.0,,,1,1
+3×6,MaxSW,goods,r=5,prop1,1.0,,,1,1
+3×6,MaxSW,goods,r=5,prop_alpha,0.6818181818181819,,,1,1
+3×6,MaxSW,goods,r=5,ef_alpha,0.4166666666666667,,,1,1
+3×6,MaxSW,goods,r=5,ef1_alpha,0.7142857142857144,,,1,1
+3×6,MaxSW,goods,r=5,mms_alpha,0.8333333333333334,,,1,1
+3×6,MaxSW,goods,r=5,po_alpha,1.0,,,1,1
+3×6,MaxSW,goods,r=5,sw_ratio,1.0,,,1,1
+3×6,MaxSW,goods,r=5,nw_ratio,0.9410360288810286,,,1,1
+3×6,MaxSW,goods,r=5,efx_alpha,0.4545454545454546,,,1,1
+3×6,MaxSW,goods,r=5,prop1_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,r=5,valid,1.0,,,1,1
+3×6,MNW (exact),goods,r=5,ef1,1.0,,,1,1
+3×6,MNW (exact),goods,r=5,d,0.0,,,1,1
+3×6,MNW (exact),goods,r=5,envy,0.0,,,1,1
+3×6,MNW (exact),goods,r=5,total,131.1688311688312,,,1,1
+3×6,MNW (exact),goods,r=5,gap,12.987012987012946,,,1,1
+3×6,MNW (exact),goods,r=5,sd_ef,1.0,,,1,1
+3×6,MNW (exact),goods,r=5,sd_ef1,1.0,,,1,1
+3×6,MNW (exact),goods,r=5,sd_envy,0.0,,,1,1
+3×6,MNW (exact),goods,r=5,sd_d,0.0,,,1,1
+3×6,MNW (exact),goods,r=5,sd_ef_pairs,1.0,,,1,1
+3×6,MNW (exact),goods,r=5,sd_ef1_pairs,1.0,,,1,1
+3×6,MNW (exact),goods,r=5,wrong_side_only,,,,0,1
+3×6,MNW (exact),goods,r=5,goods_rule_only,,,,0,1
+3×6,MNW (exact),goods,r=5,prop,1.0,,,1,1
+3×6,MNW (exact),goods,r=5,ef,1.0,,,1,1
+3×6,MNW (exact),goods,r=5,efx,1.0,,,1,1
+3×6,MNW (exact),goods,r=5,mms,1.0,,,1,1
+3×6,MNW (exact),goods,r=5,po,1.0,,,1,1
+3×6,MNW (exact),goods,r=5,mnw,1.0,,,1,1
+3×6,MNW (exact),goods,r=5,prop1,1.0,,,1,1
+3×6,MNW (exact),goods,r=5,prop_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,r=5,ef_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,r=5,ef1_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,r=5,mms_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,r=5,po_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,r=5,sw_ratio,0.9099099099099099,,,1,1
+3×6,MNW (exact),goods,r=5,nw_ratio,1.0,,,1,1
+3×6,MNW (exact),goods,r=5,efx_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,r=5,prop1_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,valid,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,ef1,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,d,0.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,envy,0.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,total,131.1688311688312,,,1,1
+3×6,Codex · Без метрики,goods,r=5,gap,12.987012987012946,,,1,1
+3×6,Codex · Без метрики,goods,r=5,sd_ef,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,sd_ef1,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,sd_envy,0.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,sd_d,0.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,sd_ef_pairs,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,sd_ef1_pairs,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,wrong_side_only,,,,0,1
+3×6,Codex · Без метрики,goods,r=5,goods_rule_only,,,,0,1
+3×6,Codex · Без метрики,goods,r=5,prop,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,ef,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,efx,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,mms,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,po,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,mnw,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,prop1,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,prop_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,ef_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,ef1_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,mms_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,po_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,sw_ratio,0.9099099099099099,,,1,1
+3×6,Codex · Без метрики,goods,r=5,nw_ratio,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,efx_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=5,prop1_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,r=5,valid,1.0,,,1,1
+3×6,Codex · EF1,goods,r=5,ef1,1.0,,,1,1
+3×6,Codex · EF1,goods,r=5,d,0.0,,,1,1
+3×6,Codex · EF1,goods,r=5,envy,0.18181818181818182,,,1,1
+3×6,Codex · EF1,goods,r=5,total,141.5584415584416,,,1,1
+3×6,Codex · EF1,goods,r=5,gap,2.5974025974025494,,,1,1
+3×6,Codex · EF1,goods,r=5,sd_ef,0.0,,,1,1
+3×6,Codex · EF1,goods,r=5,sd_ef1,1.0,,,1,1
+3×6,Codex · EF1,goods,r=5,sd_envy,0.16666666666666666,,,1,1
+3×6,Codex · EF1,goods,r=5,sd_d,0.0,,,1,1
+3×6,Codex · EF1,goods,r=5,sd_ef_pairs,0.8333333333333334,,,1,1
+3×6,Codex · EF1,goods,r=5,sd_ef1_pairs,1.0,,,1,1
+3×6,Codex · EF1,goods,r=5,wrong_side_only,,,,0,1
+3×6,Codex · EF1,goods,r=5,goods_rule_only,,,,0,1
+3×6,Codex · EF1,goods,r=5,prop,0.0,,,1,1
+3×6,Codex · EF1,goods,r=5,ef,0.0,,,1,1
+3×6,Codex · EF1,goods,r=5,efx,1.0,,,1,1
+3×6,Codex · EF1,goods,r=5,mms,1.0,,,1,1
+3×6,Codex · EF1,goods,r=5,po,1.0,,,1,1
+3×6,Codex · EF1,goods,r=5,mnw,1.0,,,1,1
+3×6,Codex · EF1,goods,r=5,prop1,1.0,,,1,1
+3×6,Codex · EF1,goods,r=5,prop_alpha,0.8181818181818181,,,1,1
+3×6,Codex · EF1,goods,r=5,ef_alpha,0.6,,,1,1
+3×6,Codex · EF1,goods,r=5,ef1_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,r=5,mms_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,r=5,po_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,r=5,sw_ratio,0.9819819819819819,,,1,1
+3×6,Codex · EF1,goods,r=5,nw_ratio,1.0,,,1,1
+3×6,Codex · EF1,goods,r=5,efx_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,r=5,prop1_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,r=5,valid,1.0,,,1,1
+3×6,Codex · PROP,goods,r=5,ef1,1.0,,,1,1
+3×6,Codex · PROP,goods,r=5,d,0.0,,,1,1
+3×6,Codex · PROP,goods,r=5,envy,0.07142857142857145,,,1,1
+3×6,Codex · PROP,goods,r=5,total,131.1688311688312,,,1,1
+3×6,Codex · PROP,goods,r=5,gap,12.987012987012946,,,1,1
+3×6,Codex · PROP,goods,r=5,sd_ef,0.0,,,1,1
+3×6,Codex · PROP,goods,r=5,sd_ef1,0.0,,,1,1
+3×6,Codex · PROP,goods,r=5,sd_envy,0.3333333333333333,,,1,1
+3×6,Codex · PROP,goods,r=5,sd_d,0.16666666666666666,,,1,1
+3×6,Codex · PROP,goods,r=5,sd_ef_pairs,0.5,,,1,1
+3×6,Codex · PROP,goods,r=5,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,Codex · PROP,goods,r=5,wrong_side_only,,,,0,1
+3×6,Codex · PROP,goods,r=5,goods_rule_only,,,,0,1
+3×6,Codex · PROP,goods,r=5,prop,1.0,,,1,1
+3×6,Codex · PROP,goods,r=5,ef,0.0,,,1,1
+3×6,Codex · PROP,goods,r=5,efx,1.0,,,1,1
+3×6,Codex · PROP,goods,r=5,mms,1.0,,,1,1
+3×6,Codex · PROP,goods,r=5,po,1.0,,,1,1
+3×6,Codex · PROP,goods,r=5,mnw,0.0,,,1,1
+3×6,Codex · PROP,goods,r=5,prop1,1.0,,,1,1
+3×6,Codex · PROP,goods,r=5,prop_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,r=5,ef_alpha,0.8333333333333333,,,1,1
+3×6,Codex · PROP,goods,r=5,ef1_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,r=5,mms_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,r=5,po_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,r=5,sw_ratio,0.9099099099099099,,,1,1
+3×6,Codex · PROP,goods,r=5,nw_ratio,0.9906536587938549,,,1,1
+3×6,Codex · PROP,goods,r=5,efx_alpha,0.9999999999999999,,,1,1
+3×6,Codex · PROP,goods,r=5,prop1_alpha,1.0,,,1,1
+3×6,Codex · SW/C,goods,r=5,valid,1.0,,,1,1
+3×6,Codex · SW/C,goods,r=5,ef1,0.0,,,1,1
+3×6,Codex · SW/C,goods,r=5,d,0.09090909090909086,,,1,1
+3×6,Codex · SW/C,goods,r=5,envy,0.3181818181818181,,,1,1
+3×6,Codex · SW/C,goods,r=5,total,144.15584415584416,,,1,1
+3×6,Codex · SW/C,goods,r=5,gap,,,,0,1
+3×6,Codex · SW/C,goods,r=5,sd_ef,0.0,,,1,1
+3×6,Codex · SW/C,goods,r=5,sd_ef1,0.0,,,1,1
+3×6,Codex · SW/C,goods,r=5,sd_envy,0.5,,,1,1
+3×6,Codex · SW/C,goods,r=5,sd_d,0.3333333333333333,,,1,1
+3×6,Codex · SW/C,goods,r=5,sd_ef_pairs,0.6666666666666666,,,1,1
+3×6,Codex · SW/C,goods,r=5,sd_ef1_pairs,0.6666666666666666,,,1,1
+3×6,Codex · SW/C,goods,r=5,wrong_side_only,,,,0,1
+3×6,Codex · SW/C,goods,r=5,goods_rule_only,,,,0,1
+3×6,Codex · SW/C,goods,r=5,prop,0.0,,,1,1
+3×6,Codex · SW/C,goods,r=5,ef,0.0,,,1,1
+3×6,Codex · SW/C,goods,r=5,efx,0.0,,,1,1
+3×6,Codex · SW/C,goods,r=5,mms,0.0,,,1,1
+3×6,Codex · SW/C,goods,r=5,po,1.0,,,1,1
+3×6,Codex · SW/C,goods,r=5,mnw,0.0,,,1,1
+3×6,Codex · SW/C,goods,r=5,prop1,1.0,,,1,1
+3×6,Codex · SW/C,goods,r=5,prop_alpha,0.6818181818181819,,,1,1
+3×6,Codex · SW/C,goods,r=5,ef_alpha,0.4166666666666667,,,1,1
+3×6,Codex · SW/C,goods,r=5,ef1_alpha,0.7142857142857144,,,1,1
+3×6,Codex · SW/C,goods,r=5,mms_alpha,0.8333333333333334,,,1,1
+3×6,Codex · SW/C,goods,r=5,po_alpha,1.0,,,1,1
+3×6,Codex · SW/C,goods,r=5,sw_ratio,1.0,,,1,1
+3×6,Codex · SW/C,goods,r=5,nw_ratio,0.9410360288810286,,,1,1
+3×6,Codex · SW/C,goods,r=5,efx_alpha,0.4545454545454546,,,1,1
+3×6,Codex · SW/C,goods,r=5,prop1_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=5,valid,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=5,ef1,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=5,d,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=5,envy,0.09090909090909091,,,1,1
+3×6,EF1-opt (exact),chores,r=5,total,53.246753246753244,,,1,1
+3×6,EF1-opt (exact),chores,r=5,gap,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=5,sd_ef,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=5,sd_ef1,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=5,sd_envy,0.3333333333333333,,,1,1
+3×6,EF1-opt (exact),chores,r=5,sd_d,0.16666666666666666,,,1,1
+3×6,EF1-opt (exact),chores,r=5,sd_ef_pairs,0.5,,,1,1
+3×6,EF1-opt (exact),chores,r=5,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,EF1-opt (exact),chores,r=5,wrong_side_only,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=5,goods_rule_only,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=5,prop,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=5,ef,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=5,efx,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=5,mms,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=5,po,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=5,mnw,,,,0,1
+3×6,EF1-opt (exact),chores,r=5,prop1,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=5,prop_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=5,ef_alpha,0.7142857142857143,,,1,1
+3×6,EF1-opt (exact),chores,r=5,ef1_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=5,mms_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=5,po_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=5,sw_ratio,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=5,nw_ratio,,,,0,1
+3×6,EF1-opt (exact),chores,r=5,efx_alpha,0.8333333333333334,,,1,1
+3×6,EF1-opt (exact),chores,r=5,prop1_alpha,1.0,,,1,1
+3×6,Round-Robin,chores,r=5,valid,1.0,,,1,1
+3×6,Round-Robin,chores,r=5,ef1,1.0,,,1,1
+3×6,Round-Robin,chores,r=5,d,0.0,,,1,1
+3×6,Round-Robin,chores,r=5,envy,0.28571428571428575,,,1,1
+3×6,Round-Robin,chores,r=5,total,84.4155844155844,,,1,1
+3×6,Round-Robin,chores,r=5,gap,31.16883116883116,,,1,1
+3×6,Round-Robin,chores,r=5,sd_ef,0.0,,,1,1
+3×6,Round-Robin,chores,r=5,sd_ef1,1.0,,,1,1
+3×6,Round-Robin,chores,r=5,sd_envy,0.16666666666666666,,,1,1
+3×6,Round-Robin,chores,r=5,sd_d,0.0,,,1,1
+3×6,Round-Robin,chores,r=5,sd_ef_pairs,0.8333333333333334,,,1,1
+3×6,Round-Robin,chores,r=5,sd_ef1_pairs,1.0,,,1,1
+3×6,Round-Robin,chores,r=5,wrong_side_only,0.0,,,1,1
+3×6,Round-Robin,chores,r=5,goods_rule_only,0.0,,,1,1
+3×6,Round-Robin,chores,r=5,prop,0.0,,,1,1
+3×6,Round-Robin,chores,r=5,ef,0.0,,,1,1
+3×6,Round-Robin,chores,r=5,efx,0.0,,,1,1
+3×6,Round-Robin,chores,r=5,mms,0.0,,,1,1
+3×6,Round-Robin,chores,r=5,po,0.0,,,1,1
+3×6,Round-Robin,chores,r=5,mnw,,,,0,1
+3×6,Round-Robin,chores,r=5,prop1,1.0,,,1,1
+3×6,Round-Robin,chores,r=5,prop_alpha,0.7777777777777777,,,1,1
+3×6,Round-Robin,chores,r=5,ef_alpha,0.3333333333333333,,,1,1
+3×6,Round-Robin,chores,r=5,ef1_alpha,1.0,,,1,1
+3×6,Round-Robin,chores,r=5,mms_alpha,0.8333333333333333,,,1,1
+3×6,Round-Robin,chores,r=5,po_alpha,0.8333333333333334,,,1,1
+3×6,Round-Robin,chores,r=5,sw_ratio,0.6307692307692309,,,1,1
+3×6,Round-Robin,chores,r=5,nw_ratio,,,,0,1
+3×6,Round-Robin,chores,r=5,efx_alpha,0.3999999999999999,,,1,1
+3×6,Round-Robin,chores,r=5,prop1_alpha,1.0,,,1,1
+3×6,MinSW,chores,r=5,valid,1.0,,,1,1
+3×6,MinSW,chores,r=5,ef1,1.0,,,1,1
+3×6,MinSW,chores,r=5,d,0.0,,,1,1
+3×6,MinSW,chores,r=5,envy,0.09090909090909091,,,1,1
+3×6,MinSW,chores,r=5,total,53.246753246753244,,,1,1
+3×6,MinSW,chores,r=5,gap,0.0,,,1,1
+3×6,MinSW,chores,r=5,sd_ef,0.0,,,1,1
+3×6,MinSW,chores,r=5,sd_ef1,0.0,,,1,1
+3×6,MinSW,chores,r=5,sd_envy,0.3333333333333333,,,1,1
+3×6,MinSW,chores,r=5,sd_d,0.16666666666666666,,,1,1
+3×6,MinSW,chores,r=5,sd_ef_pairs,0.5,,,1,1
+3×6,MinSW,chores,r=5,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,MinSW,chores,r=5,wrong_side_only,0.0,,,1,1
+3×6,MinSW,chores,r=5,goods_rule_only,0.0,,,1,1
+3×6,MinSW,chores,r=5,prop,1.0,,,1,1
+3×6,MinSW,chores,r=5,ef,0.0,,,1,1
+3×6,MinSW,chores,r=5,efx,0.0,,,1,1
+3×6,MinSW,chores,r=5,mms,1.0,,,1,1
+3×6,MinSW,chores,r=5,po,1.0,,,1,1
+3×6,MinSW,chores,r=5,mnw,,,,0,1
+3×6,MinSW,chores,r=5,prop1,1.0,,,1,1
+3×6,MinSW,chores,r=5,prop_alpha,1.0,,,1,1
+3×6,MinSW,chores,r=5,ef_alpha,0.7142857142857143,,,1,1
+3×6,MinSW,chores,r=5,ef1_alpha,1.0,,,1,1
+3×6,MinSW,chores,r=5,mms_alpha,1.0,,,1,1
+3×6,MinSW,chores,r=5,po_alpha,1.0,,,1,1
+3×6,MinSW,chores,r=5,sw_ratio,1.0,,,1,1
+3×6,MinSW,chores,r=5,nw_ratio,,,,0,1
+3×6,MinSW,chores,r=5,efx_alpha,0.8333333333333334,,,1,1
+3×6,MinSW,chores,r=5,prop1_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=5,valid,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=5,ef1,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=5,d,0.0,,,1,1
+3×6,Codex · Без метрики,chores,r=5,envy,0.0,,,1,1
+3×6,Codex · Без метрики,chores,r=5,total,58.44155844155844,,,1,1
+3×6,Codex · Без метрики,chores,r=5,gap,5.194805194805198,,,1,1
+3×6,Codex · Без метрики,chores,r=5,sd_ef,0.0,,,1,1
+3×6,Codex · Без метрики,chores,r=5,sd_ef1,0.0,,,1,1
+3×6,Codex · Без метрики,chores,r=5,sd_envy,0.3333333333333333,,,1,1
+3×6,Codex · Без метрики,chores,r=5,sd_d,0.16666666666666666,,,1,1
+3×6,Codex · Без метрики,chores,r=5,sd_ef_pairs,0.5,,,1,1
+3×6,Codex · Без метрики,chores,r=5,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,Codex · Без метрики,chores,r=5,wrong_side_only,0.0,,,1,1
+3×6,Codex · Без метрики,chores,r=5,goods_rule_only,0.0,,,1,1
+3×6,Codex · Без метрики,chores,r=5,prop,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=5,ef,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=5,efx,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=5,mms,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=5,po,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=5,mnw,,,,0,1
+3×6,Codex · Без метрики,chores,r=5,prop1,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=5,prop_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=5,ef_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=5,ef1_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=5,mms_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=5,po_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=5,sw_ratio,0.9111111111111113,,,1,1
+3×6,Codex · Без метрики,chores,r=5,nw_ratio,,,,0,1
+3×6,Codex · Без метрики,chores,r=5,efx_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=5,prop1_alpha,1.0,,,1,1
+3×6,Codex · EF1,chores,r=5,valid,1.0,,,1,1
+3×6,Codex · EF1,chores,r=5,ef1,1.0,,,1,1
+3×6,Codex · EF1,chores,r=5,d,0.0,,,1,1
+3×6,Codex · EF1,chores,r=5,envy,0.35714285714285715,,,1,1
+3×6,Codex · EF1,chores,r=5,total,84.4155844155844,,,1,1
+3×6,Codex · EF1,chores,r=5,gap,31.16883116883116,,,1,1
+3×6,Codex · EF1,chores,r=5,sd_ef,0.0,,,1,1
+3×6,Codex · EF1,chores,r=5,sd_ef1,0.0,,,1,1
+3×6,Codex · EF1,chores,r=5,sd_envy,0.3333333333333333,,,1,1
+3×6,Codex · EF1,chores,r=5,sd_d,0.16666666666666666,,,1,1
+3×6,Codex · EF1,chores,r=5,sd_ef_pairs,0.5,,,1,1
+3×6,Codex · EF1,chores,r=5,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,Codex · EF1,chores,r=5,wrong_side_only,0.0,,,1,1
+3×6,Codex · EF1,chores,r=5,goods_rule_only,0.0,,,1,1
+3×6,Codex · EF1,chores,r=5,prop,0.0,,,1,1
+3×6,Codex · EF1,chores,r=5,ef,0.0,,,1,1
+3×6,Codex · EF1,chores,r=5,efx,0.0,,,1,1
+3×6,Codex · EF1,chores,r=5,mms,0.0,,,1,1
+3×6,Codex · EF1,chores,r=5,po,0.0,,,1,1
+3×6,Codex · EF1,chores,r=5,mnw,,,,0,1
+3×6,Codex · EF1,chores,r=5,prop1,1.0,,,1,1
+3×6,Codex · EF1,chores,r=5,prop_alpha,0.6666666666666666,,,1,1
+3×6,Codex · EF1,chores,r=5,ef_alpha,0.2857142857142857,,,1,1
+3×6,Codex · EF1,chores,r=5,ef1_alpha,1.0,,,1,1
+3×6,Codex · EF1,chores,r=5,mms_alpha,0.7142857142857143,,,1,1
+3×6,Codex · EF1,chores,r=5,po_alpha,1.0,,,1,1
+3×6,Codex · EF1,chores,r=5,sw_ratio,0.6307692307692309,,,1,1
+3×6,Codex · EF1,chores,r=5,nw_ratio,,,,0,1
+3×6,Codex · EF1,chores,r=5,efx_alpha,0.3333333333333333,,,1,1
+3×6,Codex · EF1,chores,r=5,prop1_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,r=5,valid,1.0,,,1,1
+3×6,Codex · PROP,chores,r=5,ef1,1.0,,,1,1
+3×6,Codex · PROP,chores,r=5,d,0.0,,,1,1
+3×6,Codex · PROP,chores,r=5,envy,0.0,,,1,1
+3×6,Codex · PROP,chores,r=5,total,58.44155844155844,,,1,1
+3×6,Codex · PROP,chores,r=5,gap,5.194805194805198,,,1,1
+3×6,Codex · PROP,chores,r=5,sd_ef,0.0,,,1,1
+3×6,Codex · PROP,chores,r=5,sd_ef1,0.0,,,1,1
+3×6,Codex · PROP,chores,r=5,sd_envy,0.5,,,1,1
+3×6,Codex · PROP,chores,r=5,sd_d,0.3333333333333333,,,1,1
+3×6,Codex · PROP,chores,r=5,sd_ef_pairs,0.6666666666666666,,,1,1
+3×6,Codex · PROP,chores,r=5,sd_ef1_pairs,0.6666666666666666,,,1,1
+3×6,Codex · PROP,chores,r=5,wrong_side_only,0.0,,,1,1
+3×6,Codex · PROP,chores,r=5,goods_rule_only,0.0,,,1,1
+3×6,Codex · PROP,chores,r=5,prop,1.0,,,1,1
+3×6,Codex · PROP,chores,r=5,ef,1.0,,,1,1
+3×6,Codex · PROP,chores,r=5,efx,1.0,,,1,1
+3×6,Codex · PROP,chores,r=5,mms,1.0,,,1,1
+3×6,Codex · PROP,chores,r=5,po,1.0,,,1,1
+3×6,Codex · PROP,chores,r=5,mnw,,,,0,1
+3×6,Codex · PROP,chores,r=5,prop1,1.0,,,1,1
+3×6,Codex · PROP,chores,r=5,prop_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,r=5,ef_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,r=5,ef1_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,r=5,mms_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,r=5,po_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,r=5,sw_ratio,0.9111111111111113,,,1,1
+3×6,Codex · PROP,chores,r=5,nw_ratio,,,,0,1
+3×6,Codex · PROP,chores,r=5,efx_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,r=5,prop1_alpha,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=5,valid,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=5,ef1,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=5,d,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=5,envy,0.09090909090909091,,,1,1
+3×6,Codex · SW/C,chores,r=5,total,53.246753246753244,,,1,1
+3×6,Codex · SW/C,chores,r=5,gap,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=5,sd_ef,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=5,sd_ef1,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=5,sd_envy,0.3333333333333333,,,1,1
+3×6,Codex · SW/C,chores,r=5,sd_d,0.16666666666666666,,,1,1
+3×6,Codex · SW/C,chores,r=5,sd_ef_pairs,0.5,,,1,1
+3×6,Codex · SW/C,chores,r=5,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,Codex · SW/C,chores,r=5,wrong_side_only,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=5,goods_rule_only,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=5,prop,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=5,ef,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=5,efx,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=5,mms,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=5,po,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=5,mnw,,,,0,1
+3×6,Codex · SW/C,chores,r=5,prop1,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=5,prop_alpha,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=5,ef_alpha,0.7142857142857143,,,1,1
+3×6,Codex · SW/C,chores,r=5,ef1_alpha,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=5,mms_alpha,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=5,po_alpha,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=5,sw_ratio,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=5,nw_ratio,,,,0,1
+3×6,Codex · SW/C,chores,r=5,efx_alpha,0.8333333333333334,,,1,1
+3×6,Codex · SW/C,chores,r=5,prop1_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),goods,r=10,valid,1.0,,,1,1
+3×6,EF1-opt (exact),goods,r=10,ef1,1.0,,,1,1
+3×6,EF1-opt (exact),goods,r=10,d,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=10,envy,0.23809523809523808,,,1,1
+3×6,EF1-opt (exact),goods,r=10,total,157.14285714285717,,,1,1
+3×6,EF1-opt (exact),goods,r=10,gap,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=10,sd_ef,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=10,sd_ef1,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=10,sd_envy,0.3333333333333333,,,1,1
+3×6,EF1-opt (exact),goods,r=10,sd_d,0.16666666666666666,,,1,1
+3×6,EF1-opt (exact),goods,r=10,sd_ef_pairs,0.5,,,1,1
+3×6,EF1-opt (exact),goods,r=10,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,EF1-opt (exact),goods,r=10,wrong_side_only,,,,0,1
+3×6,EF1-opt (exact),goods,r=10,goods_rule_only,,,,0,1
+3×6,EF1-opt (exact),goods,r=10,prop,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=10,ef,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=10,efx,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=10,mms,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=10,po,1.0,,,1,1
+3×6,EF1-opt (exact),goods,r=10,mnw,0.0,,,1,1
+3×6,EF1-opt (exact),goods,r=10,prop1,1.0,,,1,1
+3×6,EF1-opt (exact),goods,r=10,prop_alpha,0.7142857142857143,,,1,1
+3×6,EF1-opt (exact),goods,r=10,ef_alpha,0.5,,,1,1
+3×6,EF1-opt (exact),goods,r=10,ef1_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),goods,r=10,mms_alpha,0.9090909090909092,,,1,1
+3×6,EF1-opt (exact),goods,r=10,po_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),goods,r=10,sw_ratio,1.0,,,1,1
+3×6,EF1-opt (exact),goods,r=10,nw_ratio,0.9972375549877487,,,1,1
+3×6,EF1-opt (exact),goods,r=10,efx_alpha,0.9090909090909092,,,1,1
+3×6,EF1-opt (exact),goods,r=10,prop1_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,r=10,valid,1.0,,,1,1
+3×6,Round-Robin,goods,r=10,ef1,1.0,,,1,1
+3×6,Round-Robin,goods,r=10,d,0.0,,,1,1
+3×6,Round-Robin,goods,r=10,envy,0.0,,,1,1
+3×6,Round-Robin,goods,r=10,total,139.28571428571428,,,1,1
+3×6,Round-Robin,goods,r=10,gap,17.85714285714289,,,1,1
+3×6,Round-Robin,goods,r=10,sd_ef,1.0,,,1,1
+3×6,Round-Robin,goods,r=10,sd_ef1,1.0,,,1,1
+3×6,Round-Robin,goods,r=10,sd_envy,0.0,,,1,1
+3×6,Round-Robin,goods,r=10,sd_d,0.0,,,1,1
+3×6,Round-Robin,goods,r=10,sd_ef_pairs,1.0,,,1,1
+3×6,Round-Robin,goods,r=10,sd_ef1_pairs,1.0,,,1,1
+3×6,Round-Robin,goods,r=10,wrong_side_only,,,,0,1
+3×6,Round-Robin,goods,r=10,goods_rule_only,,,,0,1
+3×6,Round-Robin,goods,r=10,prop,1.0,,,1,1
+3×6,Round-Robin,goods,r=10,ef,1.0,,,1,1
+3×6,Round-Robin,goods,r=10,efx,1.0,,,1,1
+3×6,Round-Robin,goods,r=10,mms,1.0,,,1,1
+3×6,Round-Robin,goods,r=10,po,1.0,,,1,1
+3×6,Round-Robin,goods,r=10,mnw,1.0,,,1,1
+3×6,Round-Robin,goods,r=10,prop1,1.0,,,1,1
+3×6,Round-Robin,goods,r=10,prop_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,r=10,ef_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,r=10,ef1_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,r=10,mms_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,r=10,po_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,r=10,sw_ratio,0.8863636363636364,,,1,1
+3×6,Round-Robin,goods,r=10,nw_ratio,1.0,,,1,1
+3×6,Round-Robin,goods,r=10,efx_alpha,1.0,,,1,1
+3×6,Round-Robin,goods,r=10,prop1_alpha,1.0,,,1,1
+3×6,MaxSW,goods,r=10,valid,1.0,,,1,1
+3×6,MaxSW,goods,r=10,ef1,0.0,,,1,1
+3×6,MaxSW,goods,r=10,d,0.04761904761904756,,,1,1
+3×6,MaxSW,goods,r=10,envy,0.28571428571428564,,,1,1
+3×6,MaxSW,goods,r=10,total,157.14285714285717,,,1,1
+3×6,MaxSW,goods,r=10,gap,,,,0,1
+3×6,MaxSW,goods,r=10,sd_ef,0.0,,,1,1
+3×6,MaxSW,goods,r=10,sd_ef1,0.0,,,1,1
+3×6,MaxSW,goods,r=10,sd_envy,0.5,,,1,1
+3×6,MaxSW,goods,r=10,sd_d,0.3333333333333333,,,1,1
+3×6,MaxSW,goods,r=10,sd_ef_pairs,0.6666666666666666,,,1,1
+3×6,MaxSW,goods,r=10,sd_ef1_pairs,0.6666666666666666,,,1,1
+3×6,MaxSW,goods,r=10,wrong_side_only,,,,0,1
+3×6,MaxSW,goods,r=10,goods_rule_only,,,,0,1
+3×6,MaxSW,goods,r=10,prop,0.0,,,1,1
+3×6,MaxSW,goods,r=10,ef,0.0,,,1,1
+3×6,MaxSW,goods,r=10,efx,0.0,,,1,1
+3×6,MaxSW,goods,r=10,mms,0.0,,,1,1
+3×6,MaxSW,goods,r=10,po,1.0,,,1,1
+3×6,MaxSW,goods,r=10,mnw,0.0,,,1,1
+3×6,MaxSW,goods,r=10,prop1,1.0,,,1,1
+3×6,MaxSW,goods,r=10,prop_alpha,0.7142857142857143,,,1,1
+3×6,MaxSW,goods,r=10,ef_alpha,0.4545454545454546,,,1,1
+3×6,MaxSW,goods,r=10,ef1_alpha,0.8333333333333335,,,1,1
+3×6,MaxSW,goods,r=10,mms_alpha,0.9090909090909092,,,1,1
+3×6,MaxSW,goods,r=10,po_alpha,1.0,,,1,1
+3×6,MaxSW,goods,r=10,sw_ratio,1.0,,,1,1
+3×6,MaxSW,goods,r=10,nw_ratio,0.9687293061514642,,,1,1
+3×6,MaxSW,goods,r=10,efx_alpha,0.4761904761904763,,,1,1
+3×6,MaxSW,goods,r=10,prop1_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,r=10,valid,1.0,,,1,1
+3×6,MNW (exact),goods,r=10,ef1,1.0,,,1,1
+3×6,MNW (exact),goods,r=10,d,0.0,,,1,1
+3×6,MNW (exact),goods,r=10,envy,0.0,,,1,1
+3×6,MNW (exact),goods,r=10,total,139.28571428571428,,,1,1
+3×6,MNW (exact),goods,r=10,gap,17.85714285714289,,,1,1
+3×6,MNW (exact),goods,r=10,sd_ef,1.0,,,1,1
+3×6,MNW (exact),goods,r=10,sd_ef1,1.0,,,1,1
+3×6,MNW (exact),goods,r=10,sd_envy,0.0,,,1,1
+3×6,MNW (exact),goods,r=10,sd_d,0.0,,,1,1
+3×6,MNW (exact),goods,r=10,sd_ef_pairs,1.0,,,1,1
+3×6,MNW (exact),goods,r=10,sd_ef1_pairs,1.0,,,1,1
+3×6,MNW (exact),goods,r=10,wrong_side_only,,,,0,1
+3×6,MNW (exact),goods,r=10,goods_rule_only,,,,0,1
+3×6,MNW (exact),goods,r=10,prop,1.0,,,1,1
+3×6,MNW (exact),goods,r=10,ef,1.0,,,1,1
+3×6,MNW (exact),goods,r=10,efx,1.0,,,1,1
+3×6,MNW (exact),goods,r=10,mms,1.0,,,1,1
+3×6,MNW (exact),goods,r=10,po,1.0,,,1,1
+3×6,MNW (exact),goods,r=10,mnw,1.0,,,1,1
+3×6,MNW (exact),goods,r=10,prop1,1.0,,,1,1
+3×6,MNW (exact),goods,r=10,prop_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,r=10,ef_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,r=10,ef1_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,r=10,mms_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,r=10,po_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,r=10,sw_ratio,0.8863636363636364,,,1,1
+3×6,MNW (exact),goods,r=10,nw_ratio,1.0,,,1,1
+3×6,MNW (exact),goods,r=10,efx_alpha,1.0,,,1,1
+3×6,MNW (exact),goods,r=10,prop1_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,valid,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,ef1,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,d,0.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,envy,0.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,total,139.28571428571428,,,1,1
+3×6,Codex · Без метрики,goods,r=10,gap,17.85714285714289,,,1,1
+3×6,Codex · Без метрики,goods,r=10,sd_ef,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,sd_ef1,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,sd_envy,0.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,sd_d,0.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,sd_ef_pairs,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,sd_ef1_pairs,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,wrong_side_only,,,,0,1
+3×6,Codex · Без метрики,goods,r=10,goods_rule_only,,,,0,1
+3×6,Codex · Без метрики,goods,r=10,prop,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,ef,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,efx,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,mms,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,po,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,mnw,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,prop1,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,prop_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,ef_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,ef1_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,mms_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,po_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,sw_ratio,0.8863636363636364,,,1,1
+3×6,Codex · Без метрики,goods,r=10,nw_ratio,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,efx_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,goods,r=10,prop1_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,r=10,valid,1.0,,,1,1
+3×6,Codex · EF1,goods,r=10,ef1,1.0,,,1,1
+3×6,Codex · EF1,goods,r=10,d,0.0,,,1,1
+3×6,Codex · EF1,goods,r=10,envy,0.2142857142857143,,,1,1
+3×6,Codex · EF1,goods,r=10,total,155.3571428571429,,,1,1
+3×6,Codex · EF1,goods,r=10,gap,1.7857142857142776,,,1,1
+3×6,Codex · EF1,goods,r=10,sd_ef,0.0,,,1,1
+3×6,Codex · EF1,goods,r=10,sd_ef1,1.0,,,1,1
+3×6,Codex · EF1,goods,r=10,sd_envy,0.16666666666666666,,,1,1
+3×6,Codex · EF1,goods,r=10,sd_d,0.0,,,1,1
+3×6,Codex · EF1,goods,r=10,sd_ef_pairs,0.8333333333333334,,,1,1
+3×6,Codex · EF1,goods,r=10,sd_ef1_pairs,1.0,,,1,1
+3×6,Codex · EF1,goods,r=10,wrong_side_only,,,,0,1
+3×6,Codex · EF1,goods,r=10,goods_rule_only,,,,0,1
+3×6,Codex · EF1,goods,r=10,prop,0.0,,,1,1
+3×6,Codex · EF1,goods,r=10,ef,0.0,,,1,1
+3×6,Codex · EF1,goods,r=10,efx,1.0,,,1,1
+3×6,Codex · EF1,goods,r=10,mms,1.0,,,1,1
+3×6,Codex · EF1,goods,r=10,po,1.0,,,1,1
+3×6,Codex · EF1,goods,r=10,mnw,1.0,,,1,1
+3×6,Codex · EF1,goods,r=10,prop1,1.0,,,1,1
+3×6,Codex · EF1,goods,r=10,prop_alpha,0.7857142857142856,,,1,1
+3×6,Codex · EF1,goods,r=10,ef_alpha,0.5499999999999999,,,1,1
+3×6,Codex · EF1,goods,r=10,ef1_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,r=10,mms_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,r=10,po_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,r=10,sw_ratio,0.9886363636363639,,,1,1
+3×6,Codex · EF1,goods,r=10,nw_ratio,1.0,,,1,1
+3×6,Codex · EF1,goods,r=10,efx_alpha,1.0,,,1,1
+3×6,Codex · EF1,goods,r=10,prop1_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,r=10,valid,1.0,,,1,1
+3×6,Codex · PROP,goods,r=10,ef1,1.0,,,1,1
+3×6,Codex · PROP,goods,r=10,d,0.0,,,1,1
+3×6,Codex · PROP,goods,r=10,envy,0.041666666666666685,,,1,1
+3×6,Codex · PROP,goods,r=10,total,139.28571428571428,,,1,1
+3×6,Codex · PROP,goods,r=10,gap,17.85714285714289,,,1,1
+3×6,Codex · PROP,goods,r=10,sd_ef,0.0,,,1,1
+3×6,Codex · PROP,goods,r=10,sd_ef1,0.0,,,1,1
+3×6,Codex · PROP,goods,r=10,sd_envy,0.3333333333333333,,,1,1
+3×6,Codex · PROP,goods,r=10,sd_d,0.16666666666666666,,,1,1
+3×6,Codex · PROP,goods,r=10,sd_ef_pairs,0.5,,,1,1
+3×6,Codex · PROP,goods,r=10,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,Codex · PROP,goods,r=10,wrong_side_only,,,,0,1
+3×6,Codex · PROP,goods,r=10,goods_rule_only,,,,0,1
+3×6,Codex · PROP,goods,r=10,prop,1.0,,,1,1
+3×6,Codex · PROP,goods,r=10,ef,0.0,,,1,1
+3×6,Codex · PROP,goods,r=10,efx,1.0,,,1,1
+3×6,Codex · PROP,goods,r=10,mms,1.0,,,1,1
+3×6,Codex · PROP,goods,r=10,po,1.0,,,1,1
+3×6,Codex · PROP,goods,r=10,mnw,0.0,,,1,1
+3×6,Codex · PROP,goods,r=10,prop1,1.0,,,1,1
+3×6,Codex · PROP,goods,r=10,prop_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,r=10,ef_alpha,0.9090909090909091,,,1,1
+3×6,Codex · PROP,goods,r=10,ef1_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,r=10,mms_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,r=10,po_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,r=10,sw_ratio,0.8863636363636364,,,1,1
+3×6,Codex · PROP,goods,r=10,nw_ratio,0.9972375549877487,,,1,1
+3×6,Codex · PROP,goods,r=10,efx_alpha,1.0,,,1,1
+3×6,Codex · PROP,goods,r=10,prop1_alpha,1.0,,,1,1
+3×6,Codex · SW/C,goods,r=10,valid,1.0,,,1,1
+3×6,Codex · SW/C,goods,r=10,ef1,0.0,,,1,1
+3×6,Codex · SW/C,goods,r=10,d,0.04761904761904756,,,1,1
+3×6,Codex · SW/C,goods,r=10,envy,0.28571428571428564,,,1,1
+3×6,Codex · SW/C,goods,r=10,total,157.14285714285717,,,1,1
+3×6,Codex · SW/C,goods,r=10,gap,,,,0,1
+3×6,Codex · SW/C,goods,r=10,sd_ef,0.0,,,1,1
+3×6,Codex · SW/C,goods,r=10,sd_ef1,0.0,,,1,1
+3×6,Codex · SW/C,goods,r=10,sd_envy,0.5,,,1,1
+3×6,Codex · SW/C,goods,r=10,sd_d,0.3333333333333333,,,1,1
+3×6,Codex · SW/C,goods,r=10,sd_ef_pairs,0.6666666666666666,,,1,1
+3×6,Codex · SW/C,goods,r=10,sd_ef1_pairs,0.6666666666666666,,,1,1
+3×6,Codex · SW/C,goods,r=10,wrong_side_only,,,,0,1
+3×6,Codex · SW/C,goods,r=10,goods_rule_only,,,,0,1
+3×6,Codex · SW/C,goods,r=10,prop,0.0,,,1,1
+3×6,Codex · SW/C,goods,r=10,ef,0.0,,,1,1
+3×6,Codex · SW/C,goods,r=10,efx,0.0,,,1,1
+3×6,Codex · SW/C,goods,r=10,mms,0.0,,,1,1
+3×6,Codex · SW/C,goods,r=10,po,1.0,,,1,1
+3×6,Codex · SW/C,goods,r=10,mnw,0.0,,,1,1
+3×6,Codex · SW/C,goods,r=10,prop1,1.0,,,1,1
+3×6,Codex · SW/C,goods,r=10,prop_alpha,0.7142857142857143,,,1,1
+3×6,Codex · SW/C,goods,r=10,ef_alpha,0.4545454545454546,,,1,1
+3×6,Codex · SW/C,goods,r=10,ef1_alpha,0.8333333333333335,,,1,1
+3×6,Codex · SW/C,goods,r=10,mms_alpha,0.9090909090909092,,,1,1
+3×6,Codex · SW/C,goods,r=10,po_alpha,1.0,,,1,1
+3×6,Codex · SW/C,goods,r=10,sw_ratio,1.0,,,1,1
+3×6,Codex · SW/C,goods,r=10,nw_ratio,0.9687293061514642,,,1,1
+3×6,Codex · SW/C,goods,r=10,efx_alpha,0.4761904761904763,,,1,1
+3×6,Codex · SW/C,goods,r=10,prop1_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=10,valid,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=10,ef1,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=10,d,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=10,envy,0.047619047619047616,,,1,1
+3×6,EF1-opt (exact),chores,r=10,total,41.07142857142857,,,1,1
+3×6,EF1-opt (exact),chores,r=10,gap,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=10,sd_ef,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=10,sd_ef1,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=10,sd_envy,0.3333333333333333,,,1,1
+3×6,EF1-opt (exact),chores,r=10,sd_d,0.16666666666666666,,,1,1
+3×6,EF1-opt (exact),chores,r=10,sd_ef_pairs,0.5,,,1,1
+3×6,EF1-opt (exact),chores,r=10,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,EF1-opt (exact),chores,r=10,wrong_side_only,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=10,goods_rule_only,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=10,prop,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=10,ef,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=10,efx,0.0,,,1,1
+3×6,EF1-opt (exact),chores,r=10,mms,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=10,po,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=10,mnw,,,,0,1
+3×6,EF1-opt (exact),chores,r=10,prop1,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=10,prop_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=10,ef_alpha,0.8333333333333334,,,1,1
+3×6,EF1-opt (exact),chores,r=10,ef1_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=10,mms_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=10,po_alpha,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=10,sw_ratio,1.0,,,1,1
+3×6,EF1-opt (exact),chores,r=10,nw_ratio,,,,0,1
+3×6,EF1-opt (exact),chores,r=10,efx_alpha,0.9090909090909092,,,1,1
+3×6,EF1-opt (exact),chores,r=10,prop1_alpha,1.0,,,1,1
+3×6,Round-Robin,chores,r=10,valid,1.0,,,1,1
+3×6,Round-Robin,chores,r=10,ef1,1.0,,,1,1
+3×6,Round-Robin,chores,r=10,d,0.0,,,1,1
+3×6,Round-Robin,chores,r=10,envy,0.37500000000000006,,,1,1
+3×6,Round-Robin,chores,r=10,total,80.35714285714286,,,1,1
+3×6,Round-Robin,chores,r=10,gap,39.28571428571429,,,1,1
+3×6,Round-Robin,chores,r=10,sd_ef,0.0,,,1,1
+3×6,Round-Robin,chores,r=10,sd_ef1,1.0,,,1,1
+3×6,Round-Robin,chores,r=10,sd_envy,0.16666666666666666,,,1,1
+3×6,Round-Robin,chores,r=10,sd_d,0.0,,,1,1
+3×6,Round-Robin,chores,r=10,sd_ef_pairs,0.8333333333333334,,,1,1
+3×6,Round-Robin,chores,r=10,sd_ef1_pairs,1.0,,,1,1
+3×6,Round-Robin,chores,r=10,wrong_side_only,0.0,,,1,1
+3×6,Round-Robin,chores,r=10,goods_rule_only,0.0,,,1,1
+3×6,Round-Robin,chores,r=10,prop,0.0,,,1,1
+3×6,Round-Robin,chores,r=10,ef,0.0,,,1,1
+3×6,Round-Robin,chores,r=10,efx,0.0,,,1,1
+3×6,Round-Robin,chores,r=10,mms,0.0,,,1,1
+3×6,Round-Robin,chores,r=10,po,0.0,,,1,1
+3×6,Round-Robin,chores,r=10,mnw,,,,0,1
+3×6,Round-Robin,chores,r=10,prop1,1.0,,,1,1
+3×6,Round-Robin,chores,r=10,prop_alpha,0.7272727272727272,,,1,1
+3×6,Round-Robin,chores,r=10,ef_alpha,0.1818181818181818,,,1,1
+3×6,Round-Robin,chores,r=10,ef1_alpha,1.0,,,1,1
+3×6,Round-Robin,chores,r=10,mms_alpha,0.9090909090909091,,,1,1
+3×6,Round-Robin,chores,r=10,po_alpha,0.9090909090909092,,,1,1
+3×6,Round-Robin,chores,r=10,sw_ratio,0.5111111111111111,,,1,1
+3×6,Round-Robin,chores,r=10,nw_ratio,,,,0,1
+3×6,Round-Robin,chores,r=10,efx_alpha,0.19999999999999998,,,1,1
+3×6,Round-Robin,chores,r=10,prop1_alpha,1.0,,,1,1
+3×6,MinSW,chores,r=10,valid,1.0,,,1,1
+3×6,MinSW,chores,r=10,ef1,1.0,,,1,1
+3×6,MinSW,chores,r=10,d,0.0,,,1,1
+3×6,MinSW,chores,r=10,envy,0.047619047619047616,,,1,1
+3×6,MinSW,chores,r=10,total,41.07142857142857,,,1,1
+3×6,MinSW,chores,r=10,gap,0.0,,,1,1
+3×6,MinSW,chores,r=10,sd_ef,0.0,,,1,1
+3×6,MinSW,chores,r=10,sd_ef1,0.0,,,1,1
+3×6,MinSW,chores,r=10,sd_envy,0.3333333333333333,,,1,1
+3×6,MinSW,chores,r=10,sd_d,0.16666666666666666,,,1,1
+3×6,MinSW,chores,r=10,sd_ef_pairs,0.5,,,1,1
+3×6,MinSW,chores,r=10,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,MinSW,chores,r=10,wrong_side_only,0.0,,,1,1
+3×6,MinSW,chores,r=10,goods_rule_only,0.0,,,1,1
+3×6,MinSW,chores,r=10,prop,1.0,,,1,1
+3×6,MinSW,chores,r=10,ef,0.0,,,1,1
+3×6,MinSW,chores,r=10,efx,0.0,,,1,1
+3×6,MinSW,chores,r=10,mms,1.0,,,1,1
+3×6,MinSW,chores,r=10,po,1.0,,,1,1
+3×6,MinSW,chores,r=10,mnw,,,,0,1
+3×6,MinSW,chores,r=10,prop1,1.0,,,1,1
+3×6,MinSW,chores,r=10,prop_alpha,1.0,,,1,1
+3×6,MinSW,chores,r=10,ef_alpha,0.8333333333333334,,,1,1
+3×6,MinSW,chores,r=10,ef1_alpha,1.0,,,1,1
+3×6,MinSW,chores,r=10,mms_alpha,1.0,,,1,1
+3×6,MinSW,chores,r=10,po_alpha,1.0,,,1,1
+3×6,MinSW,chores,r=10,sw_ratio,1.0,,,1,1
+3×6,MinSW,chores,r=10,nw_ratio,,,,0,1
+3×6,MinSW,chores,r=10,efx_alpha,0.9090909090909092,,,1,1
+3×6,MinSW,chores,r=10,prop1_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=10,valid,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=10,ef1,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=10,d,0.0,,,1,1
+3×6,Codex · Без метрики,chores,r=10,envy,0.0,,,1,1
+3×6,Codex · Без метрики,chores,r=10,total,44.64285714285714,,,1,1
+3×6,Codex · Без метрики,chores,r=10,gap,3.5714285714285694,,,1,1
+3×6,Codex · Без метрики,chores,r=10,sd_ef,0.0,,,1,1
+3×6,Codex · Без метрики,chores,r=10,sd_ef1,0.0,,,1,1
+3×6,Codex · Без метрики,chores,r=10,sd_envy,0.3333333333333333,,,1,1
+3×6,Codex · Без метрики,chores,r=10,sd_d,0.16666666666666666,,,1,1
+3×6,Codex · Без метрики,chores,r=10,sd_ef_pairs,0.5,,,1,1
+3×6,Codex · Без метрики,chores,r=10,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,Codex · Без метрики,chores,r=10,wrong_side_only,0.0,,,1,1
+3×6,Codex · Без метрики,chores,r=10,goods_rule_only,0.0,,,1,1
+3×6,Codex · Без метрики,chores,r=10,prop,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=10,ef,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=10,efx,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=10,mms,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=10,po,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=10,mnw,,,,0,1
+3×6,Codex · Без метрики,chores,r=10,prop1,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=10,prop_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=10,ef_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=10,ef1_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=10,mms_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=10,po_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=10,sw_ratio,0.92,,,1,1
+3×6,Codex · Без метрики,chores,r=10,nw_ratio,,,,0,1
+3×6,Codex · Без метрики,chores,r=10,efx_alpha,1.0,,,1,1
+3×6,Codex · Без метрики,chores,r=10,prop1_alpha,1.0,,,1,1
+3×6,Codex · EF1,chores,r=10,valid,1.0,,,1,1
+3×6,Codex · EF1,chores,r=10,ef1,1.0,,,1,1
+3×6,Codex · EF1,chores,r=10,d,0.0,,,1,1
+3×6,Codex · EF1,chores,r=10,envy,0.4166666666666667,,,1,1
+3×6,Codex · EF1,chores,r=10,total,80.35714285714285,,,1,1
+3×6,Codex · EF1,chores,r=10,gap,39.28571428571428,,,1,1
+3×6,Codex · EF1,chores,r=10,sd_ef,0.0,,,1,1
+3×6,Codex · EF1,chores,r=10,sd_ef1,0.0,,,1,1
+3×6,Codex · EF1,chores,r=10,sd_envy,0.3333333333333333,,,1,1
+3×6,Codex · EF1,chores,r=10,sd_d,0.16666666666666666,,,1,1
+3×6,Codex · EF1,chores,r=10,sd_ef_pairs,0.5,,,1,1
+3×6,Codex · EF1,chores,r=10,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,Codex · EF1,chores,r=10,wrong_side_only,0.0,,,1,1
+3×6,Codex · EF1,chores,r=10,goods_rule_only,0.0,,,1,1
+3×6,Codex · EF1,chores,r=10,prop,0.0,,,1,1
+3×6,Codex · EF1,chores,r=10,ef,0.0,,,1,1
+3×6,Codex · EF1,chores,r=10,efx,0.0,,,1,1
+3×6,Codex · EF1,chores,r=10,mms,0.0,,,1,1
+3×6,Codex · EF1,chores,r=10,po,0.0,,,1,1
+3×6,Codex · EF1,chores,r=10,mnw,,,,0,1
+3×6,Codex · EF1,chores,r=10,prop1,1.0,,,1,1
+3×6,Codex · EF1,chores,r=10,prop_alpha,0.6666666666666666,,,1,1
+3×6,Codex · EF1,chores,r=10,ef_alpha,0.16666666666666666,,,1,1
+3×6,Codex · EF1,chores,r=10,ef1_alpha,1.0,,,1,1
+3×6,Codex · EF1,chores,r=10,mms_alpha,0.8333333333333334,,,1,1
+3×6,Codex · EF1,chores,r=10,po_alpha,1.0,,,1,1
+3×6,Codex · EF1,chores,r=10,sw_ratio,0.5111111111111112,,,1,1
+3×6,Codex · EF1,chores,r=10,nw_ratio,,,,0,1
+3×6,Codex · EF1,chores,r=10,efx_alpha,0.18181818181818182,,,1,1
+3×6,Codex · EF1,chores,r=10,prop1_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,r=10,valid,1.0,,,1,1
+3×6,Codex · PROP,chores,r=10,ef1,1.0,,,1,1
+3×6,Codex · PROP,chores,r=10,d,0.0,,,1,1
+3×6,Codex · PROP,chores,r=10,envy,0.0,,,1,1
+3×6,Codex · PROP,chores,r=10,total,44.642857142857146,,,1,1
+3×6,Codex · PROP,chores,r=10,gap,3.5714285714285765,,,1,1
+3×6,Codex · PROP,chores,r=10,sd_ef,0.0,,,1,1
+3×6,Codex · PROP,chores,r=10,sd_ef1,0.0,,,1,1
+3×6,Codex · PROP,chores,r=10,sd_envy,0.5,,,1,1
+3×6,Codex · PROP,chores,r=10,sd_d,0.3333333333333333,,,1,1
+3×6,Codex · PROP,chores,r=10,sd_ef_pairs,0.6666666666666666,,,1,1
+3×6,Codex · PROP,chores,r=10,sd_ef1_pairs,0.6666666666666666,,,1,1
+3×6,Codex · PROP,chores,r=10,wrong_side_only,0.0,,,1,1
+3×6,Codex · PROP,chores,r=10,goods_rule_only,0.0,,,1,1
+3×6,Codex · PROP,chores,r=10,prop,1.0,,,1,1
+3×6,Codex · PROP,chores,r=10,ef,1.0,,,1,1
+3×6,Codex · PROP,chores,r=10,efx,1.0,,,1,1
+3×6,Codex · PROP,chores,r=10,mms,1.0,,,1,1
+3×6,Codex · PROP,chores,r=10,po,1.0,,,1,1
+3×6,Codex · PROP,chores,r=10,mnw,,,,0,1
+3×6,Codex · PROP,chores,r=10,prop1,1.0,,,1,1
+3×6,Codex · PROP,chores,r=10,prop_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,r=10,ef_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,r=10,ef1_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,r=10,mms_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,r=10,po_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,r=10,sw_ratio,0.9199999999999999,,,1,1
+3×6,Codex · PROP,chores,r=10,nw_ratio,,,,0,1
+3×6,Codex · PROP,chores,r=10,efx_alpha,1.0,,,1,1
+3×6,Codex · PROP,chores,r=10,prop1_alpha,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=10,valid,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=10,ef1,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=10,d,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=10,envy,0.047619047619047616,,,1,1
+3×6,Codex · SW/C,chores,r=10,total,41.07142857142857,,,1,1
+3×6,Codex · SW/C,chores,r=10,gap,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=10,sd_ef,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=10,sd_ef1,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=10,sd_envy,0.3333333333333333,,,1,1
+3×6,Codex · SW/C,chores,r=10,sd_d,0.16666666666666666,,,1,1
+3×6,Codex · SW/C,chores,r=10,sd_ef_pairs,0.5,,,1,1
+3×6,Codex · SW/C,chores,r=10,sd_ef1_pairs,0.8333333333333334,,,1,1
+3×6,Codex · SW/C,chores,r=10,wrong_side_only,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=10,goods_rule_only,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=10,prop,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=10,ef,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=10,efx,0.0,,,1,1
+3×6,Codex · SW/C,chores,r=10,mms,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=10,po,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=10,mnw,,,,0,1
+3×6,Codex · SW/C,chores,r=10,prop1,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=10,prop_alpha,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=10,ef_alpha,0.8333333333333334,,,1,1
+3×6,Codex · SW/C,chores,r=10,ef1_alpha,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=10,mms_alpha,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=10,po_alpha,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=10,sw_ratio,1.0,,,1,1
+3×6,Codex · SW/C,chores,r=10,nw_ratio,,,,0,1
+3×6,Codex · SW/C,chores,r=10,efx_alpha,0.9090909090909092,,,1,1
+3×6,Codex · SW/C,chores,r=10,prop1_alpha,1.0,,,1,1

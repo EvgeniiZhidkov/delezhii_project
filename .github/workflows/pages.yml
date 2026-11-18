@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths:
       - site/**
-      - results/revised_figures/**
+      - results/latest/**
       - archive/scripts/build_site.py
       - .github/workflows/pages.yml
   workflow_dispatch:

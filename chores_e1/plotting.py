@@ -148,10 +148,14 @@ def plot_results(result, *, metrics=PAPER_METRICS, group=None, include_reference
                 continue
             columns = min(4, len(methods))
             rows = int(np.ceil(len(methods) / columns))
-            fig, axes = plt.subplots(rows, columns, figsize=(4.5 * columns, 4.8 * rows + 1.3),
+            # Reserve room above the axes for both the figure and panel titles.
+            header_height = 1.9
+            footer_height = 0.65
+            height = 4.8 * rows + header_height + footer_height
+            fig, axes = plt.subplots(rows, columns, figsize=(4.5 * columns, height),
                                      subplot_kw={"projection": "polar"}, squeeze=False)
-            fig.subplots_adjust(left=0.06, right=0.94, top=1-0.95/(4.8*rows+1.3),
-                                bottom=0.65/(4.8*rows+1.3), wspace=0.55, hspace=0.8)
+            fig.subplots_adjust(left=0.06, right=0.94, top=1 - header_height / height,
+                                bottom=footer_height / height, wspace=0.55, hspace=0.8)
             for ax, method in zip(axes.flat, methods):
                 frame = selected[selected["method"] == method].set_index("metric").reindex(metrics)
                 values = frame["mean"].to_numpy(float)
@@ -184,7 +188,7 @@ def plot_results(result, *, metrics=PAPER_METRICS, group=None, include_reference
             scope = GROUP_LABEL.get(group, group) if group else f"все группы ({len(result.config.groups)})"
             instances = result.config.n_base * (1 if group else len(result.config.groups))
             fig.suptitle(f"{kind_label} · {setting.label} · {scope} · {instances} матриц\n"
-                         "Средние оценки · 100% — лучшее значение", fontsize=15, y=0.99)
+                         "Средние оценки · 100% — лучшее значение", fontsize=15, y=1 - 0.10 / height)
             fig.legend(handles=[Patch(color="#a9d39e", label="Справедливость"),
                                 Patch(color="#f7bd91", label="Эффективность")],
                        loc="lower left", bbox_to_anchor=(0.04, 0.005), ncol=2, frameon=False, fontsize=10)

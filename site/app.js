@@ -18,7 +18,6 @@ const percent = new Intl.NumberFormat("ru", { style: "percent", maximumFractionD
 const number = new Intl.NumberFormat("ru", { maximumFractionDigits: 2 });
 const rateLabel = value => value === null ? "н/д" : percent.format(value);
 const get = id => document.getElementById(id);
-const dataset = get("dataset");
 const group = get("group");
 const radars = get("radars");
 const rate = get("rate");
@@ -133,7 +132,7 @@ function drawRadar(canvas) {
 }
 
 function radar(entry, axes) {
-  const card = element("article", undefined, entry.method === "Codex" ? "radar-card model" : "radar-card");
+  const card = element("article", undefined, entry.is_model ? "radar-card model" : "radar-card");
   const canvas = element("canvas");
   const tip = element("div", undefined, "chart-tip");
   tip.hidden = true;
@@ -161,7 +160,7 @@ function bars(entries) {
     header.append(element("span", entry.label), element("strong", rateLabel(value)));
     const track = element("div", undefined, "track");
     track.setAttribute("aria-hidden", "true");
-    const fill = element("span", undefined, entry.method === "Codex" ? "bar-fill model" : "bar-fill");
+    const fill = element("span", undefined, entry.is_model ? "bar-fill model" : "bar-fill");
     fill.style.width = Math.min(100, Math.max(0, value * 100)) + "%";
     track.append(fill);
     row.append(header, track);
@@ -171,7 +170,7 @@ function bars(entries) {
 
 function table(entries) {
   return entries.map(entry => {
-    const row = element("tr", undefined, entry.method === "Codex" ? "model" : undefined);
+    const row = element("tr", undefined, entry.is_model ? "model" : undefined);
     const method = element("th", entry.label);
     method.scope = "row";
     const cells = ["ef1", "sd_ef1", "efx"].map(key => element("td", rateLabel(entry.values[key])));
@@ -191,17 +190,20 @@ function downloadLink(path, label) {
 function start(data) {
   const isExtended = get("extended");
   const showReference = get("reference");
-  group.replaceChildren(...Object.entries(data.pilot.groups).map(([key, info]) => new Option(info.label, key)));
+  const countAnswers = entries => entries.reduce((total, entry) => total + (entry.is_model ? entry.instances : 0), 0);
+  const all = data.groups.all;
+  get("experiment-size").textContent = data.setting.replace("×", " × ");
+  get("answer-count").textContent = countAnswers([...all.goods, ...all.chores]);
+  get("prompt-count").textContent = data.prompt_count;
+  group.replaceChildren(...Object.entries(data.groups).map(([key, info]) => new Option(info.label, key)));
   let visible = [];
   function render() {
     const kind = document.querySelector('input[name="kind"]:checked').value;
-    const current = data[dataset.value];
-    const entries = current.groups[group.value][kind];
+    const entries = data.groups[group.value][kind];
     const axes = isExtended.checked ? extendedAxes : paperAxes;
     visible = entries.filter(entry => showReference.checked || entry.method !== "EF1-opt (exact)");
-    const model = entries.find(entry => entry.method === "Codex");
-    get("selection").textContent = current.setting + " · Матриц на метод: " + entries[0].instances
-      + (model ? " · Ответов gpt-6.1-sol в режиме: " + model.instances : " · Алгоритмическая выборка");
+    get("selection").textContent = data.setting + " · Матриц на метод: " + entries[0].instances
+      + " · Ответов модели: " + countAnswers(entries);
     observer.disconnect();
     radars.replaceChildren(...visible.map(entry => radar(entry, axes)));
     radars.querySelectorAll("canvas").forEach(canvas => observer.observe(canvas));
@@ -211,16 +213,16 @@ function start(data) {
     get("total-note").textContent = kind === "goods"
       ? "Средняя общая полезность в баллах. Больше — лучше."
       : "Средние общие затраты в баллах. Меньше — лучше.";
-    const folder = "data/" + dataset.value + "/";
     const scheme = isExtended.checked ? "extended" : "paper";
     get("downloads").replaceChildren(
-      downloadLink(folder + scheme + "-" + kind + ".pdf", "График всех входов · PDF"),
-      downloadLink(folder + "summary.csv", "Метрики по группам · CSV"),
-      downloadLink(folder + "radar_summary.csv", "Оси радара · CSV"),
-      downloadLink(folder + "bootstrap.csv", "Интервалы · CSV"),
+      downloadLink("data/" + scheme + "-" + kind + ".pdf", "График всех входов · PDF"),
+      downloadLink("data/results.csv", "Результаты по входам · CSV"),
+      downloadLink("data/summary.csv", "Метрики по группам · CSV"),
+      downloadLink("data/radar_summary.csv", "Оси радара · CSV"),
+      downloadLink("data/bootstrap.csv", "Интервалы · CSV"),
     );
   }
-  for (const control of [dataset, group, isExtended, showReference, ...document.querySelectorAll('input[name="kind"]')]) {
+  for (const control of [group, isExtended, showReference, ...document.querySelectorAll('input[name="kind"]')]) {
     control.addEventListener("change", render);
   }
   rate.addEventListener("change", () => get("bars").replaceChildren(...bars(visible)));

@@ -1,0 +1,70 @@
+{
+  "schema": 4,
+  "config": {
+    "settings": [
+      {
+        "n_agents": 3,
+        "n_items": 6
+      }
+    ],
+    "n_base": 1,
+    "seed": 20261109,
+    "paper_lambda": 20,
+    "ratios": [
+      2,
+      5,
+      10
+    ],
+    "groups": [
+      "paper",
+      "uniform",
+      "r=2",
+      "r=5",
+      "r=10"
+    ],
+    "repeats": 1,
+    "row_total": 100.0,
+    "atol": 1e-09,
+    "reference": {
+      "max_allocations": 10000,
+      "chunk_size": 2048
+    },
+    "models": [
+      {
+        "label": "Codex",
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": null,
+        "timeout": 180.0
+      }
+    ],
+    "output_dir": "runs",
+    "prompt_variants": [
+      "free",
+      "ef1",
+      "prop",
+      "welfare"
+    ]
+  },
+  "prompt_version": "e1-paired-v2",
+  "python": "3.14.7",
+  "packages": {
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "matplotlib": "3.11.1"
+  },
+  "source_sha256": {
+    "__init__.py": "ad5f31016cc3fea5f00467347bdc60aeee8d3eeb8b5881eab7e302a89dc97778",
+    "__main__.py": "586888e82ac45e75bd02aa2d484596fc3741e92bdba2c261b17a1b31f892c3dd",
+    "analysis.py": "d6cc101eaa397b0c11cfcd482945a412c2f558a09b770d4795945d10216feb8c",
+    "backends.py": "979d150249b41d431ba7ca37e6fa9f4c085ccb5ad6bf785b489fba571c21e549",
+    "config.py": "c9270f65848f767308e8586e7046485f713d1393234622eaa4b01f245f1883b9",
+    "data.py": "4497652aceb85da31f98c74351740f40fc1372de48e9f29d4c7f396a2115ea54",
+    "evaluation.py": "a9444bcf278424a1e15c44de5e2ba55d51d8139480459766146706f342b00148",
+    "experiment.py": "118ab5a4d21662dcdef7125a6f7203075eaf2a6af2c2a34ffd170bb0de42c91b",
+    "metrics.py": "e2b4b0f748c9f98ed8224e12bbe4c8fc04b8dc3358d41887bb4e74fde413113e",
+    "plotting.py": "cb984e216c70f135faafbf9ca0f16d1af979455d603b9f84f61c55e5770e650e",
+    "prompts.py": "0179038533ecc65603ca9372a3c424f029e2679feef320d3c0b44a6359764b81",
+    "reference.py": "e5e886a7465eb9ec74d7cfc827c67c892e5136145b60fb5e5502a2b1ba26162c"
+  },
+  "backend_version": "codex-cli 0.167.0"
+}

@@ -1,0 +1,136 @@
+setting,method,kind,metric,mean,n_defined,n_expected
+3×6,EF1-opt (exact),goods,prop_alpha,0.71428576963203,5,5
+3×6,EF1-opt (exact),goods,ef_alpha,0.5339887640449439,5,5
+3×6,EF1-opt (exact),goods,ef1_alpha,1.0,5,5
+3×6,EF1-opt (exact),goods,efx_alpha,0.7823928944618601,5,5
+3×6,EF1-opt (exact),goods,sd_ef1,0.0,5,5
+3×6,EF1-opt (exact),goods,po_alpha,1.0,5,5
+3×6,EF1-opt (exact),goods,sw_ratio,0.9990768088623909,5,5
+3×6,EF1-opt (exact),goods,nw_ratio,0.9713073893723777,5,5
+3×6,EF1-opt (exact),goods,mms_alpha,0.8308777429467085,5,5
+3×6,Round-Robin,goods,prop_alpha,0.9213296398891966,5,5
+3×6,Round-Robin,goods,ef_alpha,0.8820224719101123,5,5
+3×6,Round-Robin,goods,ef1_alpha,1.0,5,5
+3×6,Round-Robin,goods,efx_alpha,0.9258620689655173,5,5
+3×6,Round-Robin,goods,sd_ef1,1.0,5,5
+3×6,Round-Robin,goods,po_alpha,1.0,5,5
+3×6,Round-Robin,goods,sw_ratio,0.9389917642098116,5,5
+3×6,Round-Robin,goods,nw_ratio,0.9796600359366702,5,5
+3×6,Round-Robin,goods,mms_alpha,0.9258620689655173,5,5
+3×6,MaxSW,goods,prop_alpha,0.6165963448316389,5,5
+3×6,MaxSW,goods,ef_alpha,0.3952569169960475,5,5
+3×6,MaxSW,goods,ef1_alpha,0.6604672057502247,5,5
+3×6,MaxSW,goods,efx_alpha,0.4367218987908643,5,5
+3×6,MaxSW,goods,sd_ef1,0.0,5,5
+3×6,MaxSW,goods,po_alpha,1.0,5,5
+3×6,MaxSW,goods,sw_ratio,1.0,5,5
+3×6,MaxSW,goods,nw_ratio,0.8849039751463599,5,5
+3×6,MaxSW,goods,mms_alpha,0.7286966046002191,5,5
+3×6,MNW (exact),goods,prop_alpha,0.9970370370370369,5,5
+3×6,MNW (exact),goods,ef_alpha,0.978523489932886,5,5
+3×6,MNW (exact),goods,ef1_alpha,1.0,5,5
+3×6,MNW (exact),goods,efx_alpha,0.9913669064748202,5,5
+3×6,MNW (exact),goods,sd_ef1,0.8,5,5
+3×6,MNW (exact),goods,po_alpha,1.0,5,5
+3×6,MNW (exact),goods,sw_ratio,0.946656707783615,5,5
+3×6,MNW (exact),goods,nw_ratio,1.0,5,5
+3×6,MNW (exact),goods,mms_alpha,1.0,5,5
+3×6,Codex · Без метрики,goods,prop_alpha,1.0,5,5
+3×6,Codex · Без метрики,goods,ef_alpha,0.9984126984126984,5,5
+3×6,Codex · Без метрики,goods,ef1_alpha,1.0,5,5
+3×6,Codex · Без метрики,goods,efx_alpha,1.0,5,5
+3×6,Codex · Без метрики,goods,sd_ef1,1.0,5,5
+3×6,Codex · Без метрики,goods,po_alpha,1.0,5,5
+3×6,Codex · Без метрики,goods,sw_ratio,0.941276066025674,5,5
+3×6,Codex · Без метрики,goods,nw_ratio,0.9951071858971187,5,5
+3×6,Codex · Без метрики,goods,mms_alpha,1.0,5,5
+3×6,Codex · EF1,goods,prop_alpha,0.8221088606684175,5,5
+3×6,Codex · EF1,goods,ef_alpha,0.6620224719101124,5,5
+3×6,Codex · EF1,goods,ef1_alpha,1.0,5,5
+3×6,Codex · EF1,goods,efx_alpha,0.9258620689655173,5,5
+3×6,Codex · EF1,goods,sd_ef1,1.0,5,5
+3×6,Codex · EF1,goods,po_alpha,1.0,5,5
+3×6,Codex · EF1,goods,sw_ratio,0.9648384974839253,5,5
+3×6,Codex · EF1,goods,nw_ratio,0.9688739050082191,5,5
+3×6,Codex · EF1,goods,mms_alpha,0.9258620689655173,5,5
+3×6,Codex · PROP,goods,prop_alpha,1.0,5,5
+3×6,Codex · PROP,goods,ef_alpha,0.942890442890443,5,5
+3×6,Codex · PROP,goods,ef1_alpha,1.0,5,5
+3×6,Codex · PROP,goods,efx_alpha,1.0,5,5
+3×6,Codex · PROP,goods,sd_ef1,0.6,5,5
+3×6,Codex · PROP,goods,po_alpha,1.0,5,5
+3×6,Codex · PROP,goods,sw_ratio,0.9435199006438229,5,5
+3×6,Codex · PROP,goods,nw_ratio,0.9946122762849651,5,5
+3×6,Codex · PROP,goods,mms_alpha,1.0,5,5
+3×6,Codex · SW/C,goods,prop_alpha,0.6165963448316389,5,5
+3×6,Codex · SW/C,goods,ef_alpha,0.3952569169960475,5,5
+3×6,Codex · SW/C,goods,ef1_alpha,0.6604672057502247,5,5
+3×6,Codex · SW/C,goods,efx_alpha,0.4367218987908643,5,5
+3×6,Codex · SW/C,goods,sd_ef1,0.0,5,5
+3×6,Codex · SW/C,goods,po_alpha,1.0,5,5
+3×6,Codex · SW/C,goods,sw_ratio,1.0,5,5
+3×6,Codex · SW/C,goods,nw_ratio,0.8849039751463599,5,5
+3×6,Codex · SW/C,goods,mms_alpha,0.7286966046002191,5,5
+3×6,EF1-opt (exact),chores,prop_alpha,0.9072039072039072,5,5
+3×6,EF1-opt (exact),chores,ef_alpha,0.6412698412698413,5,5
+3×6,EF1-opt (exact),chores,ef1_alpha,1.0,5,5
+3×6,EF1-opt (exact),chores,efx_alpha,0.7818181818181819,5,5
+3×6,EF1-opt (exact),chores,sd_ef1,0.2,5,5
+3×6,EF1-opt (exact),chores,po_alpha,1.0,5,5
+3×6,EF1-opt (exact),chores,sw_ratio,0.9987011043159135,5,5
+3×6,EF1-opt (exact),chores,nw_ratio,,0,5
+3×6,EF1-opt (exact),chores,mms_alpha,0.947008547008547,5,5
+3×6,Round-Robin,chores,prop_alpha,0.813993871297242,5,5
+3×6,Round-Robin,chores,ef_alpha,0.4260784159660564,5,5
+3×6,Round-Robin,chores,ef1_alpha,1.0,5,5
+3×6,Round-Robin,chores,efx_alpha,0.6208620689655173,5,5
+3×6,Round-Robin,chores,sd_ef1,1.0,5,5
+3×6,Round-Robin,chores,po_alpha,0.9331002331002332,5,5
+3×6,Round-Robin,chores,sw_ratio,0.739610944024623,5,5
+3×6,Round-Robin,chores,nw_ratio,,0,5
+3×6,Round-Robin,chores,mms_alpha,0.8889342866870956,5,5
+3×6,MinSW,chores,prop_alpha,0.8542960662525878,5,5
+3×6,MinSW,chores,ef_alpha,0.5730331262939958,5,5
+3×6,MinSW,chores,ef1_alpha,0.8358490566037735,5,5
+3×6,MinSW,chores,efx_alpha,0.6746917450365727,5,5
+3×6,MinSW,chores,sd_ef1,0.0,5,5
+3×6,MinSW,chores,po_alpha,1.0,5,5
+3×6,MinSW,chores,sw_ratio,1.0,5,5
+3×6,MinSW,chores,nw_ratio,,0,5
+3×6,MinSW,chores,mms_alpha,0.8934782608695653,5,5
+3×6,Codex · Без метрики,chores,prop_alpha,1.0,5,5
+3×6,Codex · Без метрики,chores,ef_alpha,1.0,5,5
+3×6,Codex · Без метрики,chores,ef1_alpha,1.0,5,5
+3×6,Codex · Без метрики,chores,efx_alpha,1.0,5,5
+3×6,Codex · Без метрики,chores,sd_ef1,0.4,5,5
+3×6,Codex · Без метрики,chores,po_alpha,1.0,5,5
+3×6,Codex · Без метрики,chores,sw_ratio,0.9452389005092605,5,5
+3×6,Codex · Без метрики,chores,nw_ratio,,0,5
+3×6,Codex · Без метрики,chores,mms_alpha,1.0,5,5
+3×6,Codex · EF1,chores,prop_alpha,0.7619961771794233,5,5
+3×6,Codex · EF1,chores,ef_alpha,0.46576913487908256,5,5
+3×6,Codex · EF1,chores,ef1_alpha,1.0,5,5
+3×6,Codex · EF1,chores,efx_alpha,0.603030303030303,5,5
+3×6,Codex · EF1,chores,sd_ef1,0.4,5,5
+3×6,Codex · EF1,chores,po_alpha,1.0,5,5
+3×6,Codex · EF1,chores,sw_ratio,0.7445440563185614,5,5
+3×6,Codex · EF1,chores,nw_ratio,,0,5
+3×6,Codex · EF1,chores,mms_alpha,0.8550735477437048,5,5
+3×6,Codex · PROP,chores,prop_alpha,1.0,5,5
+3×6,Codex · PROP,chores,ef_alpha,0.9818181818181818,5,5
+3×6,Codex · PROP,chores,ef1_alpha,1.0,5,5
+3×6,Codex · PROP,chores,efx_alpha,1.0,5,5
+3×6,Codex · PROP,chores,sd_ef1,0.4,5,5
+3×6,Codex · PROP,chores,po_alpha,1.0,5,5
+3×6,Codex · PROP,chores,sw_ratio,0.9379537607599187,5,5
+3×6,Codex · PROP,chores,nw_ratio,,0,5
+3×6,Codex · PROP,chores,mms_alpha,1.0,5,5
+3×6,Codex · SW/C,chores,prop_alpha,0.8542960662525878,5,5
+3×6,Codex · SW/C,chores,ef_alpha,0.5730331262939958,5,5
+3×6,Codex · SW/C,chores,ef1_alpha,0.8358490566037735,5,5
+3×6,Codex · SW/C,chores,efx_alpha,0.6746917450365727,5,5
+3×6,Codex · SW/C,chores,sd_ef1,0.0,5,5
+3×6,Codex · SW/C,chores,po_alpha,1.0,5,5
+3×6,Codex · SW/C,chores,sw_ratio,1.0,5,5
+3×6,Codex · SW/C,chores,nw_ratio,,0,5
+3×6,Codex · SW/C,chores,mms_alpha,0.8934782608695653,5,5

@@ -8,11 +8,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
-REPORTS = ROOT / "results" / "revised_figures"
-DATASETS = {
-    "pilot": ("model_gpt-6.1-sol", "Пилот с gpt-6.1-sol"),
-    "algorithms": ("algorithms_3x6_n20", "Алгоритмы на 100 матрицах"),
-}
+LATEST = ROOT / "results" / "latest"
 GROUPS = {
     "paper": "Общая шкала (paper)",
     "uniform": "Независимые оценки (uniform)",
@@ -24,7 +20,6 @@ METRICS = (
     "prop_alpha", "ef_alpha", "ef1_alpha", "po_alpha", "sw_ratio", "mms_alpha",
     "efx_alpha", "sd_ef1", "nw_ratio", "ef1", "efx", "po", "total",
 )
-METHODS = ("Round-Robin", "MaxSW", "MinSW", "MNW (exact)", "Codex", "EF1-opt (exact)")
 
 
 def read_csv(path):
@@ -44,7 +39,9 @@ def aggregate(rows, radar):
     return {"instances": instances, "values": means}
 
 
-def dataset(folder, title):
+def dataset(folder):
+    config = json.loads((folder / "manifest.json").read_text(encoding="utf-8"))["config"]
+    model_names = {model["label"]: model["model"] or model["label"] for model in config["models"]}
     summary = read_csv(folder / "summary.csv")
     sizes = {row["setting"] for row in summary}
     if len(sizes) != 1:
@@ -52,23 +49,27 @@ def dataset(folder, title):
     radars = defaultdict(dict)
     for row in read_csv(folder / "radar_summary.csv"):
         radars[(row["kind"], row["method"])][row["metric"]] = float(row["mean"]) if row["mean"] else None
-    conditions = {"all": "Все типы входов", **GROUPS}
+    conditions = {"all": "Все типы входов", **{key: GROUPS.get(key, key) for key in config["groups"]}}
     groups = {}
     for group, label in conditions.items():
-        domains = {}
+        domains = {"goods": [], "chores": []}
         grouped = defaultdict(list)
         for row in summary:
             if group == "all" or row["group"] == group:
                 grouped[(row["kind"], row["method"])].append(row)
-        for kind in ("goods", "chores"):
-            domains[kind] = [
-                {"method": method, "label": "gpt-6.1-sol" if method == "Codex" else method,
-                 **aggregate(grouped[(kind, method)], radars[(kind, method)] if group == "all" else {})}
-                for method in METHODS if (kind, method) in grouped
-            ]
+        for (kind, method), rows in grouped.items():
+            model_label, separator, variant = method.partition(" · ")
+            is_model = model_label in model_names
+            label = model_names[model_label] + separator + variant if is_model else method
+            domains[kind].append({
+                "method": method,
+                "label": label,
+                "is_model": is_model,
+                **aggregate(rows, radars[(kind, method)] if group == "all" else {}),
+            })
         groups[group] = {"label": label, **domains}
     setting = sizes.pop()
-    return {"title": title, "setting": setting, "groups": groups}
+    return {"setting": setting, "groups": groups, "prompt_count": len(config["prompt_variants"])}
 
 
 def main():
@@ -80,18 +81,14 @@ def main():
         parser.error("--output must be a separate directory")
     output.mkdir(parents=True, exist_ok=True)
     shutil.copytree(ROOT / "site", output, dirs_exist_ok=True)
-    data = {}
-    for key, (folder, title) in DATASETS.items():
-        source = REPORTS / folder
-        data[key] = dataset(source, title)
-        downloads = output / "data" / key
-        downloads.mkdir(parents=True, exist_ok=True)
-        for filename in ("summary.csv", "radar_summary.csv", "bootstrap.csv"):
-            shutil.copyfile(source / filename, downloads / filename)
-        for kind in ("goods", "chores"):
-            for scheme in ("paper", "extended"):
-                name = f"{scheme}_{data[key]['setting']}_{kind}.pdf"
-                shutil.copyfile(source / name, downloads / f"{scheme}-{kind}.pdf")
+    data = dataset(LATEST)
+    downloads = output / "data"
+    downloads.mkdir(parents=True, exist_ok=True)
+    for filename in ("results.csv", "summary.csv", "radar_summary.csv", "bootstrap.csv"):
+        shutil.copyfile(LATEST / filename, downloads / filename)
+    for index, kind in enumerate(("goods", "chores"), 1):
+        for scheme in ("paper", "extended"):
+            shutil.copyfile(LATEST / f"{scheme}_radar_{index}.pdf", downloads / f"{scheme}-{kind}.pdf")
     (output / "data.json").write_text(json.dumps(data, ensure_ascii=False, allow_nan=False) + "\n", encoding="utf-8")
     (output / ".nojekyll").touch()
     print(f"GitHub Pages dashboard built at {output}")

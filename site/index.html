@@ -27,9 +27,9 @@
           <a class="hero-link" href="#compare">Открыть сравнение <span aria-hidden="true">↓</span></a>
         </div>
         <dl class="hero-stats">
-          <div><dt>Участников × позиций</dt><dd>3 × 6</dd></div>
-          <div><dt>Ответов модели в пилоте</dt><dd>50</dd></div>
-          <div><dt>Матриц в прогоне алгоритмов</dt><dd>100</dd></div>
+          <div><dt>Участников × позиций</dt><dd id="experiment-size">—</dd></div>
+          <div><dt>Ответов модели</dt><dd id="answer-count">—</dd></div>
+          <div><dt>Вариантов промпта</dt><dd id="prompt-count">—</dd></div>
         </dl>
       </div>
     </div>
@@ -46,12 +46,6 @@
       </div>
 
       <div class="controls" aria-label="Фильтры сравнения">
-        <label class="field">Выборка
-          <select id="dataset">
-            <option value="pilot">Пилот с gpt-6.1-sol</option>
-            <option value="algorithms">Алгоритмы на 100 матрицах</option>
-          </select>
-        </label>
         <fieldset class="mode">
           <legend>Что делим</legend>
           <div class="segments">
@@ -66,7 +60,7 @@
         </label>
       </div>
       <p class="selection" id="selection" role="status">Загружаем сохранённые результаты…</p>
-      <noscript><p>Для переключения данных нужен JavaScript. Готовые графики и CSV доступны в <a href="https://github.com/EvgeniiZhidkov/delezhii_project/tree/main/results/revised_figures">репозитории</a>.</p></noscript>
+      <noscript><p>Для переключения данных нужен JavaScript. Готовые графики и CSV доступны в <a href="https://github.com/EvgeniiZhidkov/delezhii_project/tree/main/results/latest">репозитории</a>.</p></noscript>
 
       <div class="chart-heading">
         <div class="legend" aria-label="Условные обозначения">
@@ -114,7 +108,7 @@
         <div>
           <h2 id="method-title">Как устроен эксперимент</h2>
           <p>Каждая матрица содержит оценки шести позиций тремя участниками. Её решают дважды: как делёж благ и как распределение обязанностей. Строки приводятся к шкале из 100 баллов.</p>
-          <p>В сохранённом пилоте модели задавали EF1, затем просили улучшить сумму полезностей или затрат. Промпт со свободным дележом подготовлен для отдельного прогона.</p>
+          <p>Модель решает каждую задачу в отдельных сессиях с четырьмя промптами. В свободном варианте она сама выбирает критерий справедливости. Остальные варианты задают EF1, пропорциональность или суммарную эффективность.</p>
           <div class="method-links">
             <a class="text-link" href="https://github.com/EvgeniiZhidkov/delezhii_project/blob/main/README.md">Описание эксперимента ↗</a>
             <a class="text-link" href="https://github.com/EvgeniiZhidkov/delezhii_project/blob/main/chores_e1_3.ipynb">Ноутбук ↗</a>

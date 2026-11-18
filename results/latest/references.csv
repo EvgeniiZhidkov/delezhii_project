@@ -1,0 +1,11 @@
+setting,base_id,group,kind,method,status,owners,best_d,best_total,certified,seconds,message
+3×6,0,paper,goods,enumerate,optimal,"[1, 0, 0, 1, 1, 2]",0.0,105.08331371945516,True,0.001684999999270076,
+3×6,0,paper,chores,enumerate,optimal,"[0, 1, 1, 0, 2, 2]",0.0,91.66190904390893,True,0.0016008999991754536,
+3×6,0,uniform,goods,enumerate,optimal,"[2, 2, 2, 0, 0, 1]",0.0,137.44063012355693,True,0.0015297999998438172,
+3×6,0,uniform,chores,enumerate,optimal,"[1, 1, 0, 2, 2, 2]",0.0,71.0139783310515,True,0.001625499999136082,
+3×6,0,r=2,goods,enumerate,optimal,"[0, 0, 2, 0, 1, 2]",0.0,120.0,True,0.004081102000782266,
+3×6,0,r=2,chores,enumerate,optimal,"[2, 1, 0, 1, 0, 1]",0.0,77.5,True,0.0028590999991138233,
+3×6,0,r=5,goods,enumerate,optimal,"[0, 0, 2, 0, 1, 2]",0.0,144.15584415584414,True,0.0019100999998045154,
+3×6,0,r=5,chores,enumerate,optimal,"[2, 1, 0, 1, 0, 1]",0.0,53.246753246753244,True,0.0017348000001220498,
+3×6,0,r=10,goods,enumerate,optimal,"[0, 0, 2, 0, 1, 2]",0.0,157.14285714285717,True,0.001664100000198232,
+3×6,0,r=10,chores,enumerate,optimal,"[2, 1, 0, 1, 0, 1]",0.0,41.07142857142857,True,0.0016240029999607941,
