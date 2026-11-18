@@ -49,7 +49,7 @@ def _draw(ax, frame, groups, label, offset, color):
         label = "_nolegend_"
 
 
-def plot_results(result, *, metrics=("ef1", "sd_ef1"), n_boot=3000):
+def plot_rates(result, *, metrics=("ef1", "sd_ef1"), n_boot=3000):
     plt = _plt()
     from matplotlib.ticker import PercentFormatter
     stats = summarize(result.rows, n_base=result.config.n_base, seed=result.config.seed + 1, n_boot=n_boot)
@@ -79,6 +79,121 @@ def plot_results(result, *, metrics=("ef1", "sd_ef1"), n_boot=3000):
                     ax.yaxis.set_major_formatter(PercentFormatter(1))
             axes[0].set_ylabel(names.get(metric, metric))
             axes[1].legend(frameon=False, fontsize=8)
+            figures.append(fig)
+    return figures
+
+
+# Six spokes and their ordering match Figure 1 of Cookson–Ebadian–Shah.
+PAPER_METRICS = ("prop_alpha", "ef_alpha", "ef1_alpha", "po_alpha", "sw_ratio", "mms_alpha")
+EXTENDED_METRICS = ("prop_alpha", "ef_alpha", "ef1_alpha", "efx_alpha", "sd_ef1",
+                    "po_alpha", "sw_ratio", "nw_ratio", "mms_alpha")
+METRIC_LABELS = {"prop_alpha": "PROP", "ef_alpha": "EF", "ef1_alpha": "EF1",
+                 "mms_alpha": "MMS", "po_alpha": "PO", "sw_ratio": "SW",
+                 "nw_ratio": "MNW", "efx_alpha": "EFX", "sd_ef1": "SD-EF1",
+                 "prop1_alpha": "PROP1"}
+EFFICIENCY = {"po_alpha", "sw_ratio", "nw_ratio"}
+
+
+def radar_table(result, *, group=None, metrics=EXTENDED_METRICS):
+    """Means after repeats, then equal group weights, then base matrices.
+
+    n_defined/expected expose missing exact benchmarks instead of replacing
+    them by zero. Invalid model answers have explicit zero scores.
+    """
+    from .analysis import per_instance
+    import pandas as pd
+    base = per_instance(result.rows).reset_index()
+    if group is not None:
+        if group not in result.config.groups:
+            raise ValueError(f"Неизвестная группа: {group}")
+        base = base[base["group"] == group]
+    records = []
+    for key, frame in base.groupby(["setting", "method", "kind"], sort=False):
+        means = frame.groupby("base_id")[list(metrics)].mean()
+        record = dict(zip(["setting", "method", "kind"], key))
+        for metric in metrics:
+            defined = int(frame[metric].notna().sum())
+            records.append({**record, "metric": metric, "mean": means[metric].mean(),
+                            "n_defined": defined, "n_expected": len(frame)})
+    return pd.DataFrame(records)
+
+
+def plot_results(result, *, metrics=PAPER_METRICS, group=None, include_reference=False):
+    """Paper-style radar panels: one method per panel, separate domains/sizes."""
+    plt = _plt()
+    from matplotlib.patches import Patch
+    from .prompts import LEGACY_PROMPT_VARIANT, PROMPT_VARIANTS, model_method
+    stats = radar_table(result, group=group, metrics=metrics)
+    figures = []
+    if stats.empty:
+        return figures
+    count = len(metrics)
+    angles = (np.arange(count) * 2 * np.pi / count - np.pi / count) % (2 * np.pi)
+    variants = result.config.prompt_variants
+    model_titles = {}
+    for model in result.config.models:
+        for variant in variants:
+            title = model.model or model.label
+            if variants != (LEGACY_PROMPT_VARIANT,):
+                title += f"\n{PROMPT_VARIANTS[variant]}"
+            model_titles[model_method(model.label, variant, variants)] = title
+    for setting in result.config.settings:
+        for kind, kind_label in (("goods", "Блага"), ("chores", "Обязанности")):
+            selected = stats[(stats["setting"] == setting.label) & (stats["kind"] == kind)]
+            if not include_reference:
+                from .reference import REFERENCE_LABEL
+                selected = selected[selected["method"] != REFERENCE_LABEL]
+            methods = list(selected["method"].unique())
+            if not methods:
+                continue
+            columns = min(4, len(methods))
+            rows = int(np.ceil(len(methods) / columns))
+            fig, axes = plt.subplots(rows, columns, figsize=(4.5 * columns, 4.8 * rows + 1.3),
+                                     subplot_kw={"projection": "polar"}, squeeze=False)
+            fig.subplots_adjust(left=0.06, right=0.94, top=1-0.95/(4.8*rows+1.3),
+                                bottom=0.65/(4.8*rows+1.3), wspace=0.55, hspace=0.8)
+            for ax, method in zip(axes.flat, methods):
+                frame = selected[selected["method"] == method].set_index("metric").reindex(metrics)
+                values = frame["mean"].to_numpy(float)
+                ax.set_theta_zero_location("N")
+                ax.set_theta_direction(-1)
+                colors = ["#f7bd91" if metric in EFFICIENCY else "#a9d39e" for metric in metrics]
+                ax.bar(angles, np.ones(count), width=2*np.pi/count*0.88, bottom=0,
+                       color=colors, edgecolor="none", zorder=0)
+                ax.set_ylim(0, 1)
+                ax.set_yticks(np.arange(0.2, 1.01, 0.2))
+                ax.set_yticklabels([f"{value}%" for value in (20, 40, 60, 80, 100)],
+                                   fontsize=8, color="#6d746e")
+                ax.set_rlabel_position(65)
+                labels = []
+                for metric, value, (_, row) in zip(metrics, values, frame.iterrows()):
+                    percent = f"{value:.0%}" if np.isfinite(value) else "н/д"
+                    partial = "*" if 0 < row["n_defined"] < row["n_expected"] else ""
+                    labels.append(f"{METRIC_LABELS.get(metric, metric)}\n({percent}{partial})")
+                ax.set_xticks(angles, labels, fontsize=11, fontfamily="DejaVu Serif")
+                ax.set_xlim(0, 2 * np.pi)
+                ax.tick_params(axis="x", pad=14)
+                ax.grid(color="#566254", linestyle="--", linewidth=0.65, alpha=0.35)
+                # NaN remains a visible gap: an unavailable metric is never a zero.
+                ax.plot(np.r_[angles, angles[0]], np.r_[values, values[0]], color="#161c17", lw=2.2, zorder=3)
+                ax.scatter(angles[np.isfinite(values)], values[np.isfinite(values)],
+                           color="#161c17", s=12, zorder=4)
+                ax.set_title(model_titles.get(method, method), fontsize=13, fontweight="bold", pad=42)
+            for ax in list(axes.flat)[len(methods):]:
+                ax.set_visible(False)
+            scope = GROUP_LABEL.get(group, group) if group else f"все группы ({len(result.config.groups)})"
+            instances = result.config.n_base * (1 if group else len(result.config.groups))
+            fig.suptitle(f"{kind_label} · {setting.label} · {scope} · {instances} матриц\n"
+                         "Средние оценки · 100% — лучшее значение", fontsize=15, y=0.99)
+            fig.legend(handles=[Patch(color="#a9d39e", label="Справедливость"),
+                                Patch(color="#f7bd91", label="Эффективность")],
+                       loc="lower left", bbox_to_anchor=(0.04, 0.005), ncol=2, frameon=False, fontsize=10)
+            note = "SD-EF1 — доля успехов; остальные оси — приближения." if "sd_ef1" in metrics else "Оси — приближения к критериям, а не доли успехов."
+            if kind == "chores":
+                note += " SW = min C / C; MNW не применяется."
+            if frame["mean"].isna().any() or (selected["n_defined"] < selected["n_expected"]).any():
+                note += " н/д — нет оценки; * — неполное покрытие."
+            fig.text(0.96, 0.025, note, ha="right", va="bottom", fontsize=8, color="#4f5951")
             figures.append(fig)
     return figures
 

@@ -1,0 +1,82 @@
+setting,method,kind,metric,mean,n_defined,n_expected
+3×6,EF1-opt (exact),goods,prop_alpha,0.8206302721887679,25,25
+3×6,EF1-opt (exact),goods,ef_alpha,0.6812956349140815,25,25
+3×6,EF1-opt (exact),goods,ef1_alpha,1.0,25,25
+3×6,EF1-opt (exact),goods,efx_alpha,0.921413643827437,25,25
+3×6,EF1-opt (exact),goods,sd_ef1,0.36,25,25
+3×6,EF1-opt (exact),goods,po_alpha,1.0,25,25
+3×6,EF1-opt (exact),goods,sw_ratio,0.9844798287159111,25,25
+3×6,EF1-opt (exact),goods,nw_ratio,0.9838344160030859,25,25
+3×6,EF1-opt (exact),goods,mms_alpha,0.9101947615860828,25,25
+3×6,Round-Robin,goods,prop_alpha,0.8109276676099852,25,25
+3×6,Round-Robin,goods,ef_alpha,0.6875356609094154,25,25
+3×6,Round-Robin,goods,ef1_alpha,1.0,25,25
+3×6,Round-Robin,goods,efx_alpha,0.8647198025099391,25,25
+3×6,Round-Robin,goods,sd_ef1,1.0,25,25
+3×6,Round-Robin,goods,po_alpha,0.9985889839806891,25,25
+3×6,Round-Robin,goods,sw_ratio,0.9075782443383508,25,25
+3×6,Round-Robin,goods,nw_ratio,0.9228434517923148,25,25
+3×6,Round-Robin,goods,mms_alpha,0.9020511499918985,25,25
+3×6,MaxSW,goods,prop_alpha,0.6184385184804407,25,25
+3×6,MaxSW,goods,ef_alpha,0.43835926634803624,25,25
+3×6,MaxSW,goods,ef1_alpha,0.6923661684227722,25,25
+3×6,MaxSW,goods,efx_alpha,0.5180717716323537,25,25
+3×6,MaxSW,goods,sd_ef1,0.04,25,25
+3×6,MaxSW,goods,po_alpha,1.0,25,25
+3×6,MaxSW,goods,sw_ratio,1.0,25,25
+3×6,MaxSW,goods,nw_ratio,0.8252273060187513,25,25
+3×6,MaxSW,goods,mms_alpha,0.7043852460025134,25,25
+3×6,MNW (exact),goods,prop_alpha,0.9822383676687879,25,25
+3×6,MNW (exact),goods,ef_alpha,0.9091499485127226,25,25
+3×6,MNW (exact),goods,ef1_alpha,1.0,25,25
+3×6,MNW (exact),goods,efx_alpha,0.998273381294964,25,25
+3×6,MNW (exact),goods,sd_ef1,0.8,25,25
+3×6,MNW (exact),goods,po_alpha,1.0,25,25
+3×6,MNW (exact),goods,sw_ratio,0.955473755760271,25,25
+3×6,MNW (exact),goods,nw_ratio,1.0,25,25
+3×6,MNW (exact),goods,mms_alpha,0.9949283039058321,25,25
+3×6,EF1-opt (exact),chores,prop_alpha,0.9320562137750337,25,25
+3×6,EF1-opt (exact),chores,ef_alpha,0.637832305325236,25,25
+3×6,EF1-opt (exact),chores,ef1_alpha,1.0,25,25
+3×6,EF1-opt (exact),chores,efx_alpha,0.8149597114445599,25,25
+3×6,EF1-opt (exact),chores,sd_ef1,0.36,25,25
+3×6,EF1-opt (exact),chores,po_alpha,1.0,25,25
+3×6,EF1-opt (exact),chores,sw_ratio,0.9880083572503597,25,25
+3×6,EF1-opt (exact),chores,nw_ratio,,0,25
+3×6,EF1-opt (exact),chores,mms_alpha,0.9674983190208231,25,25
+3×6,Round-Robin,chores,prop_alpha,0.9231497871054873,25,25
+3×6,Round-Robin,chores,ef_alpha,0.8056403023227418,25,25
+3×6,Round-Robin,chores,ef1_alpha,1.0,25,25
+3×6,Round-Robin,chores,efx_alpha,0.8698160334642294,25,25
+3×6,Round-Robin,chores,sd_ef1,1.0,25,25
+3×6,Round-Robin,chores,po_alpha,0.9866200466200465,25,25
+3×6,Round-Robin,chores,sw_ratio,0.8836786603729057,25,25
+3×6,Round-Robin,chores,nw_ratio,,0,25
+3×6,Round-Robin,chores,mms_alpha,0.9578421367297667,25,25
+3×6,MinSW,chores,prop_alpha,0.8544511309980193,25,25
+3×6,MinSW,chores,ef_alpha,0.4851931032703815,25,25
+3×6,MinSW,chores,ef1_alpha,0.7429981031117794,25,25
+3×6,MinSW,chores,efx_alpha,0.6066394311386125,25,25
+3×6,MinSW,chores,sd_ef1,0.12,25,25
+3×6,MinSW,chores,po_alpha,1.0,25,25
+3×6,MinSW,chores,sw_ratio,1.0,25,25
+3×6,MinSW,chores,nw_ratio,,0,25
+3×6,MinSW,chores,mms_alpha,0.8965270567986205,25,25
+3×6,Codex,goods,prop_alpha,0.8404571120156078,25,25
+3×6,Codex,goods,ef_alpha,0.6952956349140815,25,25
+3×6,Codex,goods,ef1_alpha,1.0,25,25
+3×6,Codex,goods,efx_alpha,0.9250500074638005,25,25
+3×6,Codex,goods,sd_ef1,0.4800000000000001,25,25
+3×6,Codex,goods,po_alpha,1.0,25,25
+3×6,Codex,goods,sw_ratio,0.9841128562388469,25,25
+3×6,Codex,goods,nw_ratio,0.9874239398468745,25,25
+3×6,Codex,goods,mms_alpha,0.9308008221921436,25,25
+3×6,Codex,chores,prop_alpha,0.9159023676211875,25,25
+3×6,Codex,chores,ef_alpha,0.6832985057914366,25,25
+3×6,Codex,chores,ef1_alpha,1.0,25,25
+3×6,Codex,chores,efx_alpha,0.8648644733493217,25,25
+3×6,Codex,chores,sd_ef1,0.36,25,25
+3×6,Codex,chores,po_alpha,1.0,25,25
+3×6,Codex,chores,sw_ratio,0.9880083572503597,25,25
+3×6,Codex,chores,nw_ratio,,0,25
+3×6,Codex,chores,mms_alpha,0.951344472866977,25,25

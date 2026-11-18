@@ -11,7 +11,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, default=Path("chores_e1_3.ipynb"))
     args = parser.parse_args()
-    root = Path(__file__).resolve().parent.parent
+    root = Path(__file__).resolve().parents[2]
     with TemporaryDirectory(prefix="e1-notebook-check-") as temporary:
         runtime = Path(temporary)
         kernel_dir = runtime / "jupyter" / "kernels" / "e1-validation"

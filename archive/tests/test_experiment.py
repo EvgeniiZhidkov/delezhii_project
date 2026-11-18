@@ -10,14 +10,14 @@ import pandas as pd
 
 from chores_e1 import (ExperimentConfig, ModelConfig, ReferenceConfig, Setting, analyze_file,
                        answer_metrics, exact_reference, generate_instances, paired_differences,
-                       parse_allocation, run_experiment, summarize)
+                       make_prompt, parse_allocation, run_experiment, summarize, summary_table)
 from chores_e1.backends import BackendReply, inspect_events
 from chores_e1.metrics import METRICS
 
 
 class ReferenceTests(unittest.TestCase):
     def test_chunking_matches_exhaustive_oracle(self):
-        from tests.test_metrics import literal_cardinal
+        from archive.tests.test_metrics import literal_cardinal
         rng = np.random.default_rng(8)
         for _ in range(5):
             weights = rng.integers(0, 8, size=(3, 4))
@@ -80,6 +80,59 @@ class DataAndParserTests(unittest.TestCase):
 
 
 class ReplayTests(unittest.TestCase):
+    def test_prompt_variants_share_inputs_but_keep_separate_results(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            variants = ("free", "ef1", "prop", "welfare")
+            config = ExperimentConfig(settings=(Setting(2, 2),), n_base=1, groups=("uniform",),
+                                      repeats=2, models=(ModelConfig(),), prompt_variants=variants,
+                                      output_dir=temporary)
+            def backend(prompt, _model, _directory):
+                bundles = (dict(A1=["G1", "G2"], A2=[]) if "считаешь справедливым" in prompt
+                           else dict(A1=["G1"], A2=["G2"]))
+                return BackendReply(raw=json.dumps(dict(status="allocation", bundles=bundles)), seconds=0.01)
+
+            result = run_experiment(config, backend=backend)
+            path = result.directory / "journal.jsonl"
+            records = [json.loads(line) for line in path.read_text().splitlines()]
+            model_trials = [r for r in records if r.get("source") == "model"]
+            self.assertEqual(len(model_trials), 16)
+            self.assertEqual(len({tuple(r["key"]) for r in model_trials}), 16)
+            self.assertTrue(all(r["weights"] == model_trials[0]["weights"] for r in model_trials))
+            for kind in ("goods", "chores"):
+                prompts = {r["prompt_variant"]: r["prompt"] for r in model_trials if r["kind"] == kind}
+                for prompt in prompts.values():
+                    self.assertEqual(prompt.split("\n\n")[:2], prompts["free"].split("\n\n")[:2])
+                    self.assertEqual(prompt.split("\n\n")[-1], prompts["free"].split("\n\n")[-1])
+                self.assertEqual(prompts["free"].split("\n\n")[2], "Распредели предметы так, как считаешь справедливым.")
+                expected_removal = "из X_j самое ценное" if kind == "goods" else "из X_i самую затратную"
+                self.assertIn(expected_removal, prompts["ef1"])
+            summary = summary_table(result.rows[result.rows["source"] == "model"])
+            self.assertEqual(len(summary), 8)
+            self.assertEqual(summary.loc[("2×2", "Codex · Без метрики", "goods", "uniform"), "ef1"], 0)
+            self.assertEqual(summary.loc[("2×2", "Codex · EF1", "goods", "uniform"), "ef1"], 1)
+            pd.testing.assert_frame_equal(result.rows, analyze_file(path).rows)
+            model_trials[0]["prompt_variant"] = "ef1"
+            path.write_text("\n".join(json.dumps(r) for r in records) + "\n")
+            with self.assertRaisesRegex(ValueError, "Вариант промпта"):
+                analyze_file(path)
+
+    def test_schema_three_replay_keeps_original_prompt(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            config = ExperimentConfig(n_base=1, groups=("uniform",), models=(ModelConfig(),), output_dir=temporary)
+            simulated = BackendReply(raw='{"status":"allocation","bundles":{"A1":["G1","G2"],"A2":["G3","G4"],"A3":["G5","G6"]}}')
+            result = run_experiment(config, backend=lambda *_: simulated)
+            path = result.directory / "journal.jsonl"
+            records = [json.loads(line) for line in path.read_text().splitlines()]
+            records[0].update(schema=3, prompt_version="e1-paired-v1")
+            records[0]["config"].pop("prompt_variants")
+            for record in records:
+                if record.get("source") == "model":
+                    record["key"].pop()
+                    record.pop("prompt_variant")
+                    self.assertEqual(record["prompt"], make_prompt(record["weights"], record["kind"]))
+            path.write_text("\n".join(json.dumps(record) for record in records) + "\n")
+            pd.testing.assert_frame_equal(result.rows, analyze_file(path).rows)
+
     def test_replay_legacy_enumeration_journal(self):
         with tempfile.TemporaryDirectory() as temporary:
             config = ExperimentConfig(n_base=1, groups=("uniform",), output_dir=temporary)
@@ -93,14 +146,15 @@ class ReplayTests(unittest.TestCase):
             path.write_text("\n".join(json.dumps(record) for record in records) + "\n")
             pd.testing.assert_frame_equal(result.rows, analyze_file(path).rows)
 
-    def test_skipped_reference_keeps_heuristics_and_replay(self):
+    def test_skipped_reference_keeps_algorithms_and_replay(self):
         with tempfile.TemporaryDirectory() as temporary:
             config = ExperimentConfig(n_base=1, groups=("uniform",), output_dir=temporary,
                                       reference=ReferenceConfig(max_allocations=1))
             result = run_experiment(config)
             self.assertEqual(result.references["status"].tolist(), ["skipped", "skipped"])
-            self.assertEqual(result.rows["source"].tolist(), ["heuristic", "heuristic"])
+            self.assertEqual(result.rows["source"].tolist(), ["round_robin", "social_welfare"] * 2)
             self.assertTrue(result.rows["gap"].isna().all())
+            self.assertTrue(result.rows[["mms_alpha", "po_alpha", "nw_ratio"]].isna().all().all())
             pd.testing.assert_frame_equal(result.rows, analyze_file(result.directory).rows)
 
     def test_run_replay_invalid_answer_and_prompt_tampering(self):
@@ -119,7 +173,7 @@ class ReplayTests(unittest.TestCase):
             self.assertTrue(models["d"].isna().all())
             path = result.directory / "journal.jsonl"
             records = [json.loads(line) for line in path.read_text().splitlines()]
-            records[3]["prompt"] += "tampered"
+            next(record for record in records if record.get("source") == "model")["prompt"] += "tampered"
             path.write_text("\n".join(json.dumps(r) for r in records) + "\n")
             with self.assertRaisesRegex(ValueError, "Промпт"):
                 analyze_file(path)

@@ -71,6 +71,7 @@ class ExperimentConfig:
     reference: ReferenceConfig = field(default_factory=ReferenceConfig)
     models: tuple[ModelConfig, ...] = ()  # no model calls by default
     output_dir: str = "runs"
+    prompt_variants: tuple[str, ...] = ("ef1_welfare",)
 
     def __post_init__(self):
         positive_int(self.n_base, "n_base")
@@ -92,8 +93,20 @@ class ExperimentConfig:
             raise ValueError("row_total: положительное конечное число")
         if not math.isfinite(self.atol) or not 0 < self.atol <= 1e-6:
             raise ValueError("atol: число в (0, 1e-6]")
+        from .prompts import PROMPT_VARIANTS, model_method
+        from .reference import ALGORITHM_LABELS
+        variants = self.prompt_variants
+        if (not isinstance(variants, (tuple, list)) or not variants
+                or any(not isinstance(v, str) or v not in PROMPT_VARIANTS for v in variants)
+                or len(set(variants)) != len(variants)):
+            raise ValueError(f"prompt_variants: выберите разные варианты из {', '.join(PROMPT_VARIANTS)}")
+        object.__setattr__(self, "prompt_variants", tuple(variants))
         labels = [m.label for m in self.models]
-        if len(set(labels)) != len(labels) or set(labels) & {"Точный ориентир", "Эвристика"}:
+        reserved = {"Точный ориентир", "Эвристика", *ALGORITHM_LABELS}
+        methods = [model_method(label, variant, self.prompt_variants)
+                   for label in labels for variant in self.prompt_variants]
+        if (len(set(labels)) != len(labels) or set(labels) & reserved
+                or len(set(methods)) != len(methods) or set(methods) & reserved):
             raise ValueError("Метки моделей должны различаться с метками алгоритмов")
 
     def record(self):
@@ -112,7 +125,7 @@ class ExperimentConfig:
             })
         if "models" in data:
             data["models"] = tuple(ModelConfig(**m) for m in data["models"])
-        for key in ("groups", "ratios"):
+        for key in ("groups", "ratios", "prompt_variants"):
             if key in data:
                 data[key] = tuple(data[key])
         return cls(**data)

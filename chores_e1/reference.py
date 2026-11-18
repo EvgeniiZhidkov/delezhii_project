@@ -1,4 +1,4 @@
-"""Exhaustive reference and simple heuristics for small E1 cases."""
+"""Named allocation algorithms and exhaustive references for small instances."""
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass
@@ -67,15 +67,48 @@ def exact_reference(weights, kind, config=None, *, row_total=100.0, atol=1e-9):
                            True, time.perf_counter() - started)
 
 
-def round_robin(weights):
+REFERENCE_LABEL = "EF1-opt (exact)"
+RR_LABEL = "Round-Robin"
+MIN_SW_LABEL = "MinSW"
+MAX_SW_LABEL = "MaxSW"
+MNW_LABEL = "MNW (exact)"
+ALGORITHM_LABELS = {REFERENCE_LABEL, RR_LABEL, MIN_SW_LABEL, MAX_SW_LABEL, MNW_LABEL}
+
+
+def round_robin(weights, kind="goods"):
+    validate_kind(kind)
     weights = validate_weights(weights)
     owners = np.full(weights.shape[1], -1, dtype=int)
     for turn in range(len(owners)):
         i = turn % len(weights)
         remaining = np.flatnonzero(owners < 0)
-        owners[remaining[weights[i, remaining].argmax()]] = i
+        values = weights[i, remaining]
+        pick = values.argmax() if kind == "goods" else values.argmin()
+        owners[remaining[pick]] = i
     return owners
 
 
-def greedy_chores(weights):
+def minimum_social_welfare(weights):
+    """Minimum total normalized disutility; additive costs separate by item."""
     return row_shares(weights).argmin(axis=0)
+
+
+def maximum_social_welfare(weights):
+    return row_shares(weights).argmax(axis=0)
+
+
+def greedy_chores(weights):
+    """Compatibility alias for old schema=2 experiment journals."""
+    return minimum_social_welfare(weights)
+
+
+def maximum_nash_welfare(weights, config=None):
+    """Exact goods MNW; undefined if positive Nash welfare is unattainable."""
+    from .evaluation import build_evaluation
+    context = build_evaluation(weights, "goods", config)
+    if context.owners is None:
+        return ReferenceResult("mnw", "skipped", message="Превышен лимит полного перебора")
+    if context.best_nw <= 0:
+        return ReferenceResult("mnw", "skipped", message="Положительный Nash welfare недостижим")
+    winner = int(np.argmax(context.nash_welfare))
+    return ReferenceResult("mnw", "optimal", context.owners[winner].tolist(), certified=True)

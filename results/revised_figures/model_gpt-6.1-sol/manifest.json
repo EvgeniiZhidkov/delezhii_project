@@ -1,0 +1,58 @@
+{
+  "source_journal": "results/model_gpt-6.1-sol/journal.jsonl",
+  "source_sha256": "26176998f28e07a7c473b0371547473ad3bf427a1f69e5e2fd22eba64c7f566c",
+  "model_calls": 0,
+  "config": {
+    "settings": [
+      {
+        "n_agents": 3,
+        "n_items": 6
+      }
+    ],
+    "n_base": 5,
+    "seed": 20261109,
+    "paper_lambda": 20,
+    "ratios": [
+      2,
+      5,
+      10
+    ],
+    "groups": [
+      "paper",
+      "uniform",
+      "r=2",
+      "r=5",
+      "r=10"
+    ],
+    "repeats": 1,
+    "row_total": 100.0,
+    "atol": 1e-09,
+    "reference": {
+      "max_allocations": 10000,
+      "chunk_size": 2048
+    },
+    "models": [
+      {
+        "label": "Codex",
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": null,
+        "timeout": 180.0
+      }
+    ],
+    "output_dir": "runs"
+  },
+  "source_sha256_current": {
+    "__init__.py": "9a38e53d5d4d21e7718baa1ec94272ff9ea9c402d6465be7267e5d307521bb52",
+    "__main__.py": "586888e82ac45e75bd02aa2d484596fc3741e92bdba2c261b17a1b31f892c3dd",
+    "analysis.py": "d6cc101eaa397b0c11cfcd482945a412c2f558a09b770d4795945d10216feb8c",
+    "backends.py": "979d150249b41d431ba7ca37e6fa9f4c085ccb5ad6bf785b489fba571c21e549",
+    "config.py": "50ce043374406459222475d21fd91e6ea96270f5104ca8b86a5b12768c049fac",
+    "data.py": "4497652aceb85da31f98c74351740f40fc1372de48e9f29d4c7f396a2115ea54",
+    "evaluation.py": "a9444bcf278424a1e15c44de5e2ba55d51d8139480459766146706f342b00148",
+    "experiment.py": "9e906a79f9a6487640e91d5bb1a6bff679f50694f079da67dd16e6db578b5632",
+    "metrics.py": "e2b4b0f748c9f98ed8224e12bbe4c8fc04b8dc3358d41887bb4e74fde413113e",
+    "plotting.py": "05ed79ff932267348f4f7c1a9a589d92b297299c24d47a6d3bc4aa50f9fd96d5",
+    "prompts.py": "43a9d8de60b5838ae983a71797bf97aa53805d9596fe014644be7b046a4461b6",
+    "reference.py": "e5e886a7465eb9ec74d7cfc827c67c892e5136145b60fb5e5502a2b1ba26162c"
+  }
+}

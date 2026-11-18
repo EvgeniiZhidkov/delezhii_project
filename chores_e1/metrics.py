@@ -12,7 +12,9 @@ from .data import row_shares, validate_weights
 
 METRICS = ("valid", "ef1", "d", "envy", "total", "gap", "sd_ef", "sd_ef1",
            "sd_envy", "sd_d", "sd_ef_pairs", "sd_ef1_pairs",
-           "wrong_side_only", "goods_rule_only")
+           "wrong_side_only", "goods_rule_only", "prop", "ef", "efx", "mms", "po", "mnw", "prop1",
+           "prop_alpha", "ef_alpha", "ef1_alpha", "mms_alpha", "po_alpha", "sw_ratio",
+           "nw_ratio", "efx_alpha", "prop1_alpha")
 
 
 def validate_kind(kind):
@@ -96,10 +98,13 @@ def sd_scores(weights, owners, kind):
             "sd_ef1_pairs": (residual == 0).mean(axis=1)}
 
 
-def answer_metrics(weights, owners, kind, reference=None, *, row_total=100.0, atol=1e-9):
+def answer_metrics(weights, owners, kind, reference=None, *, row_total=100.0, atol=1e-9, evaluation=None):
     validate_kind(kind)
+    from .evaluation import APPROX_METRICS, FAIRNESS_RATES, approximation_scores
     if owners is None:
-        return {name: (False if name in {"valid", "ef1", "sd_ef", "sd_ef1"} else None)
+        return {name: (None if kind == "chores" and name in {"mnw", "nw_ratio"} else
+                       False if name in {"valid", "ef1", "sd_ef", "sd_ef1", *FAIRNESS_RATES} else
+                       0.0 if name in APPROX_METRICS else None)
                 for name in METRICS}
     scores = allocation_scores(weights, owners, kind, row_total=row_total, atol=atol)
     if len(scores["d"]) != 1:
@@ -113,5 +118,6 @@ def answer_metrics(weights, owners, kind, reference=None, *, row_total=100.0, at
     sd = {key: value[0].item() for key, value in sd_scores(weights, owners, kind).items()}
     return {"valid": True, "ef1": ef1, "d": d, "envy": float(scores["envy"][0]),
             "total": total, "gap": gap, **sd,
+            **approximation_scores(weights, owners, kind, evaluation, atol=atol),
             "wrong_side_only": bool(scores["wrong_side_pass"][0] and not ef1) if kind == "chores" else None,
             "goods_rule_only": bool(scores["goods_rule_pass"][0] and not ef1) if kind == "chores" else None}
