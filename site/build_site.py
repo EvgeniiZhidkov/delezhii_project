@@ -8,7 +8,8 @@ from collections import defaultdict
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[2]
+SITE = Path(__file__).resolve().parent
+ROOT = SITE.parent
 LATEST = ROOT / "results" / "latest"
 GROUPS = {
     "paper": "Общая шкала (paper)",
@@ -78,10 +79,11 @@ def main():
     parser.add_argument("--output", type=Path, default=ROOT / "dist")
     args = parser.parse_args()
     output = args.output.resolve()
-    if output == ROOT or (ROOT / "site").is_relative_to(output):
+    if SITE.is_relative_to(output):
         parser.error("--output must be a separate directory")
     output.mkdir(parents=True, exist_ok=True)
-    shutil.copytree(ROOT / "site", output, dirs_exist_ok=True)
+    for filename in ("index.html", "app.js", "style.css"):
+        shutil.copyfile(SITE / filename, output / filename)
     data = dataset(LATEST)
     downloads = output / "data"
     downloads.mkdir(parents=True, exist_ok=True)

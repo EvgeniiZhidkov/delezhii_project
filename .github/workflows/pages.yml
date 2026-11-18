@@ -6,7 +6,6 @@ on:
     paths:
       - site/**
       - results/latest/**
-      - archive/scripts/build_site.py
       - .github/workflows/pages.yml
   workflow_dispatch:
 
@@ -29,7 +28,7 @@ jobs:
         with:
           persist-credentials: false
       - uses: actions/configure-pages@v5
-      - run: python3 archive/scripts/build_site.py
+      - run: python3 site/build_site.py
       - uses: actions/upload-pages-artifact@v4
         with:
           path: dist

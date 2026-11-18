@@ -92,7 +92,7 @@ PNG, PDF и SVG доступны в [папке прогона](results/latest/)
 Из корня проекта соберите страницу и запустите локальный сервер.
 
 ```bash
-python3 archive/scripts/build_site.py
+python3 site/build_site.py
 python3 -m http.server 8000 --directory dist --bind 127.0.0.1
 ```
 
