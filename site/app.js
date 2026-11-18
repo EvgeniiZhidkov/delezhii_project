@@ -229,7 +229,7 @@ function start(data) {
   render();
 }
 
-fetch("data.json")
+fetch(document.currentScript.dataset.results || "data.json", { cache: "no-cache" })
   .then(response => {
     if (!response.ok) throw new Error("HTTP " + response.status);
     return response.json();

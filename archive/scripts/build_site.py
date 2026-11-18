@@ -1,6 +1,7 @@
 """Package the dashboard and aggregate experiment results for GitHub Pages."""
 import argparse
 import csv
+import hashlib
 import json
 import shutil
 from collections import defaultdict
@@ -89,7 +90,18 @@ def main():
     for index, kind in enumerate(("goods", "chores"), 1):
         for scheme in ("paper", "extended"):
             shutil.copyfile(LATEST / f"{scheme}_radar_{index}.pdf", downloads / f"{scheme}-{kind}.pdf")
-    (output / "data.json").write_text(json.dumps(data, ensure_ascii=False, allow_nan=False) + "\n", encoding="utf-8")
+    payload = (json.dumps(data, ensure_ascii=False, allow_nan=False) + "\n").encode("utf-8")
+    script = (output / "app.js").read_bytes()
+    revision = hashlib.sha256(payload + script).hexdigest()[:12]
+    data_file = f"data-{revision}.json"
+    script_file = f"app-{revision}.js"
+    (output / "data.json").write_bytes(payload)
+    (output / data_file).write_bytes(payload)
+    (output / script_file).write_bytes(script)
+    page = output / "index.html"
+    html = page.read_text(encoding="utf-8").replace('src="app.js"', f'src="{script_file}"', 1)
+    html = html.replace('data-results="data.json"', f'data-results="{data_file}"', 1)
+    page.write_text(html, encoding="utf-8")
     (output / ".nojekyll").touch()
     print(f"GitHub Pages dashboard built at {output}")
 
