@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Результаты эксперимента E1 по справедливому распределению благ и обязанностей. Интерактивные графики и данные.">
+  <meta name="theme-color" content="#18382b">
+  <title>E1 — Справедливый делёж</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <nav class="topbar" aria-label="Навигация">
+        <a class="brand" href="./"><span>E1</span> Эксперимент</a>
+        <div class="nav-links">
+          <a href="#compare">Результаты</a>
+          <a href="#method">Методика</a>
+          <a href="https://github.com/EvgeniiZhidkov/delezhii_project">GitHub ↗</a>
+        </div>
+      </nav>
+      <div class="hero-grid">
+        <div>
+          <h1>Справедливый делёж <em>благ и обязанностей</em></h1>
+          <p>Как меняется результат, если те же оценки означают ценность предметов или затраты на работы? Сравниваем языковую модель и алгоритмы на одинаковых входах.</p>
+          <a class="hero-link" href="#compare">Открыть сравнение <span aria-hidden="true">↓</span></a>
+        </div>
+        <dl class="hero-stats">
+          <div><dt>Участников × позиций</dt><dd>3 × 6</dd></div>
+          <div><dt>Ответов модели в пилоте</dt><dd>50</dd></div>
+          <div><dt>Матриц в прогоне алгоритмов</dt><dd>100</dd></div>
+        </dl>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap comparison" id="compare" aria-labelledby="compare-title">
+      <div class="section-intro">
+        <div>
+          <h2 id="compare-title">Сравнение методов</h2>
+          <p>Выберите входы и режим. Графики и таблица обновятся вместе.</p>
+        </div>
+        <a class="text-link" href="#metrics">Как читать метрики ↓</a>
+      </div>
+
+      <div class="controls" aria-label="Фильтры сравнения">
+        <label class="field">Выборка
+          <select id="dataset">
+            <option value="pilot">Пилот с gpt-6.1-sol</option>
+            <option value="algorithms">Алгоритмы на 100 матрицах</option>
+          </select>
+        </label>
+        <fieldset class="mode">
+          <legend>Что делим</legend>
+          <div class="segments">
+            <input type="radio" name="kind" value="goods" id="goods" checked>
+            <label for="goods">Блага</label>
+            <input type="radio" name="kind" value="chores" id="chores">
+            <label for="chores">Обязанности</label>
+          </div>
+        </fieldset>
+        <label class="field">Тип входов
+          <select id="group"><option value="all">Все типы входов</option></select>
+        </label>
+      </div>
+      <p class="selection" id="selection" role="status">Загружаем сохранённые результаты…</p>
+      <noscript><p>Для переключения данных нужен JavaScript. Готовые графики и CSV доступны в <a href="https://github.com/EvgeniiZhidkov/delezhii_project/tree/main/results/revised_figures">репозитории</a>.</p></noscript>
+
+      <div class="chart-heading">
+        <div class="legend" aria-label="Условные обозначения">
+          <span><i class="fairness"></i>Справедливость</span>
+          <span><i class="efficiency"></i>Эффективность</span>
+        </div>
+        <div class="chart-options">
+          <label><input type="checkbox" id="extended"> Расширенные метрики</label>
+          <label><input type="checkbox" id="reference"> Точный ориентир EF1-opt</label>
+        </div>
+      </div>
+      <div class="radar-grid" id="radars"></div>
+      <p class="chart-note">Край радара — 100%. Для EF1 на радаре показано среднее приближение, а доля дележей, прошедших проверку, приведена ниже.</p>
+
+      <div class="detail-grid">
+        <section class="panel" aria-labelledby="bars-title">
+          <div class="panel-head">
+            <h3 id="bars-title">Доля выполнения</h3>
+            <label class="sr-only" for="rate">Критерий на диаграмме</label>
+            <select id="rate">
+              <option value="ef1">EF1</option>
+              <option value="sd_ef1">SD-EF1</option>
+              <option value="efx">EFX+</option>
+              <option value="po">Точная PO</option>
+            </select>
+          </div>
+          <div id="bars" class="bars"></div>
+        </section>
+        <section class="panel" aria-labelledby="table-title">
+          <h3 id="table-title">Точные показатели</h3>
+          <div class="table-scroll" tabindex="0" aria-label="Таблица сравнения методов">
+            <table>
+              <thead><tr><th scope="col">Метод</th><th scope="col">EF1</th><th scope="col">SD-EF1</th><th scope="col">EFX+</th><th scope="col" id="total-title">Польза</th></tr></thead>
+              <tbody id="table"></tbody>
+            </table>
+          </div>
+          <p class="chart-note" id="total-note"></p>
+        </section>
+      </div>
+      <div class="downloads" id="downloads" aria-label="Файлы выбранной выборки"></div>
+    </section>
+
+    <section class="method-section" id="method" aria-labelledby="method-title">
+      <div class="wrap method-grid">
+        <div>
+          <h2 id="method-title">Как устроен эксперимент</h2>
+          <p>Каждая матрица содержит оценки шести позиций тремя участниками. Её решают дважды: как делёж благ и как распределение обязанностей. Строки приводятся к шкале из 100 баллов.</p>
+          <p>В сохранённом пилоте модели задавали EF1, затем просили улучшить сумму полезностей или затрат. Промпт со свободным дележом подготовлен для отдельного прогона.</p>
+          <div class="method-links">
+            <a class="text-link" href="https://github.com/EvgeniiZhidkov/delezhii_project/blob/main/README.md">Описание эксперимента ↗</a>
+            <a class="text-link" href="https://github.com/EvgeniiZhidkov/delezhii_project/blob/main/chores_e1_3.ipynb">Ноутбук ↗</a>
+          </div>
+        </div>
+        <div id="metrics">
+          <h3>Метрики</h3>
+          <details open><summary>EF, EF1 и EFX+</summary><p>EF требует отсутствия зависти. EF1 допускает мысленно убрать одно чужое благо или одну свою работу. EFX+ требует, чтобы зависть исчезала при удалении любой позиции с положительной оценкой с той же стороны.</p></details>
+          <details><summary>PROP, MMS и SD-EF1</summary><p>PROP сравнивает свой набор с пропорциональной долей. MMS сравнивает его с тем, что участник мог бы гарантировать себе, если бы сам поделил позиции и получил худший набор. SD-EF1 проверяет делёж на всех уровнях оценок.</p></details>
+          <details><summary>SW, PO и MNW</summary><p>SW сравнивает общую полезность с максимумом или общие затраты с минимумом. PO на радаре оценивает общий множитель улучшения, точная PO проверяет возможность улучшить чей-то результат без ухудшения для остальных. MNW сравнивает геометрическое среднее полезностей с максимумом и применяется к благам.</p></details>
+          <p class="chart-note">Формат радара следует рисунку 1. <a href="https://ebadian.org/preprint/llm_fairness_cr.pdf">Cookson, Ebadian, Shah · AAAI 2026 ↗</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap">E1 · Эксперимент по справедливому дележу <a class="text-link" href="https://github.com/EvgeniiZhidkov/delezhii_project/tree/main/results">Данные в GitHub ↗</a></footer>
+</body>
+</html>
