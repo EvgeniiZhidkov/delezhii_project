@@ -141,8 +141,6 @@ python3 -m venv .venv
 | `RUN_MODELS=True` | В новом прогоне запросить ответы модели из `ModelConfig`. Нужны Codex CLI и `codex login` |
 | `PROMPT_CONDITIONS` | Выбрать варианты промпта для нового сравнения. По умолчанию `free`, `ef1`, `prop` и `welfare` |
 | `N_BASE` | Задать число матриц на группу. При включении модели начальный прогон использует одну матрицу на группу |
-| `PLOT_GROUP=None` | Усреднить пять групп с равным весом |
-| `PLOT_GROUP="paper"` | Показать только входы из генератора Dirichlet–Multinomial |
 
 </details>
 
