@@ -51,7 +51,7 @@ def dataset(folder):
         radars[(row["kind"], row["method"])][row["metric"]] = float(row["mean"]) if row["mean"] else None
     conditions = {"all": "Все типы входов", **{key: GROUPS.get(key, key) for key in config["groups"]}}
     groups = {}
-    for group, label in conditions.items():
+    for group, group_label in conditions.items():
         domains = {"goods": [], "chores": []}
         grouped = defaultdict(list)
         for row in summary:
@@ -60,14 +60,14 @@ def dataset(folder):
         for (kind, method), rows in grouped.items():
             model_label, separator, variant = method.partition(" · ")
             is_model = model_label in model_names
-            label = model_names[model_label] + separator + variant if is_model else method
+            method_label = model_names[model_label] + separator + variant if is_model else method
             domains[kind].append({
                 "method": method,
-                "label": label,
+                "label": method_label,
                 "is_model": is_model,
                 **aggregate(rows, radars[(kind, method)] if group == "all" else {}),
             })
-        groups[group] = {"label": label, **domains}
+        groups[group] = {"label": group_label, **domains}
     setting = sizes.pop()
     return {"setting": setting, "groups": groups, "prompt_count": len(config["prompt_variants"])}
 
