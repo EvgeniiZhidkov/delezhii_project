@@ -48,7 +48,7 @@ EF1, SD-EF1, EFX+ и PO — доли точного выполнения. SW/C �
 | Обязанности | gpt-6.1-sol · prop | 100% | 40% | 100% | 100% | 70,83 | 0 |
 | Обязанности | gpt-6.1-sol · welfare | 80% | 0% | 0% | 100% | 66,78 | 0,068235 |
 
-[Результаты по входам](runs/published/3x6_5matrices_gpt-6.1-sol_4prompts/results.csv) · [Метрики по группам](runs/published/3x6_5matrices_gpt-6.1-sol_4prompts/summary.csv) · [Журнал прогона](runs/published/3x6_5matrices_gpt-6.1-sol_4prompts/journal.jsonl)
+[Результаты по входам](runs/3x6_5matrices_gpt-6.1-sol_4prompts/results.csv) · [Метрики по группам](runs/3x6_5matrices_gpt-6.1-sol_4prompts/summary.csv) · [Журнал прогона](runs/3x6_5matrices_gpt-6.1-sol_4prompts/journal.jsonl)
 
 </details>
 
@@ -71,27 +71,27 @@ Round-Robin выполнил EF1 и SD-EF1 на всех 15 матрицах в 
 
 **Пример чтения.** На графике обязанностей у MinSW по оси EF1 стоит 84%. Это среднее приближение к EF1. Точное условие выполнилось на 4 из 5 входов (80%).
 
-![Обязанности на пяти матрицах. Четыре промпта gpt-6.1-sol и алгоритмы](runs/published/3x6_5matrices_gpt-6.1-sol_4prompts/paper_radar_2.png)
+![Обязанности на пяти матрицах. Четыре промпта gpt-6.1-sol и алгоритмы](runs/3x6_5matrices_gpt-6.1-sol_4prompts/paper_radar_2.png)
 
 <details>
 <summary>График для благ и расширенные диаграммы</summary>
 
-![Блага на пяти матрицах. Четыре промпта gpt-6.1-sol и алгоритмы](runs/published/3x6_5matrices_gpt-6.1-sol_4prompts/paper_radar_1.png)
+![Блага на пяти матрицах. Четыре промпта gpt-6.1-sol и алгоритмы](runs/3x6_5matrices_gpt-6.1-sol_4prompts/paper_radar_1.png)
 
 В расширенной версии добавлены EFX, SD-EF1 и MNW. Ось SD-EF1 показывает долю точного выполнения. «н/д» и разрыв линии обозначают отсутствующую оценку, звёздочка — оценку по части входов.
 
-![Блага с расширенным набором метрик](runs/published/3x6_5matrices_gpt-6.1-sol_4prompts/extended_radar_1.png)
+![Блага с расширенным набором метрик](runs/3x6_5matrices_gpt-6.1-sol_4prompts/extended_radar_1.png)
 
-![Обязанности с расширенным набором метрик](runs/published/3x6_5matrices_gpt-6.1-sol_4prompts/extended_radar_2.png)
+![Обязанности с расширенным набором метрик](runs/3x6_5matrices_gpt-6.1-sol_4prompts/extended_radar_2.png)
 
 </details>
 
 | Постановка | Шесть осей, PDF | Расширенная версия, PDF |
 |---|---|---|
-| Блага | [Скачать](runs/published/3x6_5matrices_gpt-6.1-sol_4prompts/paper_radar_1.pdf) | [Скачать](runs/published/3x6_5matrices_gpt-6.1-sol_4prompts/extended_radar_1.pdf) |
-| Обязанности | [Скачать](runs/published/3x6_5matrices_gpt-6.1-sol_4prompts/paper_radar_2.pdf) | [Скачать](runs/published/3x6_5matrices_gpt-6.1-sol_4prompts/extended_radar_2.pdf) |
+| Блага | [Скачать](runs/3x6_5matrices_gpt-6.1-sol_4prompts/paper_radar_1.pdf) | [Скачать](runs/3x6_5matrices_gpt-6.1-sol_4prompts/extended_radar_1.pdf) |
+| Обязанности | [Скачать](runs/3x6_5matrices_gpt-6.1-sol_4prompts/paper_radar_2.pdf) | [Скачать](runs/3x6_5matrices_gpt-6.1-sol_4prompts/extended_radar_2.pdf) |
 
-PNG, PDF и SVG доступны в [папке прогона](runs/published/3x6_5matrices_gpt-6.1-sol_4prompts/). Чтобы добавить панель EF1-opt в ноутбуке, передайте `include_reference=True` в `plot_results`.
+PNG, PDF и SVG доступны в [папке прогона](runs/3x6_5matrices_gpt-6.1-sol_4prompts/). Чтобы добавить панель EF1-opt в ноутбуке, передайте `include_reference=True` в `plot_results`.
 
 ## Масштабирование
 
@@ -107,16 +107,16 @@ PNG, PDF и SVG доступны в [папке прогона](runs/published/3
 
 **Сравнение методов при изменении числа участников `n` (`m = 15`) и числа позиций `m` (`n = 5`).** Каждая точка рассчитана по 100 матрицам соответствующего размера. Вертикальные отрезки показывают 95%-е бутстрэп-интервалы с пересэмплированием `base_id`, чтобы сохранять связь между группами. Верхние две строки соответствуют показателям EF1 и SW на рис. 3 статьи. Дополнительные строки показывают SD-EF1, приближение и точную долю EFX+, а для благ также нижнюю оценку доли MNW. При наличии модельных ответов на этих двух графиках отображается свободный промпт `free`.
 
-**[Блага](runs/published/10sizes-3x6-to-10x50_1000matrices_algorithms/scaling_paper_goods.png)** · **[Обязанности](runs/published/10sizes-3x6-to-10x50_1000matrices_algorithms/scaling_paper_chores.png)**
+**[Блага](runs/10sizes-3x6-to-10x50_1000matrices_algorithms/scaling_paper_goods.png)** · **[Обязанности](runs/10sizes-3x6-to-10x50_1000matrices_algorithms/scaling_paper_chores.png)**
 
 Расширенные графики охватывают все десять размеров и включают приближение к EF и точную долю EF1. Сейчас опубликованы результаты **алгоритмов на всех 1 000 входах**. В одном локальном прогоне расчёт занял около 13 секунд, вместе с построением графиков — около 33 секунд.
 
 | Постановка | Зависимость от `n` | Зависимость от `m` |
 |---|---|---|
-| Блага | [График](runs/published/10sizes-3x6-to-10x50_1000matrices_algorithms/scaling_n_goods.png) | [График](runs/published/10sizes-3x6-to-10x50_1000matrices_algorithms/scaling_m_goods.png) |
-| Обязанности | [График](runs/published/10sizes-3x6-to-10x50_1000matrices_algorithms/scaling_n_chores.png) | [График](runs/published/10sizes-3x6-to-10x50_1000matrices_algorithms/scaling_m_chores.png) |
+| Блага | [График](runs/10sizes-3x6-to-10x50_1000matrices_algorithms/scaling_n_goods.png) | [График](runs/10sizes-3x6-to-10x50_1000matrices_algorithms/scaling_m_goods.png) |
+| Обязанности | [График](runs/10sizes-3x6-to-10x50_1000matrices_algorithms/scaling_n_chores.png) | [График](runs/10sizes-3x6-to-10x50_1000matrices_algorithms/scaling_m_chores.png) |
 
-[Средние, интервалы и число оценок по каждому методу и размеру](runs/published/10sizes-3x6-to-10x50_1000matrices_algorithms/scaling_summary.csv)
+[Средние, интервалы и число оценок по каждому методу и размеру](runs/10sizes-3x6-to-10x50_1000matrices_algorithms/scaling_summary.csv)
 
 Для благ `nw_ratio` в CSV — геометрическое среднее полезностей полученного дележа, делённое на точный максимум, когда доступен перебор. Для больших размеров берём вычислимую верхнюю границу `U` оптимума и показываем долю `NW / U` в серии `nw_ratio_lower`. Она даёт нижнюю оценку доли точного максимума. Для положительных весов участников `qᵢ` граница равна сумме по предметам `maxᵢ(qᵢ · wᵢg)`, делённой на `n` и геометрическое среднее `qᵢ`. Здесь `wᵢg` — нормированная оценка. Граница следует из неравенства между средним геометрическим и арифметическим. [Расчёт](chores_e1/evaluation.py)
 
@@ -126,7 +126,7 @@ PNG, PDF и SVG доступны в [папке прогона](runs/published/3
 
 Для локального просмотра нажмите **«Открыть папку»** и выберите `runs/` или папку одного прогона. Результаты появятся в группе **«С компьютера»**. Файлы читаются в браузере.
 
-Группа **«GitHub»** показывает прогоны, добавленные в `runs/` ветки `main`, включая `runs/published/`. Правило `.gitignore` исключает остальное содержимое `runs/`. Чтобы опубликовать конкретный прогон из другой папки, явно добавьте его `results.csv` через `git add -f` и запушьте коммит. Список обновляется при открытии, каждые две минуты в активной вкладке и по кнопке **«Обновить список»**.
+Группа **«GitHub»** показывает прогоны, добавленные в `runs/` ветки `main`, а локальные прогоны исключаются из Git правилом `.gitignore`. Чтобы опубликовать конкретный прогон, явно добавьте его `results.csv` через `git add -f` и запушьте коммит. Список обновляется при открытии, каждые две минуты в активной вкладке и по кнопке **«Обновить список»**.
 
 В интерактивном прогоне можно выбрать блага или обязанности, размер матрицы и тип входов. Над графиками указано число матриц в текущей выборке.
 
@@ -231,7 +231,7 @@ python3 -m venv .venv
 
 Отдельная группа `no_efx` воспроизводит конструкцию He и Tao для аддитивных затрат. Для `n ≥ 4` есть `n − 1` дорогих обязанностей и две группы по `s = 2⌈n/2⌉ + 1` обязанностей. Первая группа участников оценивает их в `1` и `s + 2`, вторая — в обратном порядке. Все участники оценивают дорогие обязанности в `s(s + 3)/2`. Генератор переставляет строки и столбцы с фиксированным seed. Для `4×13` получается три дорогих обязанности стоимостью 20 и две группы по пять со стоимостями 1 и 7. Все затраты положительны, поэтому определение EFX в статье совпадает здесь с проверкой EFX+ в E1. [He и Tao, теорема 1 и приложение A](https://arxiv.org/html/2606.08872v2#A1)
 
-В отдельном прогоне проверили три контрпримера `4×13`, `5×18` и `10×31`. Round-Robin выполнил EF1 и SD-EF1 на всех трёх. Невозможность EFX для `4×13` дополнительно проверена перебором всех 62 720 распределений количеств обязанностей трёх типов. [Конфигурация](configs/no_efx.json) · [Результаты для обязанностей](runs/published/3sizes-4x13-to-10x31_3matrices_no-efx_algorithms/no_efx_chores.csv)
+В отдельном прогоне проверили три контрпримера `4×13`, `5×18` и `10×31`. Round-Robin выполнил EF1 и SD-EF1 на всех трёх. Невозможность EFX для `4×13` дополнительно проверена перебором всех 62 720 распределений количеств обязанностей трёх типов. [Конфигурация](configs/no_efx.json) · [Результаты для обязанностей](runs/3sizes-4x13-to-10x31_3matrices_no-efx_algorithms/no_efx_chores.csv)
 
 ### Что получают модель и алгоритмы
 
@@ -483,13 +483,13 @@ A3 | 10 | 62 | 116 | 63 | 13 | 97
 
 ## Воспроизводимость
 
-Все прогоны лежат в `runs/`. В [`runs/published/`](runs/published/) находятся [пилот на пяти матрицах](runs/published/3x6_5matrices_gpt-6.1-sol_4prompts/), [графики алгоритмов на 1 000 матриц](runs/published/10sizes-3x6-to-10x50_1000matrices_algorithms/) и [контрпримеры без EFX](runs/published/3sizes-4x13-to-10x31_3matrices_no-efx_algorithms/). Новые локальные папки называются по размеру матриц, их количеству и режиму прогона. Для модельных прогонов в имени также указан промпт или число промптов. В [`archive/scripts/`](archive/scripts/) находятся скрипты для пересчёта и проверки, в [`archive/tests/`](archive/tests/) — тесты. Для запуска самого эксперимента достаточно ноутбука.
+В [`runs/`](runs/) лежат [пилот на пяти матрицах](runs/3x6_5matrices_gpt-6.1-sol_4prompts/), [графики алгоритмов на 1 000 матриц](runs/10sizes-3x6-to-10x50_1000matrices_algorithms/) и [контрпримеры без EFX](runs/3sizes-4x13-to-10x31_3matrices_no-efx_algorithms/). Новые локальные папки называются по размеру матриц, их количеству и режиму прогона. Для модельных прогонов в имени также указан промпт или число промптов. В [`archive/scripts/`](archive/scripts/) находятся скрипты для пересчёта и проверки, в [`archive/tests/`](archive/tests/) — тесты. Для запуска самого эксперимента достаточно ноутбука.
 
 Команды выполняются из корня проекта.
 
 ```bash
 # Проверить завершённость журнала и заново рассчитать метрики
-.venv/bin/python -m chores_e1 analyze runs/published/3x6_5matrices_gpt-6.1-sol_4prompts
+.venv/bin/python -m chores_e1 analyze runs/3x6_5matrices_gpt-6.1-sol_4prompts
 
 # Пересчитать опубликованные таблицы и графики по сохранённым ответам
 .venv/bin/python archive/scripts/build_revised_reports.py
@@ -507,11 +507,11 @@ A3 | 10 | 62 | 116 | 63 | 13 | 97
 
 | Артефакт | Содержимое |
 |---|---|
-| [`results.csv`](runs/published/3x6_5matrices_gpt-6.1-sol_4prompts/results.csv) | 75 строк, по одной на делёж. Колонка `prompt_variant` указывает, какой промпт получила модель. |
-| [`radar_summary.csv`](runs/published/3x6_5matrices_gpt-6.1-sol_4prompts/radar_summary.csv) | Средние для осей радаров и покрытие по каждой метрике. |
-| [`summary.csv`](runs/published/3x6_5matrices_gpt-6.1-sol_4prompts/summary.csv), [`bootstrap.csv`](runs/published/3x6_5matrices_gpt-6.1-sol_4prompts/bootstrap.csv) | Средние по группам и 95%-е бутстрэп-интервалы. В этом прогоне одна база на группу, поэтому интервалы не отражают вариацию между независимо сгенерированными базами. |
-| [`manifest.json`](runs/published/3x6_5matrices_gpt-6.1-sol_4prompts/manifest.json) | Конфигурация прогона, версии Python, пакетов и CLI, хеши снимка кода. |
-| [`journal.jsonl`](runs/published/3x6_5matrices_gpt-6.1-sol_4prompts/journal.jsonl), [`source/`](runs/published/3x6_5matrices_gpt-6.1-sol_4prompts/source/) | Входы, назначения, промпты, финальные ответы и снимок кода, использованного для прогона. |
-| [`references.csv`](runs/published/3x6_5matrices_gpt-6.1-sol_4prompts/references.csv) | Точные ориентиры по всем входам. |
+| [`results.csv`](runs/3x6_5matrices_gpt-6.1-sol_4prompts/results.csv) | 75 строк, по одной на делёж. Колонка `prompt_variant` указывает, какой промпт получила модель. |
+| [`radar_summary.csv`](runs/3x6_5matrices_gpt-6.1-sol_4prompts/radar_summary.csv) | Средние для осей радаров и покрытие по каждой метрике. |
+| [`summary.csv`](runs/3x6_5matrices_gpt-6.1-sol_4prompts/summary.csv), [`bootstrap.csv`](runs/3x6_5matrices_gpt-6.1-sol_4prompts/bootstrap.csv) | Средние по группам и 95%-е бутстрэп-интервалы. В этом прогоне одна база на группу, поэтому интервалы не отражают вариацию между независимо сгенерированными базами. |
+| [`manifest.json`](runs/3x6_5matrices_gpt-6.1-sol_4prompts/manifest.json) | Конфигурация прогона, версии Python, пакетов и CLI, хеши снимка кода. |
+| [`journal.jsonl`](runs/3x6_5matrices_gpt-6.1-sol_4prompts/journal.jsonl), [`source/`](runs/3x6_5matrices_gpt-6.1-sol_4prompts/source/) | Входы, назначения, промпты, финальные ответы и снимок кода, использованного для прогона. |
+| [`references.csv`](runs/3x6_5matrices_gpt-6.1-sol_4prompts/references.csv) | Точные ориентиры по всем входам. |
 
 Суммарное время модельных вызовов составило около семи минут. Повторный анализ журнала рассчитывает метрики без вызовов модели.

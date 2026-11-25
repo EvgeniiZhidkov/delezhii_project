@@ -25,8 +25,11 @@ class DashboardTests(unittest.TestCase):
         files = json.loads((self.output / "data.json").read_bytes())["files"]
         filenames = {Path(path).name for path in files}
         self.assertTrue({"results.csv", "scaling_summary.csv", "no_efx_chores.csv"} <= filenames)
+        tracked = set(subprocess.check_output(
+            ["git", "ls-files", "-z", "--", "runs/"], cwd=ROOT, text=True,
+        ).split("\0"))
+        self.assertTrue(set(files) <= tracked)
         for path in files:
-            self.assertTrue(path.startswith("runs/published/"))
             self.assertEqual((self.output / path).read_bytes(), (ROOT / path).read_bytes())
 
     def test_page_loads_assets_versioned_by_content(self):

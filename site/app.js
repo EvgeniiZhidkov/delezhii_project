@@ -226,10 +226,10 @@ function catalog(blobs, fileURL = ({ path }) => encodePath(path)) {
   const folders = new Map();
   for (const blob of blobs) {
     const { path, sha } = blob;
-    const match = /^runs\/(?:published\/)?(.+)\/([^/]+)$/.exec(path);
+    const match = /^runs\/(.+)\/([^/]+)$/.exec(path);
     if (!match) continue;
     const [, name, filename] = match;
-    if (name === "published" || !fileTypes.test(filename)) continue;
+    if (!fileTypes.test(filename)) continue;
     const id = path.slice(0, -filename.length - 1);
     if (!folders.has(id)) folders.set(id, { id, label: name.replaceAll("_", " · "), files: {}, versions: [] });
     const folder = folders.get(id);

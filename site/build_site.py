@@ -3,12 +3,12 @@ import argparse
 import hashlib
 import json
 import shutil
+import subprocess
 from pathlib import Path
 
 
 SITE = Path(__file__).resolve().parent
 ROOT = SITE.parent
-PUBLISHED = ROOT / "runs" / "published"
 DATA_FILES = {"results.csv", "scaling_summary.csv", "no_efx_chores.csv"}
 PUBLIC_FILES = DATA_FILES | {
     "manifest.json", "summary.csv", "radar_summary.csv", "bootstrap.csv",
@@ -18,17 +18,22 @@ PUBLIC_FILES = DATA_FILES | {
 
 
 def fallback_files(output):
+    tracked = subprocess.check_output(
+        ["git", "ls-files", "-z", "--", "runs/"], cwd=ROOT, text=True,
+    )
+    candidates = {
+        path for path in map(Path, tracked.split("\0"))
+        if len(path.parts) > 2 and path.name in PUBLIC_FILES and (ROOT / path).is_file()
+    }
+    run_folders = {path.parent for path in candidates if path.name in DATA_FILES}
     files = []
-    for folder in sorted(PUBLISHED.glob("*/")):
-        inputs = {file.name: file for file in folder.iterdir() if file.is_file()}
-        if DATA_FILES.isdisjoint(inputs):
+    for path in sorted(candidates):
+        if path.parent not in run_folders:
             continue
-        for name in sorted(PUBLIC_FILES & inputs.keys()):
-            path = inputs[name].relative_to(ROOT)
-            target = output / path
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(inputs[name], target)
-            files.append(path.as_posix())
+        target = output / path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(ROOT / path, target)
+        files.append(path.as_posix())
     return files
 
 
