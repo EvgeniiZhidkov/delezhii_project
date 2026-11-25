@@ -15,7 +15,7 @@ from chores_e1.plotting import EXTENDED_METRICS, PAPER_METRICS
 
 
 def main():
-    source = ROOT / "results" / "latest"
+    source = ROOT / "runs" / "published" / "3x6_5matrices_gpt-6.1-sol_4prompts"
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=source)
     args = parser.parse_args()

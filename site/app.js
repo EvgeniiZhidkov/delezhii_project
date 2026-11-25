@@ -193,17 +193,19 @@ function start(data) {
   const countAnswers = entries => entries.reduce((total, entry) => total + (entry.is_model ? entry.instances : 0), 0);
   const all = data.groups.all;
   get("experiment-size").textContent = data.setting.replace("×", " × ");
+  get("matrix-count").textContent = number.format(all.matrix_count);
   get("answer-count").textContent = countAnswers([...all.goods, ...all.chores]);
   get("prompt-count").textContent = data.prompt_count;
   group.replaceChildren(...Object.entries(data.groups).map(([key, info]) => new Option(info.label, key)));
   let visible = [];
   function render() {
     const kind = document.querySelector('input[name="kind"]:checked').value;
-    const entries = data.groups[group.value][kind];
+    const selection = data.groups[group.value];
+    const entries = selection[kind];
     const axes = isExtended.checked ? extendedAxes : paperAxes;
     visible = entries.filter(entry => showReference.checked || entry.method !== "EF1-opt (exact)");
-    get("selection").textContent = data.setting + " · Матриц на метод: " + entries[0].instances
-      + " · Ответов модели: " + countAnswers(entries);
+    get("selection").textContent = "Входных матриц для расчёта графиков — " + number.format(selection.matrix_count)
+      + " · Размер матрицы — " + data.setting + " · Ответов модели — " + countAnswers(entries);
     observer.disconnect();
     radars.replaceChildren(...visible.map(entry => radar(entry, axes)));
     radars.querySelectorAll("canvas").forEach(canvas => observer.observe(canvas));

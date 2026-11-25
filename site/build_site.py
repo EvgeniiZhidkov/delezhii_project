@@ -10,7 +10,10 @@ from pathlib import Path
 
 SITE = Path(__file__).resolve().parent
 ROOT = SITE.parent
-LATEST = ROOT / "results" / "latest"
+PUBLISHED = ROOT / "runs" / "published"
+PILOT = PUBLISHED / "3x6_5matrices_gpt-6.1-sol_4prompts"
+SCALING = PUBLISHED / "10sizes-3x6-to-10x50_1000matrices_algorithms"
+NO_EFX = PUBLISHED / "3sizes-4x13-to-10x31_3matrices_no-efx_algorithms"
 GROUPS = {
     "paper": "Общая шкала (paper)",
     "uniform": "Независимые оценки (uniform)",
@@ -51,6 +54,9 @@ def dataset(folder):
     radars = defaultdict(dict)
     for row in read_csv(folder / "radar_summary.csv"):
         radars[(row["kind"], row["method"])][row["metric"]] = float(row["mean"]) if row["mean"] else None
+    matrix_ids = defaultdict(set)
+    for row in read_csv(folder / "results.csv"):
+        matrix_ids[row["group"]].add(row["base_id"])
     conditions = {"all": "Все типы входов", **{key: GROUPS.get(key, key) for key in config["groups"]}}
     groups = {}
     for group, group_label in conditions.items():
@@ -69,7 +75,8 @@ def dataset(folder):
                 "is_model": is_model,
                 **aggregate(rows, radars[(kind, method)] if group == "all" else {}),
             })
-        groups[group] = {"label": group_label, **domains}
+        matrix_count = sum(map(len, matrix_ids.values())) if group == "all" else len(matrix_ids[group])
+        groups[group] = {"label": group_label, "matrix_count": matrix_count, **domains}
     setting = sizes.pop()
     return {"setting": setting, "groups": groups, "prompt_count": len(config["prompt_variants"])}
 
@@ -84,14 +91,22 @@ def main():
     output.mkdir(parents=True, exist_ok=True)
     for filename in ("index.html", "app.js", "style.css"):
         shutil.copyfile(SITE / filename, output / filename)
-    data = dataset(LATEST)
+    data = dataset(PILOT)
     downloads = output / "data"
     downloads.mkdir(parents=True, exist_ok=True)
     for filename in ("results.csv", "summary.csv", "radar_summary.csv", "bootstrap.csv"):
-        shutil.copyfile(LATEST / filename, downloads / filename)
+        shutil.copyfile(PILOT / filename, downloads / filename)
     for index, kind in enumerate(("goods", "chores"), 1):
         for scheme in ("paper", "extended"):
-            shutil.copyfile(LATEST / f"{scheme}_radar_{index}.pdf", downloads / f"{scheme}-{kind}.pdf")
+            shutil.copyfile(PILOT / f"{scheme}_radar_{index}.pdf", downloads / f"{scheme}-{kind}.pdf")
+    figures = output / "scaling"
+    figures.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(SCALING / "scaling_summary.csv", figures / "scaling_summary.csv")
+    shutil.copyfile(NO_EFX / "no_efx_chores.csv", figures / "no_efx_chores.csv")
+    for kind in ("goods", "chores"):
+        for variable in ("n", "m", "paper"):
+            filename = f"scaling_{variable}_{kind}.png"
+            shutil.copyfile(SCALING / filename, figures / filename)
     payload = (json.dumps(data, ensure_ascii=False, allow_nan=False) + "\n").encode("utf-8")
     script = (output / "app.js").read_bytes()
     revision = hashlib.sha256(payload + script).hexdigest()[:12]

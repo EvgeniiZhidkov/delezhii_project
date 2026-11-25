@@ -28,6 +28,7 @@
         </div>
         <dl class="hero-stats">
           <div><dt>Участников × позиций</dt><dd id="experiment-size">—</dd></div>
+          <div><dt>Входных матриц</dt><dd id="matrix-count">—</dd></div>
           <div><dt>Ответов модели</dt><dd id="answer-count">—</dd></div>
           <div><dt>Вариантов промпта</dt><dd id="prompt-count">—</dd></div>
         </dl>
@@ -60,7 +61,7 @@
         </label>
       </div>
       <p class="selection" id="selection" role="status">Загружаем сохранённые результаты…</p>
-      <noscript><p>Для переключения данных нужен JavaScript. Готовые графики и CSV доступны в <a href="https://github.com/EvgeniiZhidkov/delezhii_project/tree/main/results/latest">репозитории</a>.</p></noscript>
+      <noscript><p>Для переключения данных нужен JavaScript. Готовые графики и CSV доступны в <a href="https://github.com/EvgeniiZhidkov/delezhii_project/tree/main/runs/published/3x6_5matrices_gpt-6.1-sol_4prompts">репозитории</a>.</p></noscript>
 
       <div class="chart-heading">
         <div class="legend" aria-label="Условные обозначения">
@@ -103,6 +104,37 @@
       <div class="downloads" id="downloads" aria-label="Файлы выбранной выборки"></div>
     </section>
 
+    <section class="wrap scaling-section" id="scaling" aria-labelledby="scaling-title">
+      <div class="section-intro">
+        <div>
+          <h2 id="scaling-title">Как влияет размер матрицы</h2>
+          <p>Алгоритмы проверены на 1 000 матрицах, по 100 на каждый размер от 3×6 до 10×50. Для 200 матриц точная EF недостижима.</p>
+          <p>Слева меняется число участников <var>n</var> при <var>m</var> = 15, справа — число позиций <var>m</var> при <var>n</var> = 5. Вертикальные отрезки показывают 95%-е бутстрэп-интервалы.</p>
+        </div>
+        <a class="text-link" href="scaling/scaling_summary.csv" download>Скачать сводку CSV ↓</a>
+      </div>
+      <div class="scaling-charts">
+        <a href="scaling/scaling_paper_goods.png"><img loading="lazy" src="scaling/scaling_paper_goods.png" alt="Блага. Приближение к EF1, эффективность, SD-EF1, EFX+ и доля MNW по числу участников и числу позиций."></a>
+        <a href="scaling/scaling_paper_chores.png"><img loading="lazy" src="scaling/scaling_paper_chores.png" alt="Обязанности. Приближение к EF1, эффективность, SD-EF1 и EFX+ по числу участников и числу позиций."></a>
+      </div>
+      <p class="chart-note">Для больших матриц на графике благ показана нижняя оценка доли MNW.</p>
+      <details>
+        <summary>Все размеры для благ</summary>
+        <div class="scaling-charts">
+          <a href="scaling/scaling_n_goods.png"><img loading="lazy" src="scaling/scaling_n_goods.png" alt="Блага. Показатели алгоритмов по числу участников при фиксированном числе позиций."></a>
+          <a href="scaling/scaling_m_goods.png"><img loading="lazy" src="scaling/scaling_m_goods.png" alt="Блага. Показатели алгоритмов по числу позиций при фиксированном числе участников."></a>
+        </div>
+      </details>
+      <details>
+        <summary>Все размеры для обязанностей</summary>
+        <div class="scaling-charts">
+          <a href="scaling/scaling_n_chores.png"><img loading="lazy" src="scaling/scaling_n_chores.png" alt="Обязанности. Показатели алгоритмов по числу участников при фиксированном числе позиций."></a>
+          <a href="scaling/scaling_m_chores.png"><img loading="lazy" src="scaling/scaling_m_chores.png" alt="Обязанности. Показатели алгоритмов по числу позиций при фиксированном числе участников."></a>
+        </div>
+      </details>
+      <p class="chart-note">Отдельно проверили три матрицы обязанностей без EFX. <a href="scaling/no_efx_chores.csv" download>Результаты CSV ↓</a> · <a href="https://arxiv.org/html/2606.08872v2#A1">Конструкция He и Tao ↗</a></p>
+    </section>
+
     <section class="method-section" id="method" aria-labelledby="method-title">
       <div class="wrap method-grid">
         <div>
@@ -124,6 +156,6 @@
       </div>
     </section>
   </main>
-  <footer class="wrap">E1 · Эксперимент по справедливому дележу <a class="text-link" href="https://github.com/EvgeniiZhidkov/delezhii_project/tree/main/results">Данные в GitHub ↗</a></footer>
+  <footer class="wrap">E1 · Эксперимент по справедливому дележу <a class="text-link" href="https://github.com/EvgeniiZhidkov/delezhii_project/tree/main/runs/published">Данные в GitHub ↗</a></footer>
 </body>
 </html>

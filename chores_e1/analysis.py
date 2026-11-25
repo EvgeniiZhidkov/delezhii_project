@@ -13,6 +13,8 @@ def per_instance(rows):
     if rows.empty:
         return pd.DataFrame()
     numeric = rows.copy()
+    if "nw_ratio_lower" not in numeric:
+        numeric["nw_ratio_lower"] = numeric["nw_ratio"]  # older exports contain exact values only
     numeric[list(METRICS)] = numeric[list(METRICS)].astype(float)
     return numeric.groupby(BASE_KEYS, sort=False)[list(METRICS)].mean()
 

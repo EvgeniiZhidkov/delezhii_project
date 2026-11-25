@@ -6,7 +6,7 @@ import numpy as np
 from .analysis import paired_differences, summarize
 from .data import generate_instances, row_shares
 
-GROUP_LABEL = {"paper": "Статья", "uniform": "1–10"}
+GROUP_LABEL = {"paper": "Статья", "uniform": "1–10", "no_ef": "Без EF", "no_efx": "Без EFX для обязанностей"}
 
 
 def _plt():
@@ -92,30 +92,136 @@ METRIC_LABELS = {"prop_alpha": "PROP", "ef_alpha": "EF", "ef1_alpha": "EF1",
                  "nw_ratio": "MNW", "efx_alpha": "EFX", "sd_ef1": "SD-EF1",
                  "prop1_alpha": "PROP1"}
 EFFICIENCY = {"po_alpha", "sw_ratio", "nw_ratio"}
+SCALING_METRICS = {
+    "ef1_alpha": "Приближение\nк EF1",
+    "sw_ratio": "Эффективность\n(SW / C)",
+    "sd_ef1": "Доля SD-EF1",
+    "efx_alpha": "Приближение\nк EFX+",
+    "efx": "Доля EFX+",
+    "nw_ratio_lower": "Доля MNW\n(нижняя оценка)",
+    "ef_alpha": "Приближение\nк EF",
+    "ef1": "Доля EF1",
+}
+PAPER_SCALING_METRICS = ("ef1_alpha", "sw_ratio", "sd_ef1", "efx_alpha", "efx", "nw_ratio_lower")
 
 
-def radar_table(result, *, group=None, metrics=EXTENDED_METRICS):
+def radar_table(result, *, group=None, metrics=EXTENDED_METRICS, n_boot=None):
     """Means after repeats, then equal group weights, then base matrices.
 
     n_defined/expected expose missing exact benchmarks instead of replacing
     them by zero. Invalid model answers have explicit zero scores.
     """
-    from .analysis import per_instance
+    from .analysis import _interval, per_instance
     import pandas as pd
     base = per_instance(result.rows).reset_index()
     if group is not None:
         if group not in result.config.groups:
             raise ValueError(f"Неизвестная группа: {group}")
         base = base[base["group"] == group]
+    if n_boot is not None:
+        draws = np.random.default_rng(result.config.seed + 1).integers(
+            result.config.n_base, size=(n_boot, result.config.n_base))
     records = []
     for key, frame in base.groupby(["setting", "method", "kind"], sort=False):
         means = frame.groupby("base_id")[list(metrics)].mean()
         record = dict(zip(["setting", "method", "kind"], key))
         for metric in metrics:
             defined = int(frame[metric].notna().sum())
-            records.append({**record, "metric": metric, "mean": means[metric].mean(),
-                            "n_defined": defined, "n_expected": len(frame)})
+            row = {**record, "metric": metric, "mean": means[metric].mean(),
+                   "n_defined": defined, "n_expected": len(frame)}
+            if n_boot is not None:
+                _, low, high, _ = _interval(means[metric].reindex(range(result.config.n_base)), draws)
+                row.update(low=low, high=high)
+            records.append(row)
     return pd.DataFrame(records)
+
+
+def scaling_table(result, *, group=None):
+    """Per-size means, coverage and 95% bootstrap intervals over base matrices."""
+    metrics = (*SCALING_METRICS, "nw_ratio")
+    stats = radar_table(result, group=group, metrics=metrics, n_boot=3000)
+    if stats.empty:
+        return stats
+    sizes = result.rows[["setting", "n_agents", "n_items"]].drop_duplicates()
+    return sizes.merge(stats, on="setting", validate="one_to_many")
+
+
+def _scaling_figure(panels, metrics, title, scope, colors):
+    from matplotlib.ticker import PercentFormatter
+
+    plt = _plt()
+    counts = {count for *_, frame in panels for count in frame.groupby("setting")["n_expected"].max()}
+    count_label = f"Матриц на точку — {next(iter(counts))}" if len(counts) == 1 else "Число матриц в скобках"
+    fig, axes = plt.subplots(len(metrics), len(panels), squeeze=False, sharex="col", sharey="row",
+                             layout="constrained", figsize=(max(6, 3.5 * len(panels)), 2 * len(metrics) + 0.8))
+    handles = {}
+    for column, (x, title_suffix, x_label, frame) in enumerate(panels):
+        matrix_counts = frame.groupby(x)["n_expected"].max()
+        positions = matrix_counts.index
+        ticks = [str(value) if len(counts) == 1 else f"{value}\n({count})"
+                 for value, count in matrix_counts.items()]
+        axes[0, column].set_title(title_suffix)
+        axes[-1, column].set_xticks(positions, ticks)
+        axes[-1, column].set_xlabel(x_label)
+        for row, metric in enumerate(metrics):
+            ax = axes[row, column]
+            series = frame[frame["metric"] == metric]
+            for method, observations in series.groupby("method", sort=False):
+                values = observations.set_index(x).reindex(positions)
+                mean = values["mean"].to_numpy(float)
+                if not np.isfinite(mean).any():
+                    continue
+                errors = np.maximum([mean - values["low"], values["high"] - mean], 0)
+                handles[method] = ax.errorbar(positions, mean, yerr=errors, fmt="o-", markersize=4,
+                                              capsize=3, label=method, color=colors[method])
+            if not series["mean"].notna().any():
+                ax.text(0.5, 0.5, "н/д", transform=ax.transAxes, ha="center")
+            ax.set_ylim(-0.05, 1.05)
+            ax.yaxis.set_major_formatter(PercentFormatter(1))
+            ax.grid(axis="y", alpha=0.25)
+            if column == 0:
+                ax.set_ylabel(SCALING_METRICS[metric])
+    fig.suptitle(f"{title}\n{scope} · {count_label} · 95% бутстрэп-интервалы")
+    if handles:
+        fig.legend(handles=list(handles.values()), loc="outside lower center",
+                   ncol=min(4, len(handles)), frameon=False)
+    return fig
+
+
+def plot_scaling(result, *, group=None, paper=False, stats=None):
+    """Compare n and m. The paper layout shows the two slices through 5×15."""
+    stats = scaling_table(result, group=group) if stats is None else stats
+    if stats.empty:
+        return {}
+    if paper and result.config.models:
+        rows = result.rows
+        other_prompts = rows.loc[(rows["source"] == "model") & (rows["prompt_variant"] != "free"), "method"]
+        stats = stats[~stats["method"].isin(other_prompts)]
+    methods = stats["method"].unique()
+    colors = dict(zip(methods, _plt().get_cmap("tab10")(np.arange(len(methods)) % 10)))
+    scope = GROUP_LABEL.get(group, group) if group else "Все группы"
+    figures = {}
+    for kind, kind_label in (("goods", "Блага"), ("chores", "Обязанности")):
+        selected = stats[stats["kind"] == kind]
+        metrics = [metric for metric in (PAPER_SCALING_METRICS if paper else SCALING_METRICS)
+                   if kind == "goods" or metric != "nw_ratio_lower"]
+        paper_panels = []
+        for x, fixed, symbol, fixed_symbol, fixed_at, x_label in (
+            ("n_agents", "n_items", "n", "m", 15, "Число участников n"),
+            ("n_items", "n_agents", "m", "n", 5, "Число позиций m"),
+        ):
+            panels = [(x, f"{fixed_symbol} = {value}", x_label, frame)
+                      for value, frame in selected.groupby(fixed)
+                      if frame[x].nunique() > 1 and (not paper or value == fixed_at)]
+            if paper:
+                paper_panels.extend(panels)
+            elif panels:
+                figures[f"scaling_{symbol}_{kind}"] = _scaling_figure(
+                    panels, metrics, f"{kind_label} · зависимость от {symbol}", scope, colors)
+        if len(paper_panels) == 2:
+            figures[f"scaling_paper_{kind}"] = _scaling_figure(
+                paper_panels, metrics, f"{kind_label} · сравнение по n и m", scope, colors)
+    return figures
 
 
 def plot_results(result, *, metrics=PAPER_METRICS, group=None, include_reference=False):

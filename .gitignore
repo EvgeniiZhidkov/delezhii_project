@@ -8,7 +8,8 @@ __pycache__/
 !.env.example
 !.env.template
 .ipynb_checkpoints/
-runs/
+/runs/*
+!/runs/published/
 /project_explained.html
 build/
 dist/

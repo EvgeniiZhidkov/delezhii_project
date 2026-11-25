@@ -14,7 +14,7 @@ METRICS = ("valid", "ef1", "d", "envy", "total", "gap", "sd_ef", "sd_ef1",
            "sd_envy", "sd_d", "sd_ef_pairs", "sd_ef1_pairs",
            "wrong_side_only", "goods_rule_only", "prop", "ef", "efx", "mms", "po", "mnw", "prop1",
            "prop_alpha", "ef_alpha", "ef1_alpha", "mms_alpha", "po_alpha", "sw_ratio",
-           "nw_ratio", "efx_alpha", "prop1_alpha")
+           "nw_ratio", "nw_ratio_lower", "efx_alpha", "prop1_alpha")
 
 
 def validate_kind(kind):
@@ -102,7 +102,7 @@ def answer_metrics(weights, owners, kind, reference=None, *, row_total=100.0, at
     validate_kind(kind)
     from .evaluation import APPROX_METRICS, FAIRNESS_RATES, approximation_scores
     if owners is None:
-        return {name: (None if kind == "chores" and name in {"mnw", "nw_ratio"} else
+        return {name: (None if kind == "chores" and name in {"mnw", "nw_ratio", "nw_ratio_lower"} else
                        False if name in {"valid", "ef1", "sd_ef", "sd_ef1", *FAIRNESS_RATES} else
                        0.0 if name in APPROX_METRICS else None)
                 for name in METRICS}

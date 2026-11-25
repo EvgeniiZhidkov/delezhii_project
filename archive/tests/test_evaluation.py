@@ -89,6 +89,22 @@ class EvaluationTests(unittest.TestCase):
         self.assertFalse(invalid["efx"])
         self.assertIsNone(answer_metrics(weights, None, "chores")["nw_ratio"])
 
+    def test_nash_bound_does_not_overstate_mnw_ratio(self):
+        rng = np.random.default_rng(46)
+        for _ in range(6):
+            weights = rng.integers(1, 12, size=(3, 6))
+            exact = build_evaluation(weights, "goods")
+            bounded = build_evaluation(weights, "goods", ReferenceConfig(max_allocations=1))
+            self.assertGreaterEqual(bounded.nw_upper + 1e-12, exact.best_nw)
+            owners = round_robin(weights)
+            scores = approximation_scores(weights, owners, "goods", bounded)
+            expected = approximation_scores(weights, owners, "goods", exact)
+            self.assertGreater(scores["nw_ratio_lower"], 0)
+            self.assertLessEqual(scores["nw_ratio_lower"], expected["nw_ratio"] + 1e-12)
+            self.assertIsNone(scores["nw_ratio"])
+            self.assertEqual(expected["nw_ratio_lower"], expected["nw_ratio"])
+            self.assertIsNone(answer_metrics(weights, owners, "chores")["nw_ratio_lower"])
+
     def test_efx_ignores_zero_items_and_po_detects_single_agent_improvement(self):
         # One zero-valued good must not make EFX coincide with EF.
         score = answer_metrics([[0, 1, 2], [1, 1, 1]], [1, 0, 1], "goods")
@@ -101,7 +117,10 @@ class EvaluationTests(unittest.TestCase):
     def test_saved_schema_two_is_replayable_and_named_correctly(self):
         from chores_e1.experiment import compare_saved_run
         from pathlib import Path
-        path = Path(__file__).resolve().parents[2] / "runs/model_gpt-6.1-sol"
+        runs = Path(__file__).resolve().parents[2] / "runs"
+        path = runs / "legacy_3x6_25matrices_gpt-6.1-sol"
+        if not (path / "journal.jsonl").is_file():
+            path = runs / "model_gpt-6.1-sol"
         if not (path / "journal.jsonl").is_file():
             self.skipTest("The historical schema-2 pilot is archived locally in runs/")
         saved = analyze_file(path)

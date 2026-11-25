@@ -3,13 +3,14 @@ import itertools
 import json
 from pathlib import Path
 import tempfile
+from threading import Event
 import unittest
 
 import numpy as np
 import pandas as pd
 
 from chores_e1 import (ExperimentConfig, ModelConfig, ReferenceConfig, Setting, analyze_file,
-                       answer_metrics, exact_reference, generate_instances, paired_differences,
+                       allocation_scores, answer_metrics, exact_reference, generate_instances, paired_differences,
                        make_prompt, parse_allocation, run_experiment, summarize, summary_table)
 from chores_e1.backends import BackendReply, inspect_events
 from chores_e1.metrics import METRICS
@@ -61,6 +62,42 @@ class DataAndParserTests(unittest.TestCase):
             for matrix in matrices[1:]:
                 np.testing.assert_equal(matrix > 1, matrices[0] > 1)
 
+    def test_scaling_profile_is_balanced_and_no_ef_is_certified(self):
+        config = ExperimentConfig.load(Path(__file__).resolve().parents[2] / "configs" / "scaling.json")
+        instances = generate_instances(config)
+        self.assertEqual(len(instances), 1000)
+        self.assertEqual(len({instance.key for instance in instances}), 1000)
+        self.assertEqual(len(config.settings), 10)
+        hard = [instance for instance in instances if instance.group == "no_ef"]
+        self.assertEqual(len(hard), 200)
+        for instance in hard:
+            n, m = instance.weights.shape
+            common = instance.weights // (3 * m + 1)
+            np.testing.assert_equal(common, np.broadcast_to(common[0], (n, m)))
+            self.assertNotEqual(common[0].sum() % n, 0)
+            if instance.setting == Setting(3, 6):
+                assignments = np.array(list(itertools.product(range(n), repeat=m)))
+                for kind in ("goods", "chores"):
+                    scores = allocation_scores(instance.weights, assignments, kind)
+                    self.assertTrue((scores["envy"] > config.atol).all())
+                    self.assertTrue((scores["d"] <= config.atol).any())
+
+    def test_he_tao_case_has_no_efx_after_relabeling(self):
+        config = ExperimentConfig.load(Path(__file__).resolve().parents[2] / "configs" / "no_efx.json")
+        sample = generate_instances(config)
+        self.assertEqual([instance.weights.shape for instance in sample], [(4, 13), (5, 18), (10, 31)])
+        # Identical columns are interchangeable. Enumerate counts of each chore type per agent.
+        costs, multiplicities = np.unique(sample[0].weights.T, axis=0, return_counts=True)
+        self.assertEqual(sorted(multiplicities.tolist()), [3, 5, 5])
+        self.assertEqual(np.unique(costs).tolist(), [1, 7, 20])
+        splits = [[part for part in itertools.product(range(count + 1), repeat=4) if sum(part) == count]
+                  for count in multiplicities]
+        allocations = np.array(list(itertools.product(*splits))).transpose(0, 2, 1)
+        bundle_costs = allocations @ costs
+        self_cost = bundle_costs.diagonal(axis1=1, axis2=2)
+        cheapest_own = np.where(allocations > 0, costs.T, np.inf).min(axis=2)
+        self.assertFalse(np.any((self_cost - cheapest_own <= bundle_costs.min(axis=1)).all(axis=1)))
+
     def test_strict_parser(self):
         raw = '{"status":"allocation","bundles":{"A1":["G1"],"A2":["G2"]}}'
         np.testing.assert_equal(parse_allocation(raw, 2, 2), [0, 1])
@@ -80,6 +117,31 @@ class DataAndParserTests(unittest.TestCase):
 
 
 class ReplayTests(unittest.TestCase):
+    def test_parallel_model_calls_keep_sequential_replay_order(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            config = ExperimentConfig(settings=(Setting(2, 2),), n_base=2, groups=("uniform",),
+                                      models=(ModelConfig(),), jobs=2, output_dir=temporary)
+            response = BackendReply(raw='{"status":"allocation","bundles":{"A1":["G1"],"A2":["G2"]}}')
+            second_ready = Event()
+            finished = []
+
+            def backend(_prompt, _model, call_dir):
+                position = int(call_dir.name)
+                if position == 5:
+                    self.assertTrue(second_ready.wait(5), "The next request must run concurrently")
+                finished.append(position)
+                if position == 9:
+                    second_ready.set()
+                return response
+
+            result = run_experiment(config, backend=backend)
+            self.assertEqual(finished[:2], [9, 5])
+            sequential = run_experiment(replace(config, jobs=1), backend=lambda *_: response)
+            replay = analyze_file(result.directory)
+            self.assertEqual(replay.config.jobs, 2)
+            pd.testing.assert_frame_equal(result.rows, replay.rows)
+            pd.testing.assert_frame_equal(sequential.rows, result.rows)
+
     def test_prompt_variants_share_inputs_but_keep_separate_results(self):
         with tempfile.TemporaryDirectory() as temporary:
             variants = ("free", "ef1", "prop", "welfare")
@@ -92,6 +154,7 @@ class ReplayTests(unittest.TestCase):
                 return BackendReply(raw=json.dumps(dict(status="allocation", bundles=bundles)), seconds=0.01)
 
             result = run_experiment(config, backend=backend)
+            self.assertRegex(result.directory.name, r"^e1_2x2_1matrix_uniform_Codex_4prompts_\d{8}T\d{6}_[0-9a-f]{8}$")
             path = result.directory / "journal.jsonl"
             records = [json.loads(line) for line in path.read_text().splitlines()]
             model_trials = [r for r in records if r.get("source") == "model"]

@@ -72,10 +72,12 @@ class ExperimentConfig:
     models: tuple[ModelConfig, ...] = ()  # no model calls by default
     output_dir: str = "runs"
     prompt_variants: tuple[str, ...] = ("ef1_welfare",)
+    jobs: int = 1
 
     def __post_init__(self):
         positive_int(self.n_base, "n_base")
         positive_int(self.repeats, "repeats")
+        positive_int(self.jobs, "jobs")
         if type(self.seed) is not int or self.seed < 0:
             raise ValueError("seed: неотрицательное целое")
         if type(self.paper_lambda) is not int or not 0 <= self.paper_lambda < 50:
@@ -86,9 +88,15 @@ class ExperimentConfig:
             raise ValueError("settings содержат повторы")
         if any(type(r) is not int or r <= 1 for r in self.ratios) or tuple(sorted(set(self.ratios))) != tuple(self.ratios):
             raise ValueError("ratios: разные целые > 1 по возрастанию")
-        allowed = {"paper", "uniform", *(f"r={r}" for r in self.ratios)}
+        allowed = {"paper", "uniform", "no_ef", "no_efx", *(f"r={r}" for r in self.ratios)}
         if not self.groups or any(g not in allowed for g in self.groups) or len(set(self.groups)) != len(self.groups):
-            raise ValueError("groups: непустой набор разных групп из paper, uniform и ratios")
+            raise ValueError("groups: непустой набор разных групп из paper, uniform, no_ef, no_efx и ratios")
+        if "no_ef" in self.groups and any(setting.n_agents < 2 for setting in self.settings):
+            raise ValueError("Группа no_ef требует хотя бы двух участников")
+        if "no_efx" in self.groups:
+            from .data import no_efx_chore_counts
+            if any(s.n_agents < 4 or s.n_items != sum(no_efx_chore_counts(s.n_agents)) for s in self.settings):
+                raise ValueError("Группа no_efx требует n ≥ 4 и m = n + 1 + 4⌈n/2⌉")
         if not math.isfinite(self.row_total) or self.row_total <= 0:
             raise ValueError("row_total: положительное конечное число")
         if not math.isfinite(self.atol) or not 0 < self.atol <= 1e-6:

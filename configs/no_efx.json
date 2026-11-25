@@ -1,0 +1,11 @@
+{
+  "settings": [
+    {"n_agents": 4, "n_items": 13},
+    {"n_agents": 5, "n_items": 18},
+    {"n_agents": 10, "n_items": 31}
+  ],
+  "n_base": 1,
+  "groups": ["no_efx"],
+  "models": [],
+  "prompt_variants": ["free", "ef1", "prop", "welfare"]
+}

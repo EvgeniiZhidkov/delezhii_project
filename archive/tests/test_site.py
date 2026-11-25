@@ -43,5 +43,16 @@ class DashboardTests(unittest.TestCase):
         self.assertEqual((self.output / f"app-{revision}.js").read_bytes(), script)
         self.assertEqual((self.output / f"data-{revision}.json").read_bytes(), payload)
 
+    def test_matrix_counts_use_inputs_shared_by_methods_and_modes(self):
+        groups = json.loads((self.output / "data.json").read_bytes())["groups"]
+        self.assertEqual({key: group["matrix_count"] for key, group in groups.items()}, {
+            "all": 5,
+            "paper": 1,
+            "uniform": 1,
+            "r=2": 1,
+            "r=5": 1,
+            "r=10": 1,
+        })
+
     def test_builder_is_excluded_from_published_files(self):
         self.assertFalse((self.output / "build_site.py").exists())

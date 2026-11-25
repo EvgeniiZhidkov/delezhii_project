@@ -1,0 +1,21 @@
+{
+  "settings": [
+    {"n_agents": 3, "n_items": 6},
+    {"n_agents": 3, "n_items": 15},
+    {"n_agents": 3, "n_items": 30},
+    {"n_agents": 5, "n_items": 6},
+    {"n_agents": 5, "n_items": 15},
+    {"n_agents": 5, "n_items": 30},
+    {"n_agents": 5, "n_items": 50},
+    {"n_agents": 10, "n_items": 15},
+    {"n_agents": 10, "n_items": 30},
+    {"n_agents": 10, "n_items": 50}
+  ],
+  "n_base": 20,
+  "seed": 20261109,
+  "groups": ["paper", "uniform", "r=2", "r=10", "no_ef"],
+  "repeats": 1,
+  "prompt_variants": ["free", "ef1", "prop", "welfare"],
+  "models": [{"label": "Codex", "model": "gpt-6.1-sol"}],
+  "reference": {"max_allocations": 10000, "chunk_size": 2048}
+}

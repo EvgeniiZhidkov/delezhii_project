@@ -13,7 +13,7 @@ from .data import row_shares
 from .metrics import validate_kind, validate_owners
 
 APPROX_METRICS = ("prop_alpha", "ef_alpha", "ef1_alpha", "mms_alpha",
-                  "po_alpha", "sw_ratio", "nw_ratio", "efx_alpha", "prop1_alpha")
+                  "po_alpha", "sw_ratio", "nw_ratio", "nw_ratio_lower", "efx_alpha", "prop1_alpha")
 FAIRNESS_RATES = ("prop", "ef", "efx", "mms", "po", "mnw", "prop1")
 
 
@@ -30,6 +30,32 @@ class Evaluation:
     mms: np.ndarray | None = None
     nash_welfare: np.ndarray | None = None
     best_nw: float | None = None
+    nw_upper: float | None = None
+
+
+def _nash_upper_bound(shares):
+    """Bound indivisible MNW using positive prices and the arithmetic–geometric mean inequality."""
+    n, m = shares.shape
+    utility = np.full(n, 1 / n)  # equal fractional shares of each item
+    upper = 1.0
+    for _ in range(48):
+        priced = shares / utility[:, None]
+        winners = priced.argmax(axis=0)
+        factor = priced[winners, np.arange(m)].sum() / n
+        upper = min(upper, float(np.exp(np.log(utility).mean()) * factor))
+        if factor <= 1 + 1e-6:
+            break
+        target = np.bincount(winners, weights=shares[winners, np.arange(m)], minlength=n)
+        direction = target - utility
+        lo, hi = 0.0, 1.0
+        for _ in range(16):
+            step = (lo + hi) / 2
+            if np.sum(direction / (utility + step * direction)) > 0:
+                lo = step
+            else:
+                hi = step
+        utility += lo * direction
+    return upper
 
 
 def build_evaluation(weights, kind, config=None):
@@ -40,7 +66,7 @@ def build_evaluation(weights, kind, config=None):
     n, m = shares.shape
     config = config or ReferenceConfig()
     if n ** m > config.max_allocations:
-        return Evaluation()
+        return Evaluation(nw_upper=_nash_upper_bound(shares) if kind == "goods" else None)
     owners = np.concatenate(list(assignment_chunks(n, m, config.chunk_size)))
     mms = np.zeros(n) if kind == "goods" else np.full(n, np.inf)
     utilities = []
@@ -56,7 +82,8 @@ def build_evaluation(weights, kind, config=None):
     utilities = np.concatenate(utilities)
     # A root makes NW comparable across different numbers of agents.
     nw = np.prod(utilities, axis=1) ** (1 / n) if kind == "goods" else None
-    return Evaluation(owners, utilities, mms, nw, float(nw.max()) if nw is not None else None)
+    best_nw = float(nw.max()) if nw is not None else None
+    return Evaluation(owners, utilities, mms, nw, best_nw, best_nw)
 
 
 def approximation_scores(weights, owners, kind, context=None, *, atol=1e-9):
@@ -96,8 +123,11 @@ def approximation_scores(weights, owners, kind, context=None, *, atol=1e-9):
                   efx_alpha=float(efx), prop1_alpha=float(prop1), sw_ratio=sw,
                   prop=bool(np.all(own >= 1/n - atol) if kind == "goods" else np.all(own <= 1/n + atol)),
                   ef=bool(ef >= 1 - atol), efx=bool(efx >= 1 - atol), prop1=bool(prop1 >= 1 - atol),
-                  mms_alpha=None, po_alpha=None, nw_ratio=None, mms=None, po=None, mnw=None)
+                  mms_alpha=None, po_alpha=None, nw_ratio=None, nw_ratio_lower=None, mms=None, po=None, mnw=None)
     context = context if context is not None else build_evaluation(weights, kind)
+    if kind == "goods" and context.nw_upper:
+        nw = float(np.prod(own) ** (1 / n))
+        result["nw_ratio_lower"] = float(ratio(nw, context.nw_upper))
     if context.utilities is not None:
         result["mms_alpha"] = float((ratio(own, context.mms) if kind == "goods" else ratio(context.mms, own)).min())
         result["mms"] = bool(np.all(own >= context.mms - atol) if kind == "goods" else np.all(own <= context.mms + atol))

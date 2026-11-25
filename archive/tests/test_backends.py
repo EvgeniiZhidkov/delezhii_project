@@ -4,11 +4,13 @@ import os
 from pathlib import Path
 import sys
 import tempfile
+import time
 import unittest
 from unittest.mock import patch
 
 from chores_e1.backends import CodexBackend
-from chores_e1.config import ModelConfig
+from chores_e1.config import ExperimentConfig, ModelConfig, Setting
+from chores_e1.experiment import analyze_file, run_experiment
 
 
 class BackendTests(unittest.TestCase):
@@ -76,6 +78,33 @@ time.sleep(2)
             reply = CodexBackend(str(executable))("prompt", ModelConfig(timeout=0.1), root / "timeout")
             self.assertIn("Таймаут", reply.error)
             self.assertIn("started fixture", (root / "timeout" / "stdout.jsonl").read_text())
+
+    def test_parallel_failure_stops_active_cli_and_saves_diagnostics(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            executable = self.make_cli(root, '''
+call = Path(sys.argv[sys.argv.index('--output-last-message')+1]).parent
+if call.name == '000005':
+    deadline = time.monotonic() + 5
+    while not (call.parent/'000009'/'started').exists() and time.monotonic() < deadline:
+        time.sleep(0.01)
+    sys.exit(15)
+print('started fixture', flush=True)
+(call/'started').touch()
+time.sleep(20)
+''')
+            config = ExperimentConfig(settings=(Setting(2, 2),), n_base=2, groups=("uniform",),
+                                      models=(ModelConfig(),), jobs=2, output_dir=str(root / "runs"))
+            started = time.monotonic()
+            with patch.dict(os.environ, {"CODEX_HOME": str(root)}), self.assertRaisesRegex(RuntimeError, "кодом 15"):
+                run_experiment(config, backend=CodexBackend(str(executable)))
+            self.assertLess(time.monotonic() - started, 10)
+            run, = (root / "runs").iterdir()
+            self.assertEqual({path.name for path in (run / "calls").iterdir()}, {"000005", "000009"})
+            cancelled = run / "calls" / "000009"
+            self.assertIn("started fixture", (cancelled / "stdout.jsonl").read_text())
+            self.assertEqual(json.loads((cancelled / "metadata.json").read_text())["error"], "Запрос отменён")
+            self.assertFalse(analyze_file(run, allow_partial=True).complete)
 
 
 if __name__ == "__main__":

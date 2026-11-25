@@ -109,6 +109,9 @@ tr.model th { color: #21573d; }
 .downloads a { padding: 6px 11px; border: 1px solid var(--border); border-radius: 8px; text-decoration: none; font-size: .85rem; color: #245b42; background: #fff; }
 .downloads a:hover { border-color: #639775; }
 
+.scaling-section { padding-bottom: 48px; }
+.scaling-charts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 10px 0; }
+.scaling-charts img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 8px; }
 .method-section { padding: 54px 0; background: #e8eee4; }
 .method-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 6vw, 90px); }
 .method-grid p { margin-top: 12px; max-width: 65ch; }
@@ -128,7 +131,7 @@ footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12
   .hero-grid { grid-template-columns: 1fr; align-items: start; }
   .hero-stats { max-width: 450px; }
   .controls { grid-template-columns: 1fr 1fr; gap: 13px; }
-  .detail-grid, .method-grid { grid-template-columns: 1fr; }
+  .detail-grid, .method-grid, .scaling-charts { grid-template-columns: 1fr; }
 }
 @media (max-width: 520px) {
   .wrap { width: calc(100% - 28px); }

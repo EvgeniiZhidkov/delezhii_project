@@ -75,6 +75,32 @@ def inspect_events(stdout):
     return usage
 
 
+def _run_cli(command, *, cwd, env, timeout, input=None, cancel=None):
+    options = dict(cwd=cwd, env=env, encoding="utf-8", errors="replace")
+    if cancel is None:
+        return subprocess.run(command, input=input, capture_output=True, timeout=timeout, **options)
+    if cancel.is_set():
+        raise RuntimeError("Запрос отменён")
+
+    deadline = time.monotonic() + timeout
+    with subprocess.Popen(command, stdin=subprocess.PIPE if input is not None else subprocess.DEVNULL,
+                          stdout=subprocess.PIPE, stderr=subprocess.PIPE, **options) as process:
+        while not cancel.is_set():
+            remaining = max(0, deadline - time.monotonic())
+            try:
+                stdout, stderr = process.communicate(input=input, timeout=min(0.2, remaining))
+                return subprocess.CompletedProcess(command, process.returncode, stdout, stderr)
+            except subprocess.TimeoutExpired:
+                input = None  # communicate retains the input from its first invocation.
+                if time.monotonic() >= deadline:
+                    process.kill()
+                    stdout, stderr = process.communicate()
+                    raise subprocess.TimeoutExpired(command, timeout, output=stdout, stderr=stderr) from None
+        process.kill()
+        stdout, stderr = process.communicate()
+        return subprocess.CompletedProcess(command, process.returncode, stdout, stderr)
+
+
 class CodexBackend:
     def __init__(self, executable="codex"):
         self.executable = shutil.which(executable)
@@ -83,7 +109,7 @@ class CodexBackend:
         self.version = subprocess.run([self.executable, "--version"], capture_output=True,
                                       text=True, timeout=15, check=True).stdout.strip()
 
-    def __call__(self, prompt: str, model: ModelConfig, call_dir: Path):
+    def __call__(self, prompt: str, model: ModelConfig, call_dir: Path, *, cancel=None):
         call_dir = Path(call_dir).resolve()
         call_dir.mkdir(parents=True, exist_ok=False)
         (call_dir / "prompt.txt").write_text(prompt, encoding="utf-8")
@@ -105,13 +131,12 @@ class CodexBackend:
             command = codex_command(self.executable, model, reply_path)
             stdout = stderr = ""
             try:
-                login = subprocess.run([self.executable, "login", "status"], cwd=workspace, env=env,
-                                       capture_output=True, text=True, timeout=15)
+                login = _run_cli([self.executable, "login", "status"], cwd=workspace, env=env,
+                                 timeout=15, cancel=cancel)
                 if login.returncode or "chatgpt" not in (login.stdout + login.stderr).lower():
                     raise RuntimeError("Выполните codex login с входом через ChatGPT в среде ядра")
-                process = subprocess.run(command, input=prompt, cwd=workspace, env=env,
-                                         capture_output=True, text=True, encoding="utf-8", errors="replace",
-                                         timeout=model.timeout)
+                process = _run_cli(command, input=prompt, cwd=workspace, env=env,
+                                   timeout=model.timeout, cancel=cancel)
                 stdout, stderr = process.stdout, process.stderr
                 if process.returncode:
                     raise RuntimeError(f"Codex CLI завершился с кодом {process.returncode}; см. stderr.log")
@@ -125,7 +150,7 @@ class CodexBackend:
                 stdout, stderr = decode(exc.stdout), decode(exc.stderr)
                 reply.error = f"Таймаут Codex ({model.timeout} с)"
             except (OSError, RuntimeError, ValueError, subprocess.SubprocessError) as exc:
-                reply.error = str(exc)
+                reply.error = "Запрос отменён" if cancel is not None and cancel.is_set() else str(exc)
             finally:
                 (call_dir / "stdout.jsonl").write_text(stdout, encoding="utf-8")
                 (call_dir / "stderr.log").write_text(stderr, encoding="utf-8")

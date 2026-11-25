@@ -40,6 +40,34 @@ def row_shares(weights):
     return values / values.sum(axis=1, keepdims=True)
 
 
+def _no_ef_weights(rng, n, m):
+    """Make exact envy-freeness impossible in both domains."""
+    common = rng.integers(1, 11, size=m)
+    if common.sum() % n == 0:
+        common[rng.integers(m)] += 1
+    # Preserve every strict comparison between common bundle totals.
+    return (3 * m + 1) * common + rng.integers(0, 4, size=(n, m))
+
+
+def no_efx_chore_counts(n):
+    """Sizes of the three chore classes in He–Tao, Theorem 1, Appendix A.1."""
+    side = 2 * ((n + 1) // 2) + 1
+    return n - 1, side, side
+
+
+def _no_efx_weights(rng, n):
+    heavy_count, side, _ = no_efx_chore_counts(n)
+    medium = side + 2
+    heavy = side * (medium + 1) // 2
+    first = np.arange(n) < n // 2
+    weights = np.column_stack((
+        np.full((n, heavy_count), heavy),
+        np.repeat(np.where(first, 1, medium)[:, None], side, axis=1),
+        np.repeat(np.where(first, medium, 1)[:, None], side, axis=1),
+    ))
+    return rng.permutation(rng.permutation(weights, axis=0), axis=1)
+
+
 def generate_instances(config: ExperimentConfig):
     instances = []
     for setting in config.settings:
@@ -58,6 +86,12 @@ def generate_instances(config: ExperimentConfig):
             expensive = binary.random((n, m)) < 0.5
             values = {"paper": paper, "uniform": independent}
             values.update({f"r={r}": np.where(expensive, r, 1) for r in config.ratios})
+            if "no_ef" in config.groups:
+                rng = np.random.default_rng(np.random.SeedSequence([config.seed, base_id, 3, *suffix]))
+                values["no_ef"] = _no_ef_weights(rng, n, m)
+            if "no_efx" in config.groups:
+                rng = np.random.default_rng(np.random.SeedSequence([config.seed, base_id, 4, *suffix]))
+                values["no_efx"] = _no_efx_weights(rng, n)
             for group in config.groups:
                 weights = values[group]
                 weights.setflags(write=False)

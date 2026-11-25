@@ -1,14 +1,21 @@
 """Run E1 and replay saved raw answers through the current independent checker."""
 from __future__ import annotations
 
+from collections import deque
+from concurrent.futures import ThreadPoolExecutor
+from contextlib import closing
 from dataclasses import dataclass, replace
 from datetime import datetime, timezone
+from functools import partial
 import hashlib
 from importlib.metadata import PackageNotFoundError, version
+from itertools import islice
 import json
 from pathlib import Path
 import platform
+import re
 import shutil
+from threading import Event
 from uuid import uuid4
 
 import numpy as np
@@ -129,13 +136,72 @@ def validate_reference(reference, instance, kind, config):
         raise ValueError("Оценки ориентира не совпадают с сохранённым распределением")
 
 
+def _run_name_token(value, fallback):
+    return re.sub(r"[^A-Za-z0-9.-]+", "-", value).strip(".-")[:24] or fallback
+
+
+def run_directory_name(config, timestamp, run_id):
+    """Describe the run while keeping the timestamp and random suffix unique."""
+    sizes = sorted((s.n_agents, s.n_items) for s in config.settings)
+    first = f"{sizes[0][0]}x{sizes[0][1]}"
+    last = f"{sizes[-1][0]}x{sizes[-1][1]}"
+    size_scope = first if len(sizes) == 1 else f"{len(sizes)}sizes-{first}-to-{last}"
+    matrix_count = len(sizes) * len(config.groups) * config.n_base
+    matrix_label = "matrix" if matrix_count == 1 else "matrices"
+    parts = ["e1", size_scope, f"{matrix_count}{matrix_label}"]
+    if len(config.groups) == 1:
+        parts.append(_run_name_token(config.groups[0], "group"))
+    if config.models:
+        if len(config.models) == 1:
+            model = config.models[0]
+            parts.append(_run_name_token(model.model or model.label, "model"))
+        else:
+            parts.append(f"{len(config.models)}models")
+        prompts = config.prompt_variants
+        parts.append(_run_name_token(prompts[0], "prompt") if len(prompts) == 1 else f"{len(prompts)}prompts")
+    else:
+        parts.append("algorithms")
+    return "_".join([*parts, timestamp, run_id])
+
+
+def _model_replies(config, instances, backend, directory):
+    calls = (
+        (make_prompt(instance.weights, kind, row_total=config.row_total, variant=variant),
+         model, directory / "calls" / f"{position:06d}")
+        for position, (instance, kind, source, _, model, variant) in enumerate(trial_plan(config, instances), 1)
+        if source == "model"
+    )
+    if config.jobs == 1:
+        for prompt, model, call_dir in calls:
+            yield prompt, backend(prompt, model, call_dir)
+        return
+
+    cancel = Event()
+    call = partial(backend, cancel=cancel) if isinstance(backend, CodexBackend) else backend
+    pool = ThreadPoolExecutor(max_workers=config.jobs)
+    try:
+        submitted = ((prompt, pool.submit(call, prompt, model, call_dir)) for prompt, model, call_dir in calls)
+        pending = deque(islice(submitted, config.jobs))
+        while pending:
+            prompt, future = pending.popleft()
+            # Wait in plan order and give the writer a chance to stop on error before refilling.
+            yield prompt, future.result()
+            next_call = next(submitted, None)
+            if next_call is not None:
+                pending.append(next_call)
+    finally:
+        cancel.set()
+        pool.shutdown(wait=True, cancel_futures=True)
+
+
 def run_experiment(config=None, *, backend=None, progress=None):
     config = config or ExperimentConfig()
     instances = generate_instances(config)
     # Fail before solving baselines if a requested backend is unavailable.
     if config.models and backend is None:
         backend = CodexBackend()
-    directory = Path(config.output_dir) / ("e1_" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S") + "_" + uuid4().hex[:8])
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S")
+    directory = Path(config.output_dir) / run_directory_name(config, timestamp, uuid4().hex[:8])
     directory.mkdir(parents=True, exist_ok=False)
     source_dir = directory / "source"
     source_dir.mkdir()
@@ -158,7 +224,9 @@ def run_experiment(config=None, *, backend=None, progress=None):
     model_calls = len(config.models) * len(config.prompt_variants) * config.repeats
     plan_size = len(instances) * (7 + 2 * model_calls)
     evaluation = None
-    with (directory / "journal.jsonl").open("x", encoding="utf-8") as journal:
+    with (directory / "journal.jsonl").open("x", encoding="utf-8") as journal, closing(
+        _model_replies(config, instances, backend, directory)
+    ) as replies:
         emit(journal, {"type": "config", **manifest})
         for position, (instance, kind, source, repeat, model, variant) in enumerate(trial_plan(config, instances), 1):
             record = {"type": "trial", "key": key_for(instance, kind, source, repeat, model, variant),
@@ -175,9 +243,7 @@ def run_experiment(config=None, *, backend=None, progress=None):
                 owners, method = algorithm_answer(instance.weights, kind, source, evaluation)
                 record.update(owners=owners.tolist() if owners is not None else None, method=method)
             else:
-                prompt = make_prompt(instance.weights, kind, row_total=config.row_total, variant=variant)
-                call_dir = directory / "calls" / f"{position:06d}"
-                reply = backend(prompt, model, call_dir)
+                prompt, reply = next(replies)
                 record.update(method=model_method(model.label, variant, config.prompt_variants),
                               prompt=prompt, prompt_variant=variant, model_config=model.__dict__, backend=reply.record())
             # Preserve the original answer before any parsing, including backend failures.
