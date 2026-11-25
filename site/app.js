@@ -203,6 +203,7 @@ function downloadLink(path, label, filename) {
 
 const repository = "EvgeniiZhidkov/delezhii_project";
 const api = "https://api.github.com/repos/" + repository;
+const scalingRun = "runs/10sizes-3x6-to-10x50_1000matrices_algorithms";
 const fileTypes = /^((?:public_)?results\.csv|manifest\.json|summary\.csv|radar_summary\.csv|bootstrap\.csv|(?:paper|extended)_radar_[12]\.pdf|scaling_summary\.csv|scaling_(?:paper|n|m)_(?:goods|chores)\.png|no_efx_chores\.csv)$/;
 const groupLabels = {
   paper: "Общая шкала (paper)",
@@ -447,6 +448,35 @@ function figures(files, variants) {
   return grid;
 }
 
+function appendScalingFigures(container, files) {
+  const paper = figures(files, Object.keys(kinds).map(kind => ["paper", kind, "Зависимость от n и m"]));
+  if (paper.childElementCount) container.append(paper);
+  for (const [kind, label] of Object.entries(kinds)) {
+    const grid = figures(files, [["n", kind, "Зависимость от n"], ["m", kind, "Зависимость от m"]]);
+    if (!grid.childElementCount) continue;
+    const details = element("details", undefined, "report-details");
+    details.append(element("summary", label + " · все размеры"), grid);
+    container.append(details);
+  }
+}
+
+function showScalingOverview() {
+  const container = get("scaling-overview");
+  const run = [...remoteRuns, ...localRuns].find(({ id, files }) =>
+    (id === scalingRun || id === "local:" + scalingRun) && files["scaling_paper_goods.png"]);
+  if (!run) {
+    container.replaceChildren(element("p", "Графики не загрузились.", "chart-note"));
+    return;
+  }
+  container.replaceChildren(element("p", "1 000 матриц · 10 размеров · Слева меняется n при m = 15, справа — m при n = 5.", "chart-note"));
+  appendScalingFigures(container, run.files);
+  if (run.files["scaling_summary.csv"]) {
+    const downloads = element("div", undefined, "downloads");
+    downloads.append(downloadLink(run.files["scaling_summary.csv"], "Масштабирование · CSV", "scaling_summary.csv"));
+    container.append(downloads);
+  }
+}
+
 function scalingTable(rows) {
   const scroll = element("div", undefined, "table-scroll");
   scroll.tabIndex = 0;
@@ -479,16 +509,13 @@ function renderReports({ scaling, noEfx }, files, hasResults) {
     report.append(element("h2", "Масштабирование по n и m"));
     const stats = (count ? number.format(count) + " матриц · " : "") + sizes.size + " размеров";
     report.append(element("p", stats, "chart-note"));
-    const paper = figures(files, Object.keys(kinds).map(kind => ["paper", kind, "Зависимость от n и m"]));
-    if (paper.childElementCount) report.append(paper);
-    for (const [kind, label] of Object.entries(kinds)) {
-      const grid = figures(files, [["n", kind, "Зависимость от n"], ["m", kind, "Зависимость от m"]]);
-      if (!grid.childElementCount) continue;
-      const details = element("details", undefined, "report-details");
-      details.append(element("summary", label + " · все размеры"), grid);
-      report.append(details);
-    }
-    if (!Object.keys(files).some(name => name.endsWith(".png"))) {
+    if (activeRun.id === scalingRun || activeRun.id === "local:" + scalingRun) {
+      const link = element("a", "Графики по n и m ↓", "chart-note");
+      link.href = "#scaling";
+      report.append(link);
+    } else if (Object.keys(files).some(name => name.endsWith(".png"))) {
+      appendScalingFigures(report, files);
+    } else {
       const details = element("details", undefined, "report-details");
       details.open = !hasResults;
       details.append(element("summary", "Сводка по размерам"), scalingTable(scaling));
@@ -580,6 +607,7 @@ function showRuns(preferred = runSelect.value) {
   runSelect.replaceChildren(...(groups.length ? groups : [new Option("Нет прогонов", "")]));
   if ([...localRuns, ...remoteRuns].some(run => run.id === preferred)) runSelect.value = preferred;
   runSelect.disabled = !groups.length;
+  showScalingOverview();
   selectRun();
 }
 

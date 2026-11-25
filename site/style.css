@@ -114,6 +114,8 @@ tr.model th { color: #21573d; }
 .downloads a { padding: 6px 11px; border: 1px solid var(--border); border-radius: 8px; text-decoration: none; font-size: .85rem; color: #245b42; background: #fff; }
 .downloads a:hover { border-color: #639775; }
 
+.scaling-section { padding-bottom: 42px; }
+.scaling-section h2 { font-size: 1.8rem; }
 .scaling-charts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 10px 0; }
 .scaling-charts img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 8px; }
 .report-details { margin-top: 10px; }
@@ -138,7 +140,8 @@ details summary { font-weight: 650; cursor: pointer; }
 }
 @media (max-width: 520px) {
   .wrap { width: calc(100% - 28px); }
-  .nav-links { font-size: .8rem; gap: 10px; }
+  .nav-links { flex-wrap: wrap; justify-content: flex-end; font-size: .8rem; gap: 4px 10px; }
+  .nav-links a { white-space: nowrap; }
   .controls { padding-inline: 10px; }
   .controls .mode { flex-basis: 100%; }
   .segments label { flex: 1; }
