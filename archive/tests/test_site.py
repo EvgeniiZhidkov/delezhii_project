@@ -21,17 +21,13 @@ class DashboardTests(unittest.TestCase):
             check=True,
         )
 
-    def test_input_group_labels_are_not_replaced_by_method_labels(self):
-        groups = json.loads((self.output / "data.json").read_bytes())["groups"]
-        labels = {key: group["label"] for key, group in groups.items()}
-        self.assertEqual(labels, {
-            "all": "Все типы входов",
-            "paper": "Общая шкала (paper)",
-            "uniform": "Независимые оценки (uniform)",
-            "r=2": "Два уровня (1 и 2)",
-            "r=5": "Два уровня (1 и 5)",
-            "r=10": "Два уровня (1 и 10)",
-        })
+    def test_fallback_contains_interactive_and_report_runs(self):
+        files = json.loads((self.output / "data.json").read_bytes())["files"]
+        filenames = {Path(path).name for path in files}
+        self.assertTrue({"results.csv", "scaling_summary.csv", "no_efx_chores.csv"} <= filenames)
+        for path in files:
+            self.assertTrue(path.startswith("runs/published/"))
+            self.assertEqual((self.output / path).read_bytes(), (ROOT / path).read_bytes())
 
     def test_page_loads_assets_versioned_by_content(self):
         script = (self.output / "app.js").read_bytes()
@@ -43,16 +39,9 @@ class DashboardTests(unittest.TestCase):
         self.assertEqual((self.output / f"app-{revision}.js").read_bytes(), script)
         self.assertEqual((self.output / f"data-{revision}.json").read_bytes(), payload)
 
-    def test_matrix_counts_use_inputs_shared_by_methods_and_modes(self):
-        groups = json.loads((self.output / "data.json").read_bytes())["groups"]
-        self.assertEqual({key: group["matrix_count"] for key, group in groups.items()}, {
-            "all": 5,
-            "paper": 1,
-            "uniform": 1,
-            "r=2": 1,
-            "r=5": 1,
-            "r=10": 1,
-        })
+    def test_fallback_excludes_journals_and_source_snapshots(self):
+        self.assertFalse(list(self.output.rglob("journal.jsonl")))
+        self.assertFalse(list(self.output.rglob("source/")))
 
     def test_builder_is_excluded_from_published_files(self):
         self.assertFalse((self.output / "build_site.py").exists())
