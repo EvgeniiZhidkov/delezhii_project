@@ -23,14 +23,29 @@
   </header>
 
   <main>
-    <section class="wrap comparison" id="compare" aria-labelledby="compare-title">
-      <h1 id="compare-title">Справедливый делёж благ и обязанностей</h1>
+    <section class="hero" aria-labelledby="intro-title">
+      <div class="wrap hero-grid">
+        <div>
+          <h1 id="intro-title">Справедливый делёж <em>благ и обязанностей</em></h1>
+          <p>Как меняется результат, если те же оценки означают ценность предметов или затраты на работы? Сравниваем языковую модель и алгоритмы на одинаковых входах.</p>
+          <a class="hero-link" href="#compare">Открыть сравнение <span aria-hidden="true">↓</span></a>
+        </div>
+        <dl class="hero-stats" id="intro-stats" aria-label="Выбранный прогон" hidden>
+          <div><dt id="intro-size-label">Размер матрицы</dt><dd id="intro-size"></dd></div>
+          <div><dt>Входных матриц</dt><dd id="intro-count"></dd></div>
+          <div id="intro-model"><dt>Ответов модели</dt><dd id="intro-answers"></dd></div>
+          <div id="intro-prompts"><dt>Вариантов промпта</dt><dd id="intro-variants"></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="wrap comparison" id="compare" aria-label="Прогоны">
       <div class="run-controls">
         <label class="field">Прогон
           <select id="run" disabled><option>Загрузка…</option></select>
         </label>
         <button type="button" id="refresh">Обновить список</button>
-        <button type="button" id="open-folder" hidden>Открыть папку</button>
+        <button type="button" id="open-folder" hidden>Открыть папку с компьютера</button>
         <input type="file" id="local-folder" webkitdirectory hidden>
       </div>
       <p class="selection" id="sync-status" role="status" hidden></p>

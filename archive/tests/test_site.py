@@ -1,3 +1,4 @@
+import csv
 import hashlib
 import json
 from pathlib import Path
@@ -34,12 +35,15 @@ class DashboardTests(unittest.TestCase):
 
     def test_page_loads_assets_versioned_by_content(self):
         script = (self.output / "app.js").read_bytes()
+        stylesheet = (self.output / "style.css").read_bytes()
         payload = (self.output / "data.json").read_bytes()
-        revision = hashlib.sha256(payload + script).hexdigest()[:12]
+        revision = hashlib.sha256(payload + script + stylesheet).hexdigest()[:12]
         html = (self.output / "index.html").read_text(encoding="utf-8")
 
         self.assertIn(f'src="app-{revision}.js" data-results="data-{revision}.json"', html)
+        self.assertIn(f'href="style-{revision}.css"', html)
         self.assertEqual((self.output / f"app-{revision}.js").read_bytes(), script)
+        self.assertEqual((self.output / f"style-{revision}.css").read_bytes(), stylesheet)
         self.assertEqual((self.output / f"data-{revision}.json").read_bytes(), payload)
 
     def test_fallback_excludes_journals_and_source_snapshots(self):
@@ -48,3 +52,22 @@ class DashboardTests(unittest.TestCase):
 
     def test_builder_is_excluded_from_published_files(self):
         self.assertFalse((self.output / "build_site.py").exists())
+
+    def test_public_export_excludes_run_metadata(self):
+        with TemporaryDirectory() as directory:
+            folder = Path(directory)
+            (folder / "results.csv").write_text(
+                "setting,base_id,group,kind,method,ef1,usage,format_error\n"
+                "3×6,0,paper,goods,Round-Robin,True,internal,internal\n",
+                encoding="utf-8",
+            )
+            subprocess.run(
+                [sys.executable, str(ROOT / "site" / "export_results.py"), str(folder)],
+                check=True,
+            )
+            with (folder / "public_results.csv").open(encoding="utf-8", newline="") as stream:
+                rows = list(csv.DictReader(stream))
+            self.assertEqual(rows, [{
+                "setting": "3×6", "base_id": "0", "group": "paper", "kind": "goods",
+                "method": "Round-Robin", "ef1": "True",
+            }])

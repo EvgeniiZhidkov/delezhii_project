@@ -9,7 +9,7 @@ from pathlib import Path
 
 SITE = Path(__file__).resolve().parent
 ROOT = SITE.parent
-DATA_FILES = {"results.csv", "scaling_summary.csv", "no_efx_chores.csv"}
+DATA_FILES = {"results.csv", "public_results.csv", "scaling_summary.csv", "no_efx_chores.csv"}
 PUBLIC_FILES = DATA_FILES | {
     "manifest.json", "summary.csv", "radar_summary.csv", "bootstrap.csv",
     *(f"{scheme}_radar_{index}.pdf" for scheme in ("paper", "extended") for index in (1, 2)),
@@ -49,14 +49,17 @@ def main():
         shutil.copyfile(SITE / filename, output / filename)
     payload = (json.dumps({"files": fallback_files(output)}, ensure_ascii=False) + "\n").encode("utf-8")
     script = (SITE / "app.js").read_bytes()
-    revision = hashlib.sha256(payload + script).hexdigest()[:12]
+    stylesheet = (SITE / "style.css").read_bytes()
+    revision = hashlib.sha256(payload + script + stylesheet).hexdigest()[:12]
     data_file = f"data-{revision}.json"
     script_file = f"app-{revision}.js"
     (output / "data.json").write_bytes(payload)
     (output / data_file).write_bytes(payload)
     (output / script_file).write_bytes(script)
+    (output / f"style-{revision}.css").write_bytes(stylesheet)
     html = (SITE / "index.html").read_text(encoding="utf-8").replace('src="app.js"', f'src="{script_file}"', 1)
     html = html.replace('data-results="data.json"', f'data-results="{data_file}"', 1)
+    html = html.replace('href="style.css"', f'href="style-{revision}.css"', 1)
     (output / "index.html").write_text(html, encoding="utf-8")
     (output / ".nojekyll").touch()
     print(f"GitHub Pages dashboard built at {output}")

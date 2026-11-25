@@ -203,7 +203,7 @@ function downloadLink(path, label, filename) {
 
 const repository = "EvgeniiZhidkov/delezhii_project";
 const api = "https://api.github.com/repos/" + repository;
-const fileTypes = /^(results\.csv|manifest\.json|summary\.csv|radar_summary\.csv|bootstrap\.csv|(?:paper|extended)_radar_[12]\.pdf|scaling_summary\.csv|scaling_(?:paper|n|m)_(?:goods|chores)\.png|no_efx_chores\.csv)$/;
+const fileTypes = /^((?:public_)?results\.csv|manifest\.json|summary\.csv|radar_summary\.csv|bootstrap\.csv|(?:paper|extended)_radar_[12]\.pdf|scaling_summary\.csv|scaling_(?:paper|n|m)_(?:goods|chores)\.png|no_efx_chores\.csv)$/;
 const groupLabels = {
   paper: "Общая шкала (paper)",
   uniform: "Независимые оценки (uniform)",
@@ -221,6 +221,7 @@ const reportFiles = [
   ["no_efx_chores.csv", "Без EFX · CSV"],
 ];
 const encodePath = path => path.split("/").map(encodeURIComponent).join("/");
+const scoresFile = files => files["results.csv"] ? "results.csv" : "public_results.csv";
 
 function catalog(blobs, fileURL = ({ path }) => encodePath(path)) {
   const folders = new Map();
@@ -237,13 +238,13 @@ function catalog(blobs, fileURL = ({ path }) => encodePath(path)) {
     folder.versions.push(sha ? path + ":" + sha : path);
   }
   return [...folders.values()].filter(({ files }) =>
-    files["results.csv"] || files["scaling_summary.csv"] || files["no_efx_chores.csv"])
+    files[scoresFile(files)] || files["scaling_summary.csv"] || files["no_efx_chores.csv"])
     .map(({ files, versions, ...folder }) => ({
       ...folder,
       files: Object.fromEntries(Object.entries(files).map(([name, blob]) => [name, fileURL(blob)])),
       version: versions.sort().join("\n"),
     }))
-    .sort((a, b) => Number(Boolean(b.files["results.csv"])) - Number(Boolean(a.files["results.csv"]))
+    .sort((a, b) => Number(Boolean(b.files[scoresFile(b.files)])) - Number(Boolean(a.files[scoresFile(a.files)]))
       || compareNames(a.label, b.label));
 }
 
@@ -310,6 +311,37 @@ function groupBy(rows, key) {
 
 const averages = rows => Object.fromEntries(fields.map(key => [key, average(rows, key)]));
 const instanceKey = row => JSON.stringify([row.group, row.base_id]);
+
+function scalingCounts(rows) {
+  return new Map([...groupBy(rows, row => row.setting)].map(([setting, scores]) => [
+    setting, Math.max(...scores.map(row => numeric(row.n_expected) ?? 0)),
+  ]));
+}
+
+function showOverview(rows, scaling, noEfx) {
+  let counts;
+  if (rows?.length) {
+    counts = new Map([...groupBy(rows, row => row.setting)].map(([setting, scores]) => [
+      setting, new Set(scores.map(instanceKey)).size,
+    ]));
+  } else if (scaling?.length) {
+    counts = scalingCounts(scaling);
+  } else {
+    counts = new Map(noEfx.map(row => [row.setting, 1]));
+  }
+  const total = [...counts.values()].reduce((sum, count) => sum + count, 0);
+  const modelRows = (rows || []).filter(row => row.source === "model");
+  const promptCount = new Set(modelRows.map(row => row.prompt_variant).filter(Boolean)).size;
+  get("intro-size-label").textContent = counts.size === 1 ? "Размер матрицы" : "Размеров матриц";
+  get("intro-size").textContent = counts.size === 1
+    ? counts.keys().next().value.replace("×", " × ") : number.format(counts.size);
+  get("intro-count").textContent = number.format(total);
+  get("intro-answers").textContent = number.format(modelRows.length);
+  get("intro-variants").textContent = number.format(promptCount);
+  get("intro-model").hidden = !modelRows.length;
+  get("intro-prompts").hidden = !promptCount;
+  get("intro-stats").hidden = false;
+}
 
 function summarize(rows, modelNames) {
   return [...groupBy(rows, row => row.method)].map(([method, scores]) => {
@@ -384,7 +416,7 @@ function renderInteractive() {
   const fullView = !group.value && new Set(activeData.rows.map(row => row.setting)).size === 1;
   showDownloads(files, [
     ...(fullView ? [[pdf, "График · PDF"]] : []),
-    ["results.csv", "Результаты · CSV"],
+    [scoresFile(files), "Результаты · CSV"],
     ["summary.csv", "Группы · CSV"],
     ["radar_summary.csv", "Оси радара · CSV"],
     ["bootstrap.csv", "Интервалы · CSV"],
@@ -415,23 +447,51 @@ function figures(files, variants) {
   return grid;
 }
 
+function scalingTable(rows) {
+  const scroll = element("div", undefined, "table-scroll");
+  scroll.tabIndex = 0;
+  scroll.setAttribute("aria-label", "Сводка по размерам");
+  const data = element("table");
+  const head = data.createTHead().insertRow();
+  for (const label of ["Размер", "Режим", "Метод", "Метрика", "Среднее", "Матриц"]) {
+    const cell = element("th", label);
+    cell.scope = "col";
+    head.append(cell);
+  }
+  const body = data.createTBody();
+  for (const row of rows) {
+    const metric = metrics[row.metric]?.label || row.metric;
+    const cells = [row.setting, kinds[row.kind], row.method, metric,
+      rateLabel(numeric(row.mean)), number.format(numeric(row.n_expected) ?? 0)];
+    body.insertRow().append(...cells.map(value => element("td", value)));
+  }
+  scroll.append(data);
+  return scroll;
+}
+
 function renderReports({ scaling, noEfx }, files, hasResults) {
   const report = get("report");
   report.hidden = !scaling?.length && !noEfx?.length;
   report.replaceChildren();
   if (scaling?.length) {
-    const sizes = groupBy(scaling, row => row.setting);
-    const count = [...sizes.values()].reduce((sum, rows) =>
-      sum + Math.max(...rows.map(row => numeric(row.n_expected) ?? 0)), 0);
+    const sizes = scalingCounts(scaling);
+    const count = [...sizes.values()].reduce((sum, count) => sum + count, 0);
     report.append(element("h2", "Масштабирование по n и m"));
     const stats = (count ? number.format(count) + " матриц · " : "") + sizes.size + " размеров";
     report.append(element("p", stats, "chart-note"));
-    report.append(figures(files, Object.keys(kinds).map(kind => ["paper", kind, "Зависимость от n и m"])));
+    const paper = figures(files, Object.keys(kinds).map(kind => ["paper", kind, "Зависимость от n и m"]));
+    if (paper.childElementCount) report.append(paper);
     for (const [kind, label] of Object.entries(kinds)) {
       const grid = figures(files, [["n", kind, "Зависимость от n"], ["m", kind, "Зависимость от m"]]);
       if (!grid.childElementCount) continue;
       const details = element("details", undefined, "report-details");
       details.append(element("summary", label + " · все размеры"), grid);
+      report.append(details);
+    }
+    if (!Object.keys(files).some(name => name.endsWith(".png"))) {
+      const details = element("details", undefined, "report-details");
+      details.open = !hasResults;
+      details.append(element("summary", "Сводка по размерам"), scalingTable(scaling));
       report.append(details);
     }
   }
@@ -470,6 +530,7 @@ async function selectRun() {
   get("filters").hidden = true;
   get("interactive").hidden = true;
   get("report").hidden = true;
+  get("intro-stats").hidden = true;
   get("downloads").replaceChildren();
   observer.disconnect();
   get("selection").textContent = run ? "Загрузка результатов…" : "Опубликованных прогонов пока нет.";
@@ -479,7 +540,7 @@ async function selectRun() {
   const csv = key => files[key] ? fetchCsv(files[key]) : null;
   try {
     const [rows, manifest, scaling, noEfx] = await Promise.all([
-      csv("results.csv"),
+      csv(scoresFile(files)),
       files["manifest.json"]
         ? request(files["manifest.json"]).then(response => response.json()).catch(() => null)
         : null,
@@ -497,6 +558,7 @@ async function selectRun() {
     get("selection").textContent = "";
     get("filters").hidden = !activeData.rows;
     get("interactive").hidden = !activeData.rows;
+    showOverview(scores, scaling, noEfx);
     renderInteractive();
     renderReports({ scaling, noEfx }, files, Boolean(activeData.rows));
   } catch {
@@ -511,7 +573,7 @@ function showRuns(preferred = runSelect.value) {
   for (const [label, runs] of [["С компьютера", localRuns], ["GitHub", remoteRuns]]) {
     if (!runs.length) continue;
     const options = element("optgroup");
-    options.label = label;
+    options.label = label + " · " + runs.length;
     options.append(...runs.map(run => new Option(run.label, run.id)));
     groups.push(options);
   }

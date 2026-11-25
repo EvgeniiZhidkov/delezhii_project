@@ -37,8 +37,20 @@ h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
 .nav-links a:hover, .topbar a:focus-visible { color: var(--lime); }
 .topbar .brand:focus-visible { color: var(--forest-dark); outline-color: var(--lime); }
 
+.hero { color: #f9fcf4; background: radial-gradient(ellipse at 79% -30%, #365846, transparent 65%), var(--forest); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(245px, .75fr); gap: clamp(24px, 6vw, 100px); align-items: end; padding-block: clamp(34px, 6vw, 76px); }
+.hero h1 { font-size: clamp(2.5rem, 5.5vw, 5.2rem); line-height: 1.02; letter-spacing: -.045em; }
+.hero h1 em { display: block; color: var(--lime); }
+.hero p { margin-top: 18px; max-width: 58ch; color: #e0e9e1; }
+.hero-link { display: inline-flex; gap: 16px; margin-top: 22px; padding: 9px 15px; border-radius: 8px; background: var(--lime); color: var(--forest-dark); font-weight: 700; text-decoration: none; }
+.hero-link:hover { background: #e6f3bd; }
+.hero :focus-visible { outline-color: var(--lime); }
+.hero-stats { border-top: 1px solid #ffffff45; }
+.hero-stats div { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 10px; border-bottom: 1px solid #ffffff45; }
+.hero-stats dt { color: #e2eee4; font-size: .89rem; }
+.hero-stats dd { color: var(--lime); font-family: Georgia, serif; font-size: clamp(1.45rem, 3vw, 2.25rem); line-height: 1.1; }
+
 .comparison { padding-block: 38px 48px; }
-h1 { font-size: clamp(2rem, 5vw, 3.6rem); line-height: 1.06; letter-spacing: -.034em; margin-bottom: 22px; }
 h2, h3 { line-height: 1.2; font-size: 1.08rem; font-weight: 700; }
 .panel h2 { font-family: inherit; }
 .run-controls, .controls { display: flex; flex-wrap: wrap; align-items: end; gap: 14px; }
@@ -120,6 +132,8 @@ details summary { font-weight: 650; cursor: pointer; }
   .radar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 790px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-stats { max-width: 450px; }
   .detail-grid, .method-grid, .scaling-charts { grid-template-columns: 1fr; }
 }
 @media (max-width: 520px) {
