@@ -23,6 +23,9 @@ const size = get("size");
 const runSelect = get("run");
 const refresh = get("refresh");
 const syncStatus = get("sync-status");
+const folderInput = get("local-folder");
+const openFolder = get("open-folder");
+const folderStatus = get("folder-status");
 const kinds = { goods: "Блага", chores: "Обязанности" };
 const kindControls = [...document.querySelectorAll('input[name="kind"]')];
 const radars = get("radars");
@@ -186,14 +189,14 @@ function table(entries) {
   });
 }
 
-function downloadLink(path, label) {
+function downloadLink(path, label, filename) {
   const link = element("a", label);
   link.href = path;
   if (path.startsWith("https://")) {
     link.target = "_blank";
     link.rel = "noopener";
   } else {
-    link.download = "";
+    link.download = filename;
   }
   return link;
 }
@@ -213,23 +216,33 @@ const groupLabels = {
 const fields = [...Object.keys(metrics), "ef1", "efx", "po", "total"];
 const compareNames = new Intl.Collator("ru", { numeric: true }).compare;
 const catalogueFile = document.currentScript.dataset.results || "data.json";
+const reportFiles = [
+  ["scaling_summary.csv", "Масштабирование · CSV"],
+  ["no_efx_chores.csv", "Без EFX · CSV"],
+];
+const encodePath = path => path.split("/").map(encodeURIComponent).join("/");
 
-function catalog(blobs, origin = "") {
+function catalog(blobs, fileURL = ({ path }) => encodePath(path)) {
   const folders = new Map();
-  for (const { path, sha } of blobs) {
-    const match = /^runs\/(?:published\/)?([^/]+)\/([^/]+)$/.exec(path);
+  for (const blob of blobs) {
+    const { path, sha } = blob;
+    const match = /^runs\/(?:published\/)?(.+)\/([^/]+)$/.exec(path);
     if (!match) continue;
     const [, name, filename] = match;
     if (name === "published" || !fileTypes.test(filename)) continue;
     const id = path.slice(0, -filename.length - 1);
     if (!folders.has(id)) folders.set(id, { id, label: name.replaceAll("_", " · "), files: {}, versions: [] });
     const folder = folders.get(id);
-    folder.files[filename] = origin + path.split("/").map(encodeURIComponent).join("/");
+    folder.files[filename] = blob;
     folder.versions.push(sha ? path + ":" + sha : path);
   }
   return [...folders.values()].filter(({ files }) =>
     files["results.csv"] || files["scaling_summary.csv"] || files["no_efx_chores.csv"])
-    .map(folder => ({ ...folder, version: folder.versions.sort().join("\n") }))
+    .map(({ files, versions, ...folder }) => ({
+      ...folder,
+      files: Object.fromEntries(Object.entries(files).map(([name, blob]) => [name, fileURL(blob)])),
+      version: versions.sort().join("\n"),
+    }))
     .sort((a, b) => Number(Boolean(b.files["results.csv"])) - Number(Boolean(a.files["results.csv"]))
       || compareNames(a.label, b.label));
 }
@@ -318,7 +331,8 @@ function fillSelect(control, options, preferred = control.value) {
   if (options.some(([value]) => value === preferred)) control.value = preferred;
 }
 
-let runs = [];
+let remoteRuns = [];
+let localRuns = [];
 let activeRun;
 let activeData;
 let visible = [];
@@ -368,22 +382,20 @@ function renderInteractive() {
   const scheme = get("extended").checked ? "extended" : "paper";
   const pdf = scheme + "_radar_" + (kind === "goods" ? 1 : 2) + ".pdf";
   const fullView = !group.value && new Set(activeData.rows.map(row => row.setting)).size === 1;
-  const downloads = [
-    [fullView ? files[pdf] : null, "График · PDF"],
-    [files["results.csv"], "Результаты · CSV"],
-    [files["summary.csv"], "Группы · CSV"],
-    [files["radar_summary.csv"], "Оси радара · CSV"],
-    [files["bootstrap.csv"], "Интервалы · CSV"],
-    ...reportDownloads(files),
-  ];
-  get("downloads").replaceChildren(...downloads.filter(([url]) => url).map(([url, label]) => downloadLink(url, label)));
+  showDownloads(files, [
+    ...(fullView ? [[pdf, "График · PDF"]] : []),
+    ["results.csv", "Результаты · CSV"],
+    ["summary.csv", "Группы · CSV"],
+    ["radar_summary.csv", "Оси радара · CSV"],
+    ["bootstrap.csv", "Интервалы · CSV"],
+    ...reportFiles,
+  ]);
 }
 
-function reportDownloads(files) {
-  return [
-    [files["scaling_summary.csv"], "Масштабирование · CSV"],
-    [files["no_efx_chores.csv"], "Без EFX · CSV"],
-  ].filter(([url]) => url);
+function showDownloads(files, items) {
+  get("downloads").replaceChildren(...items
+    .filter(([name]) => files[name])
+    .map(([name, label]) => downloadLink(files[name], label, name)));
 }
 
 function figures(files, variants) {
@@ -445,12 +457,12 @@ function renderReports({ scaling, noEfx }, files, hasResults) {
     report.append(scroll);
   }
   if (!hasResults) {
-    get("downloads").replaceChildren(...reportDownloads(files).map(([url, label]) => downloadLink(url, label)));
+    showDownloads(files, reportFiles);
   }
 }
 
 async function selectRun() {
-  const run = runs.find(run => run.id === runSelect.value);
+  const run = [...localRuns, ...remoteRuns].find(run => run.id === runSelect.value);
   if (run && activeRun?.id === run.id && activeRun.version === run.version) return;
   const id = ++loadId;
   activeRun = run;
@@ -494,11 +506,43 @@ async function selectRun() {
   }
 }
 
-function showRuns(list) {
-  runs = list;
-  fillSelect(runSelect, runs.length ? runs.map(run => [run.id, run.label]) : [["", "Нет прогонов"]]);
-  runSelect.disabled = !runs.length;
+function showRuns(preferred = runSelect.value) {
+  const groups = [];
+  for (const [label, runs] of [["С компьютера", localRuns], ["GitHub", remoteRuns]]) {
+    if (!runs.length) continue;
+    const options = element("optgroup");
+    options.label = label;
+    options.append(...runs.map(run => new Option(run.label, run.id)));
+    groups.push(options);
+  }
+  runSelect.replaceChildren(...(groups.length ? groups : [new Option("Нет прогонов", "")]));
+  if ([...localRuns, ...remoteRuns].some(run => run.id === preferred)) runSelect.value = preferred;
+  runSelect.disabled = !groups.length;
   selectRun();
+}
+
+function openLocalRuns() {
+  const blobs = [...folderInput.files].filter(file => fileTypes.test(file.name)).map(file => {
+    const relative = file.webkitRelativePath;
+    return { path: relative.startsWith("runs/") ? relative : "runs/" + relative, file };
+  });
+  folderInput.value = "";
+  const list = catalog(blobs, ({ file }) => URL.createObjectURL(file)).map(run => ({
+    ...run,
+    id: "local:" + run.id,
+    version: Object.values(run.files)[0],
+  }));
+  folderStatus.hidden = Boolean(list.length);
+  if (!list.length) {
+    folderStatus.textContent = "В этой папке нет файлов результатов.";
+    return;
+  }
+  const previous = localRuns;
+  localRuns = list;
+  showRuns(localRuns[0].id);
+  for (const run of previous) {
+    Object.values(run.files).forEach(url => URL.revokeObjectURL(url));
+  }
 }
 
 async function syncRuns() {
@@ -514,8 +558,9 @@ async function syncRuns() {
       const tree = await (await request(api + "/git/trees/" + commit.tree.sha + "?recursive=1", options)).json();
       if (tree.truncated) throw new Error("Incomplete run list");
       revision = sha;
-      showRuns(catalog(tree.tree.filter(entry => entry.type === "blob"),
-        "https://raw.githubusercontent.com/" + repository + "/" + sha + "/"));
+      const origin = "https://raw.githubusercontent.com/" + repository + "/" + sha + "/";
+      remoteRuns = catalog(tree.tree.filter(entry => entry.type === "blob"), ({ path }) => origin + encodePath(path));
+      showRuns();
     } else if (!activeRun) {
       selectRun();
     }
@@ -534,14 +579,19 @@ for (const control of [group, size, get("extended"), get("reference"), ...kindCo
 rate.addEventListener("change", () => get("bars").replaceChildren(...bars(visible)));
 runSelect.addEventListener("change", selectRun);
 refresh.addEventListener("click", syncRuns);
+openFolder.hidden = !("webkitdirectory" in folderInput);
+openFolder.addEventListener("click", () => folderInput.click());
+folderInput.addEventListener("change", openLocalRuns);
 
 request(catalogueFile)
   .then(response => response.json())
   .then(({ files }) => {
-    if (!revision) showRuns(catalog(files.map(path => ({ path }))));
+    if (revision) return;
+    remoteRuns = catalog(files.map(path => ({ path })));
+    showRuns();
   })
   .catch(() => {
-    if (!revision) showRuns([]);
+    if (!revision) showRuns();
   });
 syncRuns();
 setInterval(() => {

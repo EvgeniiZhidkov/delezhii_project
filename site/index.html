@@ -30,9 +30,12 @@
           <select id="run" disabled><option>Загрузка…</option></select>
         </label>
         <button type="button" id="refresh">Обновить список</button>
+        <button type="button" id="open-folder" hidden>Открыть папку</button>
+        <input type="file" id="local-folder" webkitdirectory hidden>
       </div>
       <p class="selection" id="sync-status" role="status" hidden></p>
-      <noscript><p><a href="https://github.com/EvgeniiZhidkov/delezhii_project/tree/main/runs/published">Файлы прогонов в GitHub ↗</a></p></noscript>
+      <p class="selection" id="folder-status" role="status" hidden></p>
+      <noscript><p><a href="https://github.com/EvgeniiZhidkov/delezhii_project/tree/main/runs">Файлы прогонов в GitHub ↗</a></p></noscript>
       <div class="controls" id="filters" hidden aria-label="Фильтры сравнения">
         <fieldset class="mode">
           <legend>Что делим</legend>
